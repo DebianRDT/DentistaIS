@@ -1,8 +1,70 @@
 ESPECIFICACIÓN DE CASOS DE USO
 ==============================
 
-CU-0-CONT: Contexto del sistema.
-Pretende mostrar una visión global de la funcionalidad del sistema.
-CU-1-SEL: Gestionar paciente.
-Se muestra una funcionalidad que permite gestionar información de un paciente en concreto.
-CU-2-VIS: Visualizar pacientes
+###Caso de uso: Buscar un paciente
+###Actor principal: Administrativo
+###Actores de soporte:
+###Nivel: Usuario.
+###Ámbito:
+###Escenario principal de éxito:
+1. El administrativo *busca un paciente escribiendo su dni*
+2. El administrativo elige entre las opciones: ver detalle del paciente, modificar datos del paciente, eliminar paciente o marcar paciente como favorito.
+###Escenario alternativo:
+1a. El administrativo introduce un dni inexistente o erroneo y se acaba el caso de uso.
+2a. El administrativo asigna un valor imposible para el paciente en la modificación.
+
+
+###Caso de uso: Modificar paciente
+###Actor principal: Administrativo
+###Actores de soporte:
+###Nivel: Usuario.
+###Ámbito:
+###Escenario principal de éxito:
+1. El administrativo elige el atributo que quiere cambiar
+2. Escribe un nuevo valor para ese atributo.
+###Escenario alternativo:
+1.a El atributo elegido es erroneo
+1.a.1 Se vuelve a preguntar qué atributo se desea modificar
+2.a El valor introducido no pertenece al dominio
+2.a.1. Se vuelve a pedir el atributo.
+
+###Caso de uso: Visualizar pacientes
+###Actor principal: Administrativo
+###Actores de soporte:
+###Nivel: Usuario.
+###Ámbito:
+###Escenario principal de éxito:
+1. El administrativo elige entre las opciones: listar todos ordenados por apellidos, listar todos ordenados por más frecuente, listar favoritos.
+###Escenario alternativo:
+
+
+###Caso de uso: Gestionar backups
+###Actor principal: Administrativo
+###Actores de soporte:
+###Nivel: Usuario.
+###Ámbito:
+###Escenario principal de éxito:
+1. El administrativo elige entre las opciones: Cargar fichero o guardar fichero de pacientes.
+1.1. El administrativo elige guardar fichero de pacientes, y se realiza una copia de seguridad de los datos.
+1.2. El administrativo intenta restaurar los datos de los pacientes con un fichero externo.
+
+###Escenario alternativo:
+1.1.a1. Imposibilidad de almacenar el fichero. Termina el caso de uso
+1.2.a1. No existe el fichero del que se intenta recuperar información. Termina el caso de uso.
+1.2.a2. No se puede acceder al fichero. Termina el caso de uso.
+
+
+###Caso de uso: Insertar nuevo paciente
+###Actor principal: Administrativo
+###Actores de soporte:
+###Nivel: Usuario.
+###Ámbito:
+###Escenario principal de éxito:
+1. El administrativo escribe el dni del paciente que va a insertar.
+2. El sistema verifica que no existe un cliente con el mismo dni.
+3. El administrativo escribe secuencialmente el resto de atributos del nuevo paciente.
+###Escenario alternativo:
+2a. El administrativo introduce un dni existente.
+2a1. Muestra error y vuelve a pedir el cliente.
+3a. El administrativo escribe en un atributo datos que no pertenecen al dominio.
+3a1. El sistema volverá a solicitar que el administrativo escriba el atributo.
