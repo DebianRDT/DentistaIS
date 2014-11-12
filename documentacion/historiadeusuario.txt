@@ -21,7 +21,7 @@ ____________________________________________________
 que indica error.
 * Introducir DNI erróneo y comprobar que 
 indica error.
-_____________________________________________
+___________________________________________________
 
 
 
@@ -38,9 +38,9 @@ _____________________________________________
 
 
 ID                          TITULO
-_____________________________________________
+__________________________________________________
 2                 Ver detalles de un paciente
-_____________________________________________
+__________________________________________________
 
 Como usuario quiero ver los detalles de un 
 paciente.
@@ -50,7 +50,7 @@ Estimación:
 
 
 Prioridad:
-_____________________________________________
+__________________________________________________
 * Se tendrán que visualizar correctamente todos los campos
 
 
@@ -70,9 +70,9 @@ _____________________________________________
 
 
 ID			    TITULO
-_____________________________________________
+__________________________________________________
 3              Modificar datos de un paciente
-_____________________________________________
+__________________________________________________
 
 Como usuario quiero poder añadir, modificar
 y eliminar datos de la ficha de un paciente 
@@ -82,7 +82,7 @@ Estimación:
                          Depende de: 1,2
 
 Prioridad: 2
-_____________________________________________
+__________________________________________________
                         
 * Al intentar introducir datos erróneos, 
 comprobar que muestre error.
@@ -103,10 +103,10 @@ comprobar que muestre error.
 
 
 ID                          TITULO
-_____________________________________________
+__________________________________________________
 4                 Crear fichas de 
 		  pacientes
-_____________________________________________
+__________________________________________________
 
 Como usuario quiero poder crear fichas de 
 pacientes para almacenar sus datos básicos
@@ -115,7 +115,7 @@ Estimación:
                          Depende de: 	
 
 Prioridad: 1
-_____________________________________________
+__________________________________________________
 
 * Introducir los datos de un cliente 
 existente y que indique error.
@@ -135,10 +135,10 @@ existente y que indique error.
 
 
 ID                          TITULO
-_____________________________________________
+__________________________________________________
 5                     Eliminar fichas de 
 		      pacientes
-_____________________________________________
+__________________________________________________
 
 Como usuario quiero poder eliminar fichas de 
 pacientes.
@@ -148,7 +148,7 @@ Estimación:
 			 
 
 Prioridad: 3
-_____________________________________________
+__________________________________________________
 
 
 
