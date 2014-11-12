@@ -1,0 +1,177 @@
+HISTORIAS DE USUARIO
+====================
+
+ID		            TITULO
+_____________________________________________________
+1	             Búsqueda/selección de 
+		     paciente
+_____________________________________________________
+
+Como usuario quiero seleccionar un paciente
+a través de su apellido, siempre y cuando esté
+en la lista.
+
+Estimación:
+                         Depende de:  4 (insertar)
+
+Prioridad: 1
+____________________________________________________
+
+* Introducir un apellido inexistente y comprobar que
+que indica error.
+* Introducir DNI erróneo y comprobar que 
+indica error.
+_____________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ID                          TITULO
+_____________________________________________
+2                 Ver detalles de un paciente
+_____________________________________________
+
+Como usuario quiero ver los detalles de un 
+paciente.
+
+Estimación:               
+                         Depende de: 1
+
+
+Prioridad:
+_____________________________________________
+* Se tendrán que visualizar correctamente todos los campos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ID			    TITULO
+_____________________________________________
+3              Modificar datos de un paciente
+_____________________________________________
+
+Como usuario quiero poder añadir, modificar
+y eliminar datos de la ficha de un paciente 
+ya existente. (descomponer en 3)
+
+Estimación:
+                         Depende de: 1,2
+
+Prioridad: 2
+_____________________________________________
+                        
+* Al intentar introducir datos erróneos, 
+comprobar que muestre error.
+* Cuando se modifique un atributo, si buscamos debe aparecer el valor nuevo.
+* Cuando se inserte un paciente, si se busca debe aparecer
+* idem para borrar
+
+
+
+
+
+
+
+
+
+
+
+
+
+ID                          TITULO
+_____________________________________________
+4                 Crear fichas de 
+		  pacientes
+_____________________________________________
+
+Como usuario quiero poder crear fichas de 
+pacientes para almacenar sus datos básicos
+
+Estimación:
+                         Depende de: 	
+
+Prioridad: 1
+_____________________________________________
+
+* Introducir los datos de un cliente 
+existente y que indique error.
+* El sistema sólo deja seguir si meten los campos obligatorios
+* Cuando se inserte un usuario deberá aparecer en la búsqueda
+* Cuando se inserte un paciente la agenda seguirá ordenada
+
+
+
+
+
+
+
+
+
+
+
+
+ID                          TITULO
+_____________________________________________
+5                     Eliminar fichas de 
+		      pacientes
+_____________________________________________
+
+Como usuario quiero poder eliminar fichas de 
+pacientes.
+
+Estimación:
+                         Depende de: 1
+			 
+
+Prioridad: 3
+_____________________________________________
+
+
+
+
+
+
+
+
+
+FALTAN SALVAR Y CARGA COPIAS Y SACAR A TEXTO PLANO/HTML EL CONTENIDO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
