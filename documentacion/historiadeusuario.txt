@@ -19,8 +19,6 @@ ____________________________________________________
 
 * Introducir un apellido inexistente y comprobar que
 que indica error.
-* Introducir DNI erróneo y comprobar que 
-indica error.
 ___________________________________________________
 
 
@@ -51,7 +49,8 @@ Estimación:
 
 Prioridad:
 __________________________________________________
-* Se tendrán que visualizar correctamente todos los campos
+* Se tendrán que visualizar correctamente todos
+los campos
 
 
 
@@ -86,8 +85,10 @@ __________________________________________________
                         
 * Al intentar introducir datos erróneos, 
 comprobar que muestre error.
-* Cuando se modifique un atributo, si buscamos debe aparecer el valor nuevo.
-* Cuando se inserte un paciente, si se busca debe aparecer
+* Cuando se modifique un atributo, si buscamos debe
+aparecer el valor nuevo.
+* Cuando se inserte un paciente, si se busca debe 
+aparecer
 * idem para borrar
 
 
@@ -119,9 +120,12 @@ __________________________________________________
 
 * Introducir los datos de un cliente 
 existente y que indique error.
-* El sistema sólo deja seguir si meten los campos obligatorios
-* Cuando se inserte un usuario deberá aparecer en la búsqueda
-* Cuando se inserte un paciente la agenda seguirá ordenada
+* El sistema sólo deja seguir si meten los campos
+obligatorios
+* Cuando se inserte un usuario deberá aparecer en
+la búsqueda
+* Cuando se inserte un paciente la agenda seguirá
+ordenada
 
 
 
