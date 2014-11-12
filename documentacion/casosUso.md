@@ -13,15 +13,16 @@ Nivel: Usuario.
 Ámbito:
 
 Escenario principal de éxito:
- 1. El administrativo *busca un paciente escribiendo su dni*
- 2. El administrativo elige entre las opciones: 
+ 1. El administrativo *busca un paciente escribiendo su apellido*
+ 2. El administrativo selecciona un cliente de entre los encontrados
+ 3. El administrativo elige entre las opciones: 
     1. ver detalle del paciente
     2. *modificar datos del paciente*
     3. eliminar paciente
     4. marcar paciente como favorito.
 Escenario alternativo:
 
-    1a. El administrativo introduce un dni inexistente o erroneo y se acaba el caso de uso.
+    1a. No se encuentra ningún paciente que coincida con el apellido introducido y se acaba el caso de uso.
 
     2.2a. El administrativo asigna un valor imposible para el paciente en la modificación.
 
