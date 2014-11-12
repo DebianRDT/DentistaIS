@@ -1,3 +1,10 @@
+Revisado por el profesor
+
+
+Para todos los casos de uso se ordenará el archivo, en caso de ser necesario, por apellidos
+
+
+
 ESPECIFICACIÓN DE CASOS DE USO
 ==============================
 
@@ -13,7 +20,7 @@ Nivel: Usuario.
 Ámbito:
 
 Escenario principal de éxito:
- 1. El administrativo *busca un paciente escribiendo su dni*
+ 1. El administrativo *busca un paciente escribiendo su apellido*
  2. El administrativo elige entre las opciones: 
     1. ver detalle del paciente
     2. *modificar datos del paciente*
@@ -21,7 +28,7 @@ Escenario principal de éxito:
     4. marcar paciente como favorito.
 Escenario alternativo:
 
-    1a. El administrativo introduce un dni inexistente o erroneo y se acaba el caso de uso.
+    1a. El administrativo introduce un apellido inexistente o erroneo y se acaba el caso de uso.
 
     2.2a. El administrativo asigna un valor imposible para el paciente en la modificación.
 
