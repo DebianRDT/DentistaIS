@@ -13,13 +13,17 @@ Nivel: Usuario.
 Ámbito:
 
 Escenario principal de éxito:
-1. El administrativo *busca un paciente escribiendo su dni*
-2. El administrativo elige entre las opciones: ver detalle del paciente, modificar datos del paciente, eliminar paciente o marcar paciente como favorito.
+ 1. El administrativo *busca un paciente escribiendo su dni*
+ 2. El administrativo elige entre las opciones: 
+    1. ver detalle del paciente
+    2. *modificar datos del paciente*
+    3. eliminar paciente
+    4. marcar paciente como favorito.
 Escenario alternativo:
 
     1a. El administrativo introduce un dni inexistente o erroneo y se acaba el caso de uso.
 
-    2a. El administrativo asigna un valor imposible para el paciente en la modificación.
+    2.2a. El administrativo asigna un valor imposible para el paciente en la modificación.
 
 ---
 
@@ -39,13 +43,13 @@ Escenario principal de éxito:
 
 Escenario alternativo:
 
-1.a El atributo elegido es erroneo
+1.a El atributo elegido es erróneo
 
   1.a.1 Se vuelve a preguntar qué atributo se desea modificar
 
-  2.a El valor introducido no pertenece al dominio
+  2.a El valor introducido no pertenece al dominio. 
 
-  2.a.1. Se vuelve a pedir el atributo.
+  2.a.1. Se vuelve a pedir el atributo (En este caso volvemos a 2)
 
 ---
 
@@ -59,9 +63,16 @@ Nivel: Usuario.
 
 Ámbito:
 
+Precondiciones: 
+
+Que la agenda tenga datos. 
+
 Escenario principal de éxito:
 
-1. El administrativo elige entre las opciones: listar todos ordenados por apellidos, listar todos ordenados por más frecuente, listar favoritos.
+1. El administrativo elige entre las opciones: 
+	1. listar todos ordenados por apellidos
+	1. listar todos ordenados por más frecuente
+	1. listar favoritos.
 
 Escenario alternativo:
 
@@ -104,6 +115,7 @@ Escenario principal de éxito:
 1. El administrativo escribe el dni del paciente que va a insertar.
 2. El sistema verifica que no existe un cliente con el mismo dni.
 3. El administrativo escribe secuencialmente el resto de atributos del nuevo paciente.
+4. El sistema los guarda en el disco ordenados por apellido. 
 
 Escenario alternativo:
 2a. El administrativo introduce un dni existente.
