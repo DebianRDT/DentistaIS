@@ -162,7 +162,70 @@ __________________________________________________
 
 
 
-FALTAN SALVAR Y CARGA COPIAS Y SACAR A TEXTO PLANO/HTML EL CONTENIDO
+
+
+
+
+
+ID                          TITULO
+__________________________________________________
+6                    Salvar copias de seguridad
+__________________________________________________
+
+Como usuario quiero salvar copia de seguridad del 
+fichero para evitar perdidas.
+
+Estimacion:
+			 Depende de:
+
+
+Prioridad:2
+__________________________________________________
+
+* Si ocurre un error en el guardado del la copia
+el software nos lo muestre.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ID                          TITULO
+__________________________________________________
+7                    Cargar copias de seguridad
+__________________________________________________
+
+Como usuario quiero cargar la copia de seguridad
+una vez salvada
+
+Estimacion:
+			 Depende de: 6
+
+
+Prioridad:2
+__________________________________________________
+
+* Si no hay una copia de seguridad guardada, nos
+indique que no hay copia de seguridad.
+
+
+
+
+
+
+
+
+
+SACAR A TEXTO PLANO/HTML EL CONTENIDO
 
 
 
