@@ -4,12 +4,30 @@ Revisado por el profesor
 Para todos los casos de uso se ordenará el archivo, en caso de ser necesario, por apellidos
 
 
+1. DCU_0_CONT: Contexto del sistema
+
+En el diagrama DCU_0_CONT se pretende mostrar una visión global de la funcionalidad que el sistema debe proporcionar al actor. A continuación, se muestra el diagrama de caso de uso 0, que representa el contexto del sistema:
 
 ![DCU_0_CONT](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_0_CONT.png)
 
+
+1. DCU_1_GPA: Gestionar pacientes
+
+En el DCU_1_GPA se muestra la funcionalidad que se ofrece en la sección de gestión de pacientes al administrativo.
+
 ![DCU_1_GPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_1_GPA.png)
 
+
+1. DCU_2_BACKUP: Gestionar backups
+
+En el DCU_2_BACKUP se muestra la funcionalidad que se ofrece en la sección de gestión de backups al administrativo.
+
 ![DCU_2_BACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_2_BACKUP.png)
+
+
+1. DCU_3_VPA: Visualizar pacientes
+
+En el DCU_3_VPA se muestra la funcionalidad que se ofrece en la sección de visualizar pacientes al administrativo.
 
 ![DCU_3_VPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_3_VPA.png)
 
@@ -17,9 +35,8 @@ Para todos los casos de uso se ordenará el archivo, en caso de ser necesario, p
 ESPECIFICACIÓN DE CASOS DE USO
 ==============================
 
----
+#Caso de uso: Seleccionar paciente
 
-#Caso de uso: Buscar un paciente
 Actor principal: Administrativo
 
 Actores de soporte:
@@ -39,6 +56,7 @@ Escenario principal de éxito:
     2. *modificar datos del paciente*
     3. eliminar paciente
     4. marcar paciente como favorito.
+    
 Escenario alternativo:
 
 
@@ -48,7 +66,7 @@ Escenario alternativo:
 
     3.2a. El administrativo asigna un valor imposible para el paciente en la modificación.
 
----
+
 
 #Caso de uso: Modificar paciente
 
@@ -74,7 +92,7 @@ Escenario alternativo:
 
   2.a.1. Se vuelve a pedir el atributo (En este caso volvemos a 2)
 
----
+
 
 #Caso de uso: Visualizar pacientes
 
@@ -99,7 +117,6 @@ Escenario principal de éxito:
 
 Escenario alternativo:
 
----
 
 #Caso de uso: Gestionar backups
 Actor principal: Administrativo
@@ -122,7 +139,6 @@ Escenario alternativo:
 
 1.2.a2. No se puede acceder al fichero. Termina el caso de uso.
 
----
 
 #Caso de uso: Insertar nuevo paciente
 
