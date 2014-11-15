@@ -4,33 +4,33 @@ Revisado por el profesor
 Para todos los casos de uso se ordenará el archivo, en caso de ser necesario, por apellidos
 
 
-1. DCU_0_CONT: Contexto del sistema
+#DCU_0_CONT: Contexto del sistema
 
 En el diagrama DCU_0_CONT se pretende mostrar una visión global de la funcionalidad que el sistema debe proporcionar al actor. A continuación, se muestra el diagrama de caso de uso 0, que representa el contexto del sistema:
-
+	
 ![DCU_0_CONT](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_0_CONT.png)
 
 
-1. DCU_1_GPA: Gestionar pacientes
+#DCU_1_GPA: Gestionar pacientes
 
 En el DCU_1_GPA se muestra la funcionalidad que se ofrece en la sección de gestión de pacientes al administrativo.
-
+	
 ![DCU_1_GPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_1_GPA.png)
+	
 
-
-1. DCU_2_BACKUP: Gestionar backups
+#DCU_2_BACKUP: Gestionar backups
 
 En el DCU_2_BACKUP se muestra la funcionalidad que se ofrece en la sección de gestión de backups al administrativo.
-
+	
 ![DCU_2_BACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_2_BACKUP.png)
+	
 
-
-1. DCU_3_VPA: Visualizar pacientes
+#DCU_3_VPA: Visualizar pacientes
 
 En el DCU_3_VPA se muestra la funcionalidad que se ofrece en la sección de visualizar pacientes al administrativo.
-
+	
 ![DCU_3_VPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_3_VPA.png)
-
+	
 
 ESPECIFICACIÓN DE CASOS DE USO
 ==============================
