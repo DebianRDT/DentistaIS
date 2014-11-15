@@ -4,9 +4,13 @@ Revisado por el profesor
 Para todos los casos de uso se ordenará el archivo, en caso de ser necesario, por apellidos
 
 
+
 ![DCU_0_CONT](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_0_CONT.png)
+
 ![DCU_1_GPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_1_GPA.png)
+
 ![DCU_2_BACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_2_BACKUP.png)
+
 ![DCU_3_VPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_3_VPA.png)
 
 
