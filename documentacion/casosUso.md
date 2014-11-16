@@ -63,7 +63,7 @@ Escenario alternativo:
 
 #DCU_1_GPA: Gestionar pacientes
 
-En el DCU_1_GPA se muestra la funcionalidad que se ofrece en la sección de gestión de pacientes al administrativo.
+En el DCU_1_GPA se muestra la funcionalidad que se ofrece en la sección de gestión de paciente al administrativo.
 	
 ![DCU_1_GPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_1_GPA.png)
 	
@@ -137,23 +137,12 @@ Escenario principal de éxito:
 4. El sistema los guarda en el disco ordenados por apellido. 
 
 Escenario alternativo:
+
 2a. El administrativo introduce un dni existente.
 
-2a1. Muestra error y vuelve a pedir el cliente.
+2a1. Muestra error y vuelve a pedir el cliente. (Volvemos a 1)
 
 3a. El administrativo escribe en un atributo datos que no pertenecen al dominio.
 
 3a1. El sistema volverá a solicitar que el administrativo escriba el atributo.
 
-#DCU_2_BACKUP: Gestionar backups
-
-En el DCU_2_BACKUP se muestra la funcionalidad que se ofrece en la sección de gestión de backups al administrativo.
-	
-![DCU_2_BACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_2_BACKUP.png)
-	
-
-#DCU_3_VPA: Visualizar pacientes
-
-En el DCU_3_VPA se muestra la funcionalidad que se ofrece en la sección de visualizar pacientes al administrativo.
-	
-![DCU_3_VPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_3_VPA.png)
