@@ -22,7 +22,7 @@ Nivel: Usuario.
 
 Precondiciones: 
 
-Que la agenda tenga datos. 
+- Que la agenda tenga pacientes registrados. 
 
 Escenario principal de éxito:
 
@@ -32,6 +32,8 @@ Escenario principal de éxito:
 	1. listar favoritos.
 
 Escenario alternativo:
+
+1.a. Si no hay pacientes registrados, se muestra un mensaje indicándolo y se termina el caso de uso.
 
 
 #Caso de uso: Gestionar backups
@@ -44,13 +46,15 @@ Nivel: Usuario.
 
 Ámbito:
 
+Precondiciones:
+
 Escenario principal de éxito:
 
 1. El administrativo elige entre las opciones: Cargar fichero o guardar fichero de pacientes.
 
 1.1. El administrativo elige guardar fichero de pacientes, y se realiza una copia de seguridad de los datos.
 
-1.2. El administrativo intenta restaurar los datos de los pacientes con un fichero externo.
+1.2. El administrativo elige cargar registros de pacientes a través de un fichero.
 
 Escenario alternativo:
 
@@ -91,7 +95,7 @@ Escenario principal de éxito:
     
 Escenario alternativo:
 
-    1a. No se encuentra ningún paciente que coincida con el apellido introducido, se muestra un mensaje que indique que no hay pacientes con ese apellido y se acaba el caso de uso.
+    1.a. No se encuentra ningún paciente que coincida con el apellido introducido, se muestra un mensaje que indique que no hay pacientes con ese apellido y se acaba el caso de uso.
 
 
 #Caso de uso: Modificar paciente
@@ -131,18 +135,13 @@ Nivel: Usuario.
 Ámbito:
 
 Escenario principal de éxito:
-1. El administrativo escribe el dni del paciente que va a insertar.
-2. El sistema verifica que no existe un cliente con el mismo dni.
-3. El administrativo escribe secuencialmente el resto de atributos del nuevo paciente.
-4. El sistema los guarda en el disco ordenados por apellido. 
+
+1. El administrativo escribe secuencialmente los atributos del nuevo paciente.
+2. El sistema los guarda en el disco ordenados por apellido. 
 
 Escenario alternativo:
 
-2a. El administrativo introduce un dni existente.
+1.a. El administrativo escribe en un atributo datos que no pertenecen al dominio. El sistema volverá a solicitar que el administrativo escriba el atributo.
 
-2a1. Muestra error y vuelve a pedir el cliente. (Volvemos a 1)
-
-3a. El administrativo escribe en un atributo datos que no pertenecen al dominio.
-
-3a1. El sistema volverá a solicitar que el administrativo escriba el atributo.
+2.a. Imposible guardar el registro en el fichero. En ese caso se muestra un mensaje indicando el error y termina el caso de uso.
 
