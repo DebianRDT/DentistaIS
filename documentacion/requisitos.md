@@ -7,18 +7,20 @@ Requisitos de información:
 --------------------------
 
 RI-1-PAC. Información relativa a pacientes.
-DNI
-Nombre
-Apellidos
-Emails
-Direcciones postales
-Anotaciones
-Redes sociales
-Favoritos
-Veces consultado
-Fecha de nacimiento
-Sexo
-Teléfonos
+
+- DNI
+- Nombre
+- Apellido1
+- Apellido2
+- Emails
+- Direcciones postales
+- Anotaciones
+- Redes sociales
+- Favoritos
+- Veces consultado
+- Fecha de nacimiento
+- Sexo
+- Teléfonos
 
 
 Requisitos funcionales:

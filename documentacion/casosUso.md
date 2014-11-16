@@ -10,6 +10,56 @@ En el diagrama DCU_0_CONT se pretende mostrar una visión global de la funcional
 	
 ![DCU_0_CONT](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_0_CONT.png)
 
+#Caso de uso: Visualizar pacientes
+
+Actor principal: Administrativo
+
+Actores de soporte:
+
+Nivel: Usuario.
+
+Ámbito:
+
+Precondiciones: 
+
+Que la agenda tenga datos. 
+
+Escenario principal de éxito:
+
+1. El administrativo elige entre las opciones: 
+	1. listar todos ordenados por apellidos
+	1. listar todos ordenados por más frecuente
+	1. listar favoritos.
+
+Escenario alternativo:
+
+
+#Caso de uso: Gestionar backups
+
+Actor principal: Administrativo
+
+Actores de soporte:
+
+Nivel: Usuario.
+
+Ámbito:
+
+Escenario principal de éxito:
+
+1. El administrativo elige entre las opciones: Cargar fichero o guardar fichero de pacientes.
+
+1.1. El administrativo elige guardar fichero de pacientes, y se realiza una copia de seguridad de los datos.
+
+1.2. El administrativo intenta restaurar los datos de los pacientes con un fichero externo.
+
+Escenario alternativo:
+
+1.1.a1. Imposibilidad de almacenar el fichero. Termina el caso de uso
+
+1.2.a1. No existe el fichero del que se intenta recuperar información. Termina el caso de uso.
+
+1.2.a2. No se puede acceder al fichero. Termina el caso de uso.
+
 
 #DCU_1_GPA: Gestionar pacientes
 
@@ -17,23 +67,6 @@ En el DCU_1_GPA se muestra la funcionalidad que se ofrece en la sección de gest
 	
 ![DCU_1_GPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_1_GPA.png)
 	
-
-#DCU_2_BACKUP: Gestionar backups
-
-En el DCU_2_BACKUP se muestra la funcionalidad que se ofrece en la sección de gestión de backups al administrativo.
-	
-![DCU_2_BACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_2_BACKUP.png)
-	
-
-#DCU_3_VPA: Visualizar pacientes
-
-En el DCU_3_VPA se muestra la funcionalidad que se ofrece en la sección de visualizar pacientes al administrativo.
-	
-![DCU_3_VPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_3_VPA.png)
-	
-
-ESPECIFICACIÓN DE CASOS DE USO
-==============================
 
 #Caso de uso: Seleccionar paciente
 
@@ -46,11 +79,10 @@ Nivel: Usuario.
 Ámbito:
 
 Escenario principal de éxito:
- 1. El administrativo *busca un paciente escribiendo su apellido*
-
- 2. El administrativo selecciona un cliente de entre los encontrados
- 3. El administrativo elige entre las opciones: 
-
+ 1. El administrativo busca un paciente escribiendo su apellido
+ 2. El administrativo selecciona un cliente entre los encontrados
+ 3. Se registra un acceso al paciente seleccionado
+ 4. El administrativo elige entre las opciones:
 
     1. ver detalle del paciente
     2. *modificar datos del paciente*
@@ -59,13 +91,7 @@ Escenario principal de éxito:
     
 Escenario alternativo:
 
-
-    1a. No se encuentra ningún paciente que coincida con el apellido introducido y se acaba el caso de uso.
-
-
-
-    3.2a. El administrativo asigna un valor imposible para el paciente en la modificación.
-
+    1a. No se encuentra ningún paciente que coincida con el apellido introducido, se muestra un mensaje que indique que no hay pacientes con ese apellido y se acaba el caso de uso.
 
 
 #Caso de uso: Modificar paciente
@@ -94,53 +120,7 @@ Escenario alternativo:
 
 
 
-#Caso de uso: Visualizar pacientes
-
-Actor principal: Administrativo
-
-Actores de soporte:
-
-Nivel: Usuario.
-
-Ámbito:
-
-Precondiciones: 
-
-Que la agenda tenga datos. 
-
-Escenario principal de éxito:
-
-1. El administrativo elige entre las opciones: 
-	1. listar todos ordenados por apellidos
-	1. listar todos ordenados por más frecuente
-	1. listar favoritos.
-
-Escenario alternativo:
-
-
-#Caso de uso: Gestionar backups
-Actor principal: Administrativo
-Actores de soporte:
-Nivel: Usuario.
-Ámbito:
-Escenario principal de éxito:
-
-1. El administrativo elige entre las opciones: Cargar fichero o guardar fichero de pacientes.
-
-1.1. El administrativo elige guardar fichero de pacientes, y se realiza una copia de seguridad de los datos.
-
-1.2. El administrativo intenta restaurar los datos de los pacientes con un fichero externo.
-
-Escenario alternativo:
-
-1.1.a1. Imposibilidad de almacenar el fichero. Termina el caso de uso
-
-1.2.a1. No existe el fichero del que se intenta recuperar información. Termina el caso de uso.
-
-1.2.a2. No se puede acceder al fichero. Termina el caso de uso.
-
-
-#Caso de uso: Insertar nuevo paciente
+#Caso de uso: Alta nuevo paciente
 
 Actor principal: Administrativo
 
@@ -164,3 +144,16 @@ Escenario alternativo:
 3a. El administrativo escribe en un atributo datos que no pertenecen al dominio.
 
 3a1. El sistema volverá a solicitar que el administrativo escriba el atributo.
+
+#DCU_2_BACKUP: Gestionar backups
+
+En el DCU_2_BACKUP se muestra la funcionalidad que se ofrece en la sección de gestión de backups al administrativo.
+	
+![DCU_2_BACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_2_BACKUP.png)
+	
+
+#DCU_3_VPA: Visualizar pacientes
+
+En el DCU_3_VPA se muestra la funcionalidad que se ofrece en la sección de visualizar pacientes al administrativo.
+	
+![DCU_3_VPA](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DCU_3_VPA.png)
