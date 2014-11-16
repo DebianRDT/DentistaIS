@@ -61,7 +61,7 @@ Escenario alternativo:
 1.2.a2. No se puede acceder al fichero. Termina el caso de uso.
 
 
-#DCU_1_GPA: Gestionar pacientes
+#DCU_1_GPA: Gestionar paciente
 
 En el DCU_1_GPA se muestra la funcionalidad que se ofrece en la sección de gestión de paciente al administrativo.
 	
