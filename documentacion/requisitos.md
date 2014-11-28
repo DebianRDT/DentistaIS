@@ -36,7 +36,9 @@ Requisitos funcionales:
 - RF08-SFAV. El administrativo podrá marcar como favorito un paciente, a través de su apellido.
 - RF09-GUAR. El administrativo podrá guardar datos de todos los pacientes en un fichero.
 - RF10-CARG. El administrativo podrá restaurar pacientes a partir de un fichero.
-
+- RF11-AGAT. El administrativo podrá agregar múltiples atributos  a un paciente, que pueden ser de tipo teléfono, mail, dirección o red social.
+- RF12-ELAT. El administrativo podrá eliminar atributos múltiples anteriormente agregados a un paciente.
+- RF13-MOAT. El administrativo podrá modificar tipo o contenido de atributos múltiples anteriormente agregados a paciente
 
 Requisitos no funcionales:
 --------------------------
