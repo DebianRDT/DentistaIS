@@ -55,4 +55,4 @@ Visualizar pacientes
 Gestionar backups
 ---
 
-![DSE_10_GESBACKUPS](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DSE/DSE_9_GESBACKUP.jpg)
+![DSE_10_GESBACKUP](https://github.com/DebianRDT/DentistaIS/blob/master/documentacion/diagramas/DSE/DSE_10_GESBACKUP.jpg)
