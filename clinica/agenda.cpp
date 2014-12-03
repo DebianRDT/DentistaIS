@@ -42,13 +42,21 @@ Agenda* Agenda::LaAgenda(){
  *  primera ocurrencia, y devuelve true, si encontro nada
  *  devuelve false.
  */
-bool Agenda::buscar_paciente(const std::string& apellidos){}
+bool Agenda::buscar_paciente(const std::string& apellidos){
+
+}
 
 /** Apunta _seleccionado al siguiente paciente de la lista
  */
-bool Agenda::siguiente(){}
-bool Agenda::anterior(){}
-const Paciente& Agenda::get_seleccionado(){}
+bool Agenda::siguiente(){
+
+}
+bool Agenda::anterior(){
+
+}
+const Paciente& Agenda::get_seleccionado(){
+
+}
 bool Agenda::eliminar_seleccionado(){}
 
 bool Agenda::nuevo_paciente(const Paciente& nuevo){}
