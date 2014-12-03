@@ -38,6 +38,11 @@ bool Paciente::cambiar_atributo(int n, const AtributoMultiple& nuevo){}
  */
 bool Paciente::agregar_atributo(const AtributoMultiple& nuevo){}
 
+
+bool clinica::Paciente::es_favorito() {
+	return false;
+}
+
 /** Saca de la lista el atributo multiple en la posicion n
  *
  */

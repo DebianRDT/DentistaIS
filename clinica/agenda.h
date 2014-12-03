@@ -25,8 +25,12 @@ class Agenda{
 private:
 	static Agenda* _la_agenda; //!< instancia unica de agenda
 
+
 	static char _n_fichero[10];
+
 	std::list<Paciente*> _todos; //!< Lista ordenada por apellidos de todos los pacientes
+	std::list<Paciente*> _favoritos;
+
 	std::list<Paciente*>::iterator _seleccionado;
 	int _n; //!< Numero de pacientes en la lista
 
@@ -44,7 +48,7 @@ public:
 	bool buscar_paciente(const std::string& apellidos);
 	bool siguiente();
 	bool anterior();
-	const Paciente& get_seleccionado();
+	Paciente* get_seleccionado();
 	bool eliminar_seleccionado();
 
 	bool nuevo_paciente(const Paciente& nuevo);
