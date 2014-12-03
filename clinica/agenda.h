@@ -18,8 +18,8 @@ typedef struct{
 
 /**
  * Clase Agenda
- * Sólo será necesaria una instancia por lo que usamos
- * patrón Singleton
+ * Gestiona pacientes en un fichero
+ * patron Singleton
  */
 class Agenda{
 private:
@@ -29,6 +29,8 @@ private:
 	std::list<Paciente*> _todos; //!< Lista ordenada por apellidos de todos los pacientes
 	std::list<Paciente*>::iterator _seleccionado;
 	int _n; //!< Numero de pacientes en la lista
+
+	bool _reordernar_fichero();
 
 protected:
 	Agenda();
@@ -40,25 +42,16 @@ public:
 
 
 	std::list<const Candidato*> buscar_paciente(const std::string& apellidos);
+	bool seleccionar_paciente(const std::list< std::list<Paciente*>::iterator >& candidatos, int elegido);
 
-	bool seleccionar_paciente(const std::list<Paciente*>& candidatos, int elegido);
-	const Paciente& ver_detalles();
-	std::list<AtributoMultiple*> obtener_atributos_multiples();
-	std::list<AtributoMultiple*> obtener_atributos_multiples(const TipoAt& tipo);
-	bool modificar_atributo(const AtributoMultiple& nuevo, int n);
+	const Paciente& get_seleccionado();
 	bool eliminar_paciente();
-
 	bool nuevo_paciente(const Paciente& nuevo);
+
 	std::list<Paciente*> get_favoritos();
 	std::list<Paciente*> get_todos(const Orden& o);
 
 
-	bool reordernar_fichero();
-
-
-	/* métodos que no están en el diagrama de clases */
-	const Paciente& siguiente();
-	const Paciente& ir_a(const std::list<Paciente*>::iterator& it);
 
 
 };

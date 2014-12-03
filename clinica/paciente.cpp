@@ -24,7 +24,7 @@ Paciente::~Paciente(){}
 /* Devuelve una lista con todos los atributos multiples
  * del paciente.
  */
-const std::list<AtributoMultiple*>& Paciente::lista_atributos_multiples(){}
+const std::list<AtributoMultiple*>& Paciente::lista_atributos_multiples(const TipoAt& t){}
 
 
 /** Cambia el atributo multiple en la posicion n, por el nuevo

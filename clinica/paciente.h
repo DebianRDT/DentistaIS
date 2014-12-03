@@ -1,8 +1,6 @@
 /*
  * paciente.h
  *
- *  Created on: 26/11/2014
- *      Author: francisco
  */
 
 #ifndef CLINICA_PACIENTE_H_
@@ -38,10 +36,20 @@ private:
 
 
 public:
+
 	Paciente();
 	virtual ~Paciente();
 
-	const std::list<AtributoMultiple*>& lista_atributos_multiples();
+	/* falta constructor de copia */
+
+
+	const std::string& str();
+	bool es_favorito();
+
+	/* faltan metodos get y set */
+
+	/* atributos multiples */
+	const std::list<AtributoMultiple*>& lista_atributos_multiples(const TipoAt& t);
 	bool agregar_atributo(const AtributoMultiple& nuevo);
 	bool cambiar_atributo(int n, const AtributoMultiple& nuevo);
 	bool eliminar_atributo(int n);
