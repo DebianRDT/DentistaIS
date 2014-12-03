@@ -42,3 +42,10 @@ bool Paciente::agregar_atributo(const AtributoMultiple& nuevo){}
  *
  */
 bool Paciente::eliminar_atributo(int n){}
+
+
+
+const std::string& Paciente::linea(){
+
+	return "";
+}

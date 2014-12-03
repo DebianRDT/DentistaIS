@@ -11,6 +11,8 @@
 #include <string>
 #include <list>
 
+#include "registro.h"
+
 namespace clinica{
 
 
@@ -23,7 +25,7 @@ typedef struct{
 
 enum class Sexo {Hombre,Mujer};
 
-class Paciente{
+class Paciente : public Registro{
 private:
 	std::list<AtributoMultiple*> _atributos_multiples;
 
@@ -45,6 +47,8 @@ public:
 	bool agregar_atributo(const AtributoMultiple& nuevo);
 	bool cambiar_atributo(int n, const AtributoMultiple& nuevo);
 	bool eliminar_atributo(int n);
+
+	const std::string& linea();
 };
 
 }

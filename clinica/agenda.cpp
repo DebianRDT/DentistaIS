@@ -63,10 +63,10 @@ const Paciente& Agenda::ver_detalles(){}
  */
 std::list<AtributoMultiple*> Agenda::obtener_atributos_multiples(){}
 
-
 /** Devuelve lista de atributos multiples de tipo indicado por parametro
  *
  */
+
 std::list<AtributoMultiple*> Agenda::obtener_atributos_multiples(const TipoAt& tipo){}
 
 /** Sustituye el atributo multiple de la posicion n, por el nuevo
