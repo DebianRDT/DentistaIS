@@ -37,16 +37,24 @@ Agenda* Agenda::LaAgenda(){
 	return _la_agenda;
 }
 
+/** Busca un paciente a partir de sus apellidos
+ *  si lo encuentra pone _seleccionado apuntando a la
+ *  primera ocurrencia, y devuelve true, si encontro nada
+ *  devuelve false.
+ */
+bool Agenda::buscar_paciente(const std::string& apellidos){}
 
-std::list<const Candidato*> Agenda::buscar_paciente(const std::string& apellidos){}
-bool Agenda::seleccionar_paciente(const std::list< std::list<Paciente*>::iterator >& candidatos, int elegido){}
-
+/** Apunta _seleccionado al siguiente paciente de la lista
+ */
+bool Agenda::siguiente(){}
+bool Agenda::anterior(){}
 const Paciente& Agenda::get_seleccionado(){}
-bool Agenda::eliminar_paciente(){}
+bool Agenda::eliminar_seleccionado(){}
+
 bool Agenda::nuevo_paciente(const Paciente& nuevo){}
 
-std::list<Paciente*> Agenda::get_favoritos(){}
-std::list<Paciente*> Agenda::get_todos(const Orden& o){}
+const std::list<Paciente*>& Agenda::get_favoritos(){}
+const std::list<Paciente*>& Agenda::get_todos(const Orden& o){}
 
 
 

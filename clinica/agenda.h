@@ -41,15 +41,16 @@ public:
 	virtual ~Agenda();
 
 
-	std::list<const Candidato*> buscar_paciente(const std::string& apellidos);
-	bool seleccionar_paciente(const std::list< std::list<Paciente*>::iterator >& candidatos, int elegido);
-
+	bool buscar_paciente(const std::string& apellidos);
+	bool siguiente();
+	bool anterior();
 	const Paciente& get_seleccionado();
-	bool eliminar_paciente();
+	bool eliminar_seleccionado();
+
 	bool nuevo_paciente(const Paciente& nuevo);
 
-	std::list<Paciente*> get_favoritos();
-	std::list<Paciente*> get_todos(const Orden& o);
+	const std::list<Paciente*>& get_favoritos();
+	const std::list<Paciente*>& get_todos(const Orden& o);
 
 
 
