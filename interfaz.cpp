@@ -1,8 +1,6 @@
 /*
  * interfaz.cpp
  *
- *  Created on: 26/11/2014
- *      Author: francisco
  */
 
 #include <iostream>
@@ -26,11 +24,11 @@ Interfaz* Interfaz::App(){
 }
 
 Interfaz::Interfaz(){
-	_la_agenda->LaAgenda();
+	_la_agenda = Agenda::LaAgenda();
 
 
 	std::cout<<"CLINICA DENTAL"<<std::endl;
-	menu_contextual();
+	_menu_contextual();
 
 }
 
@@ -38,7 +36,8 @@ Interfaz::Interfaz(){
 
 Interfaz::~Interfaz(){}
 
-void Interfaz::menu_contextual(){
+
+void Interfaz::_menu_contextual(){
 	int o;
 
 
@@ -56,15 +55,15 @@ void Interfaz::menu_contextual(){
 
 	switch(o){
 		case 0:return;
-		case 1:menu_gestionar_paciente();break;
-		case 2:menu_visualizar_pacientes();break;
-		case 3:menu_gestionar_pacientes();break;
+		case 1:_menu_gestionar_paciente();break;
+		case 2:_menu_visualizar_pacientes();break;
+		case 3:_menu_gestionar_pacientes();break;
 	}
 
-	menu_contextual();
+	_menu_contextual();
 }
 
-void Interfaz::menu_gestionar_paciente(){
+void Interfaz::_menu_gestionar_paciente(){
 	int o;
 
 
@@ -83,32 +82,29 @@ void Interfaz::menu_gestionar_paciente(){
 
 	switch(o){
 		case 0:return;
-		case 1:menu_gestionar_paciente();break;
-		case 2:menu_visualizar_pacientes();break;
-		case 3:menu_gestionar_pacientes();break;
-		case 4:menu_seleccionar_paciente();break;
+		case 1:_menu_gestionar_paciente();break;
+		case 2:_menu_visualizar_pacientes();break;
+		case 3:_menu_gestionar_pacientes();break;
+		case 4:_menu_seleccionar_paciente();break;
 	}
 
-	menu_contextual();
+	_menu_contextual();
 }
 
-void Interfaz::menu_visualizar_pacientes(){
-
-}
-
-void Interfaz::menu_gestionar_pacientes(){
+void Interfaz::_menu_visualizar_pacientes(){
 
 }
 
-void Interfaz::menu_seleccionar_paciente(){
+void Interfaz::_menu_gestionar_pacientes(){
 
+}
 
+void Interfaz::_menu_seleccionar_paciente(){
 	std::string apellidos;
-
 
 	std::cout<<"Introduzca apellidos del paciente a seleccionar"<<std::endl;
 	std::cin>>apellidos;
 
-
+	//...
 
 }

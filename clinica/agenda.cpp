@@ -1,10 +1,10 @@
 /*
  * agenda.cpp
  *
- * Agenda de pacientes mediante un fichero Secuencial sin zona de derrama.
  *
- *  Created on: 26/11/2014
- *      Author: francisco
+ *
+ *
+ *
  */
 
 #include "agenda.h"
@@ -37,64 +37,87 @@ Agenda* Agenda::LaAgenda(){
 	return _la_agenda;
 }
 
-
-/** Recorre la lista de pacientes y crea otra de candidatos
- *  que son enlaces al elemento de la lista donde esta el paciente
+/** Busca un paciente a partir de sus apellidos
+ *  si lo encuentra pone _seleccionado apuntando a la
+ *  primera ocurrencia, y devuelve true, si encontro nada
+ *  devuelve false.
  */
-std::list<const Candidato*> Agenda::buscar_paciente(const std::string& apellidos){
-	//TODO
+bool Agenda::buscar_paciente(const std::string& apellidos){
+
+	return false;
+}
+
+/** Apunta _seleccionado al siguiente paciente de la lista
+ */
+bool Agenda::siguiente(){
+
+	if(_seleccionado != _todos.end()){
+		_seleccionado++;
+		return true;
+	}
+	else{
+		return false;
+	}
 
 
 }
 
-/**
- * Marca el paciente en la posicion indicada por el entero elegido como
- * pacienten activo.
- */
-bool Agenda::seleccionar_paciente(const std::list<Paciente*>& candidatos, int elegido){}
+bool Agenda::anterior(){
+	if(_seleccionado != _todos.begin()){
+		_seleccionado--;
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 
-/** Devuelve todos los detalles del paciente
+Paciente* Agenda::get_seleccionado(){
+	return *_seleccionado;
+}
+
+bool Agenda::eliminar_seleccionado(){
+
+	if(_seleccionado == _todos.begin()){}
+	else if(_seleccionado == _todos.end()){}
+	else{
+		_seleccionado++;
+		_todos.erase(_seleccionado--);
+
+	}
+	return false;
+}
+
+
+/** Inserta el nuevo paciente, ordenado por apellidos
  *
  */
-const Paciente& Agenda::ver_detalles(){}
+bool Agenda::nuevo_paciente(const Paciente& nuevo){
 
-/** Devuelve lista de todos los atributos multiples
- *  del paciente seleccionado.
- */
-std::list<AtributoMultiple*> Agenda::obtener_atributos_multiples(){}
+	return false;
+}
 
-/** Devuelve lista de atributos multiples de tipo indicado por parametro
+
+/** Devuelve favoritos de la lista de pacientes.
  *
  */
 
-std::list<AtributoMultiple*> Agenda::obtener_atributos_multiples(const TipoAt& tipo){}
+const std::list<Paciente*>& Agenda::get_favoritos(){
+	for(std::list<Paciente*>::iterator it=_todos.begin();it!=_todos.end();it++){
+		if((*it)->es_favorito()){
+			_favoritos.push_back(*it);
+		}
+	}
+	return _favoritos;
+}
 
-/** Sustituye el atributo multiple de la posicion n, por el nuevo
- *
- */
-bool Agenda::modificar_atributo(const AtributoMultiple& nuevo, int n){}
 
-/** Elimina el paciente seleccionado
- *
- */
-bool Agenda::eliminar_paciente(){}
 
-/** Agrega un nuevo paciente ordenado por apellidos en la lista
- *
- */
-bool Agenda::nuevo_paciente(const Paciente& nuevo){}
-
-/** Devuelve lista de pacientes favoritos ordenados por apellidos
- *
- */
-std::list<Paciente*> Agenda::get_favoritos(){}
-
-/** Devuelve lista de pacientes con orden especificado por parametro.
- *
- */
-std::list<Paciente*> Agenda::get_todos(const Orden& o){}
 
 /** Actualiza el fichero con los datos actuales de la lista de pacientes.
  *
  */
-bool Agenda::reordernar_fichero(){}
+bool Agenda::_reordernar_fichero(){
+
+	return false;
+}

@@ -1,8 +1,6 @@
 /*
  * main.cpp
  *
- *  Created on: 26/11/2014
- *      Author: francisco
  */
 
 #include <iostream>
@@ -10,7 +8,7 @@
 
 int main(int argc, char* argv[]){
 
-	Interfaz* app = Interfaz::App();
+	Interfaz::App();
 
 	return 0;
 }
