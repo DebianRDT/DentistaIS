@@ -21,6 +21,16 @@ Paciente::Paciente(){
  */
 Paciente::~Paciente(){}
 
+const std::string& Paciente::get_apellido1()const{
+	return _apellido1;
+}
+const std::string& Paciente::get_apellido2()const{
+	return _apellido2;
+}
+
+
+
+
 /* Devuelve una lista con todos los atributos multiples
  * del paciente.
  */
@@ -50,7 +60,13 @@ bool Paciente::eliminar_atributo(int n){}
 
 
 
-const std::string& Paciente::linea(){
+/** Un paciente es menor que otro cuando su <apellido1 apellido2> es inferior
+ *  albafeticamente.
+ */
+bool Paciente::operator <(const Paciente &p) const{}
 
-	return "";
-}
+
+/** Un paciente es mayor que otro cuando su <apellido1 apellido2> es superior
+ *  albafeticamente. Igual cuando sus apellidos son iguales.
+ */
+bool Paciente::operator >=(const Paciente &p) const{}

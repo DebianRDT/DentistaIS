@@ -7,6 +7,7 @@
 #include "interfaz.h"
 #include "clinica/paciente.h"
 #include "clinica/agenda.h"
+#include "clinica/base_datos_texto.h"
 
 using namespace clinica;
 
@@ -24,7 +25,8 @@ Interfaz* Interfaz::App(){
 }
 
 Interfaz::Interfaz(){
-	_la_agenda = Agenda::LaAgenda();
+
+	_la_agenda = Agenda::LaAgenda(new BaseDatosTexto);
 
 
 	std::cout<<"CLINICA DENTAL"<<std::endl;

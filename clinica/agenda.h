@@ -2,6 +2,8 @@
 #define AGENDA_H
 
 #include "paciente.h"
+#include "base_datos.h"
+
 #include <string>
 #include <list>
 
@@ -21,43 +23,37 @@ typedef struct{
  * Gestiona pacientes en un fichero
  * patron Singleton
  */
+
+
 class Agenda{
 private:
 	static Agenda* _la_agenda; //!< instancia unica de agenda
 
-
-	static char _n_fichero[10];
-
 	std::list<Paciente*> _todos; //!< Lista ordenada por apellidos de todos los pacientes
 	std::list<Paciente*> _favoritos;
-
 	std::list<Paciente*>::iterator _seleccionado;
+	BaseDatos* _bd;
+
 	int _n; //!< Numero de pacientes en la lista
 
-	bool _reordernar_fichero();
-
 protected:
-	Agenda();
+	Agenda(BaseDatos* bd);
 
 
 public:
-	static Agenda* LaAgenda();
+	static Agenda* LaAgenda(BaseDatos* bd);
 	virtual ~Agenda();
 
+	bool agregar(Paciente* nuevo);
+	bool buscar(const std::string& apellido1, const std::string& apellido2);
+	const std::list<Paciente*>& todos(const Orden& o);
+	const std::list<Paciente*>& favoritos();
 
-	bool buscar_paciente(const std::string& apellidos);
+	/* actuan sobre el paciente seleccionado (_seleccionado) */
 	bool siguiente();
 	bool anterior();
-	Paciente* get_seleccionado();
-	bool eliminar_seleccionado();
-
-	bool nuevo_paciente(const Paciente& nuevo);
-
-	const std::list<Paciente*>& get_favoritos();
-	const std::list<Paciente*>& get_todos(const Orden& o);
-
-
-
+	Paciente* obtener();
+	bool eliminar();
 
 };
 

@@ -11,14 +11,14 @@
 using namespace clinica;
 
 Agenda* Agenda::_la_agenda = 0;
-char Agenda::_n_fichero[10] = "pacientes";
 
 /** Constructor
  *
  */
-Agenda::Agenda(){
+Agenda::Agenda(BaseDatos* bd){
 	_n = _todos.size();
 	_seleccionado = _todos.begin();
+	_bd = bd;
 }
 
 /** Destructor
@@ -30,19 +30,28 @@ Agenda::~Agenda(){}
 /** Devuelve la instancia (singleton) de la agenda
  *
  */
-Agenda* Agenda::LaAgenda(){
+Agenda* Agenda::LaAgenda(BaseDatos* bd){
 	if(_la_agenda == 0){
-		_la_agenda = new Agenda();
+		_la_agenda = new Agenda(bd);
 	}
 	return _la_agenda;
 }
 
 /** Busca un paciente a partir de sus apellidos
  *  si lo encuentra pone _seleccionado apuntando a la
- *  primera ocurrencia, y devuelve true, si encontro nada
+ *  primera ocurrencia, y devuelve true, si no encontro nada
  *  devuelve false.
  */
-bool Agenda::buscar_paciente(const std::string& apellidos){
+bool Agenda::buscar(const std::string& apellido1,const std::string& apellido2=std::string()){
+	std::size_t found;
+
+
+	for(std::list<Paciente*>::iterator it=_todos.begin();it!=_todos.end();it++){
+		if ( (*it)->get_apellido1().find(apellido1)!=std::string::npos || (*it)->get_apellido2().find(apellido2)!=std::string::npos ){
+			_seleccionado = it;
+			return true;
+		}
+	}
 
 	return false;
 }
@@ -72,27 +81,63 @@ bool Agenda::anterior(){
 	}
 }
 
-Paciente* Agenda::get_seleccionado(){
+Paciente* Agenda::obtener(){
 	return *_seleccionado;
 }
 
-bool Agenda::eliminar_seleccionado(){
+/** Elimina el paciente seleccionado
+ *  Si es el primero de la lista, el nuevo paciente seleccionado sera el siguiente
+ *  Si es el ultimo de la lista el nuevo paciente seleccionado sera el anterior
+ *  Si no es ni el primero ni el ultimo, el nuevo paciente sera el siguiente
+ *
+ */
+bool Agenda::eliminar(){
+	std::list<Paciente*>::iterator aux = _seleccionado;
 
-	if(_seleccionado == _todos.begin()){}
-	else if(_seleccionado == _todos.end()){}
+	if(_todos.empty())
+		return false;
+
+	if(_seleccionado == _todos.begin()){
+		_seleccionado++;
+	}
+	else if(_seleccionado == _todos.end()){
+		_seleccionado--;
+	}
 	else{
 		_seleccionado++;
-		_todos.erase(_seleccionado--);
-
+		_todos.erase(aux);
 	}
-	return false;
+
+	return true;
 }
 
 
 /** Inserta el nuevo paciente, ordenado por apellidos
  *
  */
-bool Agenda::nuevo_paciente(const Paciente& nuevo){
+bool Agenda::agregar(Paciente* nuevo){
+
+	std::list<Paciente*>::iterator anterior;
+	std::list<Paciente*>::iterator actual;
+
+	if(_todos.empty()){
+		_todos.push_back(nuevo);
+		return true;
+	}
+
+	anterior = _todos.begin();
+	actual = _todos.begin()++;
+
+	do{
+
+		if( (*anterior)<nuevo && (*actual)>=nuevo){
+			_todos.insert(actual++,nuevo);
+		}
+
+		(*actual)->get_apellido1();
+		anterior = actual;
+		actual++;
+	}while(actual!=_todos.end());
 
 	return false;
 }
@@ -102,7 +147,7 @@ bool Agenda::nuevo_paciente(const Paciente& nuevo){
  *
  */
 
-const std::list<Paciente*>& Agenda::get_favoritos(){
+const std::list<Paciente*>& Agenda::favoritos(){
 	for(std::list<Paciente*>::iterator it=_todos.begin();it!=_todos.end();it++){
 		if((*it)->es_favorito()){
 			_favoritos.push_back(*it);
@@ -111,13 +156,3 @@ const std::list<Paciente*>& Agenda::get_favoritos(){
 	return _favoritos;
 }
 
-
-
-
-/** Actualiza el fichero con los datos actuales de la lista de pacientes.
- *
- */
-bool Agenda::_reordernar_fichero(){
-
-	return false;
-}
