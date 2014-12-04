@@ -8,6 +8,9 @@
  */
 
 #include "agenda.h"
+
+#include "base_datos.h"
+
 using namespace clinica;
 
 Agenda* Agenda::_la_agenda = 0;
@@ -31,8 +34,11 @@ Agenda::~Agenda(){}
  *
  */
 Agenda* Agenda::LaAgenda(BaseDatos* bd){
+
+
 	if(_la_agenda == 0){
 		_la_agenda = new Agenda(bd);
+
 	}
 	return _la_agenda;
 }

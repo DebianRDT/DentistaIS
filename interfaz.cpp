@@ -26,7 +26,7 @@ Interfaz* Interfaz::App(){
 
 Interfaz::Interfaz(){
 
-	_la_agenda = Agenda::LaAgenda(new BaseDatosTexto);
+	_la_agenda = Agenda::LaAgenda(new BaseDatosTexto());
 
 
 	std::cout<<"CLINICA DENTAL"<<std::endl;
