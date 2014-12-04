@@ -20,7 +20,7 @@ public:
 	 */
 
 	virtual std::list<Paciente*> cargar()=0;
-	virtual std::list<Paciente*> cargar_desde(std::string n_fichero);
+	virtual std::list<Paciente*> cargar_desde(std::string n_fichero)=0;
 
 	virtual bool guardar()=0;
 	virtual bool guardar_en(std::string n_fichero)=0;
