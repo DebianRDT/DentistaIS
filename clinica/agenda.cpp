@@ -22,6 +22,7 @@ Agenda::Agenda(BaseDatos* bd){
 	_n = _todos.size();
 	_seleccionado = _todos.begin();
 	_bd = bd;
+	_todos = bd->cargar();
 }
 
 /** Destructor
@@ -39,6 +40,7 @@ Agenda* Agenda::LaAgenda(BaseDatos* bd){
 	if(_la_agenda == 0){
 		_la_agenda = new Agenda(bd);
 
+
 	}
 	return _la_agenda;
 }
@@ -49,7 +51,7 @@ Agenda* Agenda::LaAgenda(BaseDatos* bd){
  *  devuelve false.
  */
 bool Agenda::buscar(const std::string& apellido1,const std::string& apellido2=std::string()){
-	std::size_t found;
+	//std::size_t found;
 
 
 	for(std::list<Paciente*>::iterator it=_todos.begin();it!=_todos.end();it++){
@@ -114,7 +116,8 @@ bool Agenda::eliminar(){
 		_todos.erase(aux);
 	}
 
-	return true;
+
+	return _bd->guardar();
 }
 
 
@@ -145,7 +148,7 @@ bool Agenda::agregar(Paciente* nuevo){
 		actual++;
 	}while(actual!=_todos.end());
 
-	return false;
+	return _bd->guardar();
 }
 
 
