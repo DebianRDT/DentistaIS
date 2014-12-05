@@ -76,11 +76,6 @@ bool Paciente::agregar_atributo(const AtributoMultiple& nuevo){}
 bool clinica::Paciente::es_favorito() {
 
   return (_favorito);
-  
-  
-
-
-
 }
 
 /** Saca de la lista el atributo multiple en la posicion n
