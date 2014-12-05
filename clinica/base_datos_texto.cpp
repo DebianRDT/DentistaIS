@@ -17,6 +17,11 @@ BaseDatosTexto::~BaseDatosTexto() {
 }
 
 std::list<Paciente*> BaseDatosTexto::cargar() {
+    char * nombreFichero="datosAlmacenados.txt";
+    ifstream fichero (nombreFichero);
+
+
+}
 }
 
 std::list<Paciente*> BaseDatosTexto::cargar_desde(std::string n_fichero) {
