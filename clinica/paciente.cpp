@@ -1,10 +1,3 @@
-/*
- * paciente.cpp
- *
- *  Created on: 26/11/2014
- *      Author: francisco
- */
-
 #include "paciente.h"
 #include <list>
 using namespace clinica;
@@ -40,7 +33,12 @@ const std::list<AtributoMultiple*>& Paciente::lista_atributos_multiples(const Ti
 /** Cambia el atributo multiple en la posicion n, por el nuevo
  *
  */
-bool Paciente::cambiar_atributo(int n, const AtributoMultiple& nuevo){}
+bool Paciente::cambiar_atributo(int n, const AtributoMultiple& nuevo){
+
+
+
+
+}
 
 
 /** Agrega atributo multiple al final de la lista
@@ -56,7 +54,20 @@ bool clinica::Paciente::es_favorito() {
 /** Saca de la lista el atributo multiple en la posicion n
  *
  */
-bool Paciente::eliminar_atributo(int n){}
+bool Paciente::eliminar_atributo(int n){
+	
+	bool atributo;
+	if(_atributos_multiples.erase(n))	
+	{
+		atributo=true;
+	}	
+		
+	else
+	{ 
+		atributo=false;
+	}
+	return atributo;
+}
 
 
 
