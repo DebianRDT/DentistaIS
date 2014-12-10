@@ -50,8 +50,9 @@ public:
 	bool eliminar_atributo(int n);
 
 	/* sobrecarga operadores para ordenar por apellidos */
-	bool operator <(const Paciente &p) const;
-	bool operator >=(const Paciente &p) const;
+    bool operator <(const Paciente &p1, const Paciente &p2) const;
+    bool operator >=(const Paciente &p1, const Paciente &p2) const;
+    bool operator ==(const Paciente &p1, const Paciente &p2) const;
 
 	/*getters y setters */
 	const std::string& get_apellido1() const;
@@ -60,7 +61,7 @@ public:
 	void set_apellido2(const std::string& apellido2);
 	const std::list<AtributoMultiple*>& get_atributos_multiples() const;
 	void set_atributos_multiples(
-			const std::list<AtributoMultiple*>& atributos_multiples);
+    const std::list<AtributoMultiple*>& atributos_multiples);
 	const std::string& get_dni() const;
 	void set_dni(const std::string& dni);
 	void set_favorito(bool favorito);
