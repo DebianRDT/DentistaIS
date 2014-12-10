@@ -59,8 +59,7 @@ public:
 	const std::string& get_apellido2() const;
 	void set_apellido2(const std::string& apellido2);
 	const std::list<AtributoMultiple*>& get_atributos_multiples() const;
-	void set_atributos_multiples(
-			const std::list<AtributoMultiple*>& atributos_multiples);
+	void set_atributos_multiples(const std::list<AtributoMultiple*>& atributos_multiples);
 	const std::string& get_dni() const;
 	void set_dni(const std::string& dni);
 	void set_favorito(bool favorito);
