@@ -99,13 +99,21 @@ void Interfaz::_menu_visualizar_pacientes(){
 
 void Interfaz::_menu_gestionar_pacientes(){
 
+	
 }
 
 void Interfaz::_menu_seleccionar_paciente(){
-	std::string apellidos;
+	std::string apellido1;
+	std::string apellido2;
+	std::bool encontrado;
 
-	std::cout<<"Introduzca apellidos del paciente a seleccionar"<<std::endl;
-	std::cin>>apellidos;
+	std::cout<<"Introduzca el primer apellido del paciente a seleccionar"<<std::endl;
+	std::cin>>apellido1;
+	std::cout<<"Introducza el segundo apellido del paciente a seleccionar"<<std::endl;
+	std::cin>>apellido2;
+	
+	
+	
 
 	//...
 
