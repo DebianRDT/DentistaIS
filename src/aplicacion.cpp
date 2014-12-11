@@ -81,7 +81,7 @@ void Aplicacion::gestionar_paciente(){
   }
 
 
-  
+
   menu_contextual();
 
 }
@@ -99,7 +99,7 @@ void Aplicacion::gestionar_backups(){
  */
 void Aplicacion::ver_detalles(){
 
-  if(_la_agenda->activo() == _la_agenda->contactos().end()){
+  if(_la_agenda->activo() == _la_agenda->contactos()->end()){
     cout<<"No hay paciente activo. Debe seleccionarlo antes"<<endl;
   }
   else{
@@ -139,13 +139,13 @@ void Aplicacion::eliminar_atributo_multiple(){
 
 
 /** Pide datos del nuevo paciente a ingresar
- *  y pide a la agenda que lo inserte si la insercion 
+ *  y pide a la agenda que lo inserte si la insercion
  *  tiene exito el paciente activo sera el recien
  *  insertado.
  */
 void Aplicacion::nuevo(){
   Paciente* p; //nuevo
-  /* POR HACER 
+  /* POR HACER
      Pedir todos los datos del paciente nuevo. */
 
 

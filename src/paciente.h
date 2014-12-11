@@ -16,7 +16,7 @@ namespace agenda{
 
     //POR HACER
     //Agregar el resto de atributos individuales
-    
+
 
   public:
 
@@ -38,8 +38,18 @@ namespace agenda{
     bool operator >=(const Contacto& c) const;
 
     /* especificas de paciente */
-    
 
+    void set_apellido1(const std::string& a1){
+        _apellido1->set_contenido(a1);
+    }
+
+    void set_apellido2(const std::string& a2){
+        _apellido2->set_contenido(a2);
+    }
+
+    void set_frecuencia(int frecuencia){
+        _frecuencia->set_contenido(frecuencia);
+    }
 
   };
 

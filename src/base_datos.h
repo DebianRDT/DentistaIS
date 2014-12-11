@@ -19,7 +19,7 @@ class BaseDatos {
 public:
 	BaseDatos();
 	virtual ~BaseDatos();
-	virtual const std::list<Contacto*>& cargar() = 0;
+	virtual std::list<Contacto*>* cargar() = 0;
 
 	static bool guardar(const std::list<Contacto*> contactos, const std::string& filename);
 };

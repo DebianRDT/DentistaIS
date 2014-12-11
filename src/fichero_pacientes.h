@@ -12,13 +12,13 @@ namespace agenda{
 
   private:
     std::string _filename;
-    
+
   public:
     Fichero();
     virtual ~Fichero();
-    
-    const std::list<Contacto*>& cargar();
-  
+
+    std::list<Contacto*>* cargar();
+
 
   };
 }
