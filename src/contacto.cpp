@@ -1,25 +1,26 @@
-/*
- * contacto.cpp
- *
- *  Created on: 07/12/2014
- *      Author: francisco
- */
+#include "contacto.h"
 #include <list>
 #include <string>
-#include "contacto.h"
+
 
 namespace agenda {
 
-  Contacto::Contacto() {
+  /** Constructor
+   */
+  Contacto::Contacto() { }
 
-  }
-
+  /** Destructor
+   *  Limpia la memoria de la lista de atributos multiples _atributos_multiples
+   */
   Contacto::~Contacto() {
-    //limpiar la lista de atributos multiples?
+    // POR HACER
 
   }
 
   bool Contacto::add_atributo_multiple(Atributo<int>* am){
+    // POR HACER
+    // en lugar de recibir Atributo<int>* debe recibir
+    // el tipo enum AM{Telefono,Nota,...}
 
     return true;
   }
@@ -29,6 +30,7 @@ namespace agenda {
    *  devuelve false
    */
   bool Contacto::del_atributo_multiple(int posicion){
+    // POR HACER
 
     return false;
   }
@@ -37,13 +39,20 @@ namespace agenda {
    *  si la posicion indicada no existe devuelve false.
    */
   bool Contacto::mod_atributo_multiple(Atributo<int>* am, int pos){
-
+    // POR HACER
     return false;
   }
 
-  const Atributo<int>* Contacto::get_atributo_multiple(int posicion) const{
 
-    return NULL;
+  /** Para obtener un atributo multiple en una posicion determinada
+   *  en el parametro p. Si la posicion existe, se almacena el atributo
+   *  en am y devuelve true. Si no existe la posicion devuelve false.
+   */
+  bool Contacto::get_atributo_multiple(int p,Atributo<int>* am){
+    // POR HACER
+
+
+    return false;
   }
   
 } /* namespace agenda */

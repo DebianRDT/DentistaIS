@@ -17,11 +17,9 @@ namespace agenda{
     //POR HACER
     //Agregar el resto de atributos individuales
 
+    
+    void _print(std::ostream& o) const;
 
-
-    void _print(std::ostream& o) const{
-      o<<_apellido1<<std::endl<<_apellido2<<std::endl;
-    }
 
   public:
 

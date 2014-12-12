@@ -2,11 +2,19 @@
 #include <iostream>
 
 namespace agenda{
+  
+
+  /** Define la forma en que se imprime la clase Paciente
+   *  Es obligatorio definirla para todas las derivadas de Contacto
+   */
+  void Paciente::_print(std::ostream& o) const{
+    o<<_apellido1<<std::endl<<_apellido2<<std::endl;
+  }
+
+
+  /** Constructor
+   */
   Paciente::Paciente(const std::string& apellido1, const std::string& apellido2){
-
-    // inicializo atributos obligatorios (para orden)
-    // si no se quieren especificar introducir cadena vacia.
-
 
     _apellido1 = Atributo<std::string>(apellido1,"APELLIDO 1");
     _apellido2 = Atributo<std::string>(apellido2,"APELLIDO 2");
@@ -18,9 +26,10 @@ namespace agenda{
 
   }
 
-
+  /** Constructor
+   */
   Paciente::Paciente(){
-    //_apellido1 = new Atributo<std::string>("","APELLIDO 1");
+
     _apellido1 = Atributo<std::string>("","APELLIDO 1");
     _apellido2 = Atributo<std::string>("","APELLIDO 2");
     _frecuencia = Atributo<int>(0,"FRECUENCIA"); //inicialmente frecuencia accesos 0
@@ -30,22 +39,38 @@ namespace agenda{
     // inicializar los demas
   }
 
+  /** Destructor
+   */
   Paciente::~Paciente(){
-
+    //POR HACER
+    //Liberar memoria de todo lo inicializado con new
   }
 
-
+  /** Marca el paciente como favorito
+   */
   void Paciente::set_favorito(){
     _favorito.set_contenido(true);
   }
   
+  /** Desmarca el paciente como favorito
+   */
   void Paciente::reset_favorito(){
     _favorito.set_contenido(false);
   }
   
+  /** Responde si el paciente es favorito o no
+   */
   bool Paciente::es_favorito(){
     return _favorito.get_contenido();
   }
+
+
+
+
+  /** Sobrecarga de operadores de comparacion
+   *  compara los atributos _apellido1 + _apellido2
+   *  segun orden alfabetico
+   */
 
   bool Paciente::operator==(const Contacto& c) const{
     //POR HACER

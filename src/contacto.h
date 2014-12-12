@@ -1,8 +1,7 @@
-/*
- * contacto.h
+/** Clase Contacto (Abstracta) 
+ *  Es la interfaz para todos los contactos con 
+ *  los que trabajara la agenda.
  *
- *  Created on: 07/12/2014
- *      Author: francisco
  */
 
 #ifndef CONTACTO_H_
@@ -39,7 +38,7 @@ public:
 	bool add_atributo_multiple(Atributo<int>* am);
 	bool del_atributo_multiple(int posicion);
 	bool mod_atributo_multiple(Atributo<int>* am, int pos);
-	const Atributo<int>* get_atributo_multiple(int posicion) const;
+	bool get_atributo_multiple(int posicion, Atributo<int>* am);
 
 	inline int contar_atributos_multiples() const{
 		return _atributos_multiples.size();
