@@ -8,7 +8,7 @@
 using namespace std;
 
 Aplicacion::Aplicacion(){
-  _bd = new agenda::Fichero();
+  _bd = new agenda::FicheroPacientes();
 
   _la_agenda = agenda::Agenda::la_agenda(_bd);
   menu_contextual();

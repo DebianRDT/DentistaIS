@@ -13,16 +13,16 @@
 namespace agenda{
 
 
-  Fichero::Fichero(){
+  FicheroPacientes::FicheroPacientes(){
     _filename = "default.txt";
   }
 
-  Fichero::~Fichero(){}
+  FicheroPacientes::~FicheroPacientes(){}
 
   /**  carga lista de contactos desde el
    *   fichero por defecto.
    */
-  void Fichero::cargar(std::list<Contacto*>* pacientes){
+  void FicheroPacientes::cargar(std::list<Contacto*>* pacientes){
 
 
     Paciente* nuevo;

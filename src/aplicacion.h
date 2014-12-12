@@ -9,7 +9,7 @@ using namespace agenda;
 class Aplicacion{
  private:
   Agenda* _la_agenda;
-  Fichero* _bd;
+  FicheroPacientes* _bd;
 
  public:
 

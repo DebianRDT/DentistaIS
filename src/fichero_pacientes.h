@@ -1,3 +1,8 @@
+/** Clase Fichero
+ *
+ */
+
+
 #ifndef FICHERO_PACIENTES_H
 #define FICHERO_PACIENTES_H
 
@@ -8,14 +13,14 @@
 #include <string>
 
 namespace agenda{
-  class Fichero:public BaseDatos{
+  class FicheroPacientes:public BaseDatos{
 
   private:
     std::string _filename;
 
   public:
-    Fichero();
-    virtual ~Fichero();
+    FicheroPacientes();
+    virtual ~FicheroPacientes();
 
     void cargar(std::list<Contacto*>* pacientes);
 
