@@ -26,9 +26,12 @@ private:
 
 	std::list<Atributo<int>*> _atributos_multiples;
 
+	//interfaz imprimir las clases derivadas
+	virtual void _print(std::ostream&) const = 0;
 
 protected:
 	Contacto();
+
 public:
 
 	virtual ~Contacto();
@@ -43,7 +46,10 @@ public:
 	}
 
 
-	virtual std::ostream &operator<<(std::ostream &out) const = 0;
+	friend std::ostream& operator<<(std::ostream &out, const Contacto& c){
+	  c._print(out);
+	  return out;
+	}
 
 	/** sobrecargar operadores >= y < para ordenar contactos por
 	 *  apellidos

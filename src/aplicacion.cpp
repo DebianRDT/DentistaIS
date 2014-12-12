@@ -2,6 +2,8 @@
 #include "agenda.h"
 #include "fichero_pacientes.h"
 #include "paciente.h"
+#include "contacto.h"
+
 
 using namespace std;
 
@@ -19,6 +21,7 @@ Aplicacion::~Aplicacion(){
 
 void Aplicacion::menu_contextual(){
   int o;
+
 
   cout<<"CLINICA DENTAL 1.0"<<endl;
   cout<<"(1)\t Gestionar paciente"<<endl;
@@ -98,13 +101,11 @@ void Aplicacion::gestionar_backups(){
  *
  */
 void Aplicacion::ver_detalles(){
+ 
+ 
+  cout<<*(_la_agenda->activo())<<endl;
 
-  if(_la_agenda->activo() == _la_agenda->contactos()->end()){
-    cout<<"No hay paciente activo. Debe seleccionarlo antes"<<endl;
-  }
-  else{
-    cout<<*(_la_agenda->activo())<<endl;
-  }
+
 
 }
 

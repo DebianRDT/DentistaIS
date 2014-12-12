@@ -17,7 +17,7 @@ namespace agenda{
     Fichero();
     virtual ~Fichero();
 
-    std::list<Contacto*>* cargar();
+    void cargar(std::list<Contacto*>* pacientes);
 
 
   };

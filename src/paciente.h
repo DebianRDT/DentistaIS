@@ -9,14 +9,19 @@ namespace agenda{
 
   class Paciente:public Contacto{
   private:
-    Atributo<std::string>* _apellido1;
-    Atributo<std::string>* _apellido2;
-    Atributo<int>* _frecuencia;
-    Atributo<bool>* _favorito;
+    Atributo<std::string> _apellido1;
+    Atributo<std::string> _apellido2;
+    Atributo<int> _frecuencia;
+    Atributo<bool> _favorito;
 
     //POR HACER
     //Agregar el resto de atributos individuales
 
+
+
+    void _print(std::ostream& o) const{
+      o<<_apellido1<<std::endl<<_apellido2<<std::endl;
+    }
 
   public:
 
@@ -31,8 +36,9 @@ namespace agenda{
     Paciente();
     virtual ~Paciente();
 
+
     /* obligatorias */
-    std::ostream &operator<<(std::ostream &out) const;
+
     bool operator ==(const Contacto& c) const;
     bool operator <(const Contacto& c) const;
     bool operator >=(const Contacto& c) const;
@@ -40,16 +46,18 @@ namespace agenda{
     /* especificas de paciente */
 
     void set_apellido1(const std::string& a1){
-        _apellido1->set_contenido(a1);
+        _apellido1.set_contenido(a1);
     }
 
     void set_apellido2(const std::string& a2){
-        _apellido2->set_contenido(a2);
+        _apellido2.set_contenido(a2);
     }
 
     void set_frecuencia(int frecuencia){
-        _frecuencia->set_contenido(frecuencia);
+        _frecuencia.set_contenido(frecuencia);
     }
+
+    
 
   };
 

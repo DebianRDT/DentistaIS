@@ -25,8 +25,17 @@ public:
 	void set_contenido(T contenido);
 	T get_contenido();
 
+	template<class F>
+	friend std::ostream& operator<<(std::ostream& os, const Atributo<F>& a);
+
 
 };
+
+template<class F>
+std::ostream& operator<<(std::ostream& os, const Atributo<F>& a){
+  os<<a._titulo<<"\t"<<a._contenido;
+  return os;
+}
 
 template<class T>
 Atributo<T>::Atributo(T contenido, const std::string& titulo){
@@ -43,7 +52,7 @@ Atributo<T>::~Atributo(){}
  */
 template<class T>
 void Atributo<T>::set_titulo(const std::string& titulo){
-	_titulo = titulo;
+  _titulo = titulo;
 }
 
 template<class T>
@@ -55,7 +64,7 @@ const std::string& Atributo<T>::get_titulo() const{
 
 template<class T>
 void Atributo<T>::set_contenido(T contenido){
-  //POR HACER
+  _contenido = contenido;
 }
 
 template<class T>

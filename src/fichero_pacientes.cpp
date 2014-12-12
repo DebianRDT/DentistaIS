@@ -19,11 +19,11 @@ namespace agenda{
 
   Fichero::~Fichero(){}
 
-  /**  Devuelve lista de contactos en el
+  /**  carga lista de contactos desde el
    *   fichero por defecto.
    */
-  std::list<Contacto*>* Fichero::cargar(){
-    std::list<Contacto*>* pacientes = new std::list<Contacto*>();
+  void Fichero::cargar(std::list<Contacto*>* pacientes){
+
 
     Paciente* nuevo;
 
@@ -41,7 +41,7 @@ namespace agenda{
     fichero.open(_filename.c_str());
 
     if(!fichero)
-      return pacientes;
+      return;
 
 
     while(!fichero.eof()){
@@ -89,14 +89,11 @@ namespace agenda{
         else if(titulo=="APELLIDO 2"){
           nuevo->set_apellido2(contenido);
         }
-
-
       }
-    }
 
+    }/*end while*/
 
-    return pacientes;
+    fichero.close();
 
   }
-
 }

@@ -12,22 +12,22 @@ namespace agenda {
 
 Agenda* Agenda::_la_agenda = 0;
 
-Agenda::Agenda(BaseDatos* bd, std::list<Contacto*>* contactos) {
+Agenda::Agenda(BaseDatos* bd) {
 	_bd = bd;
-	_contactos = contactos;
+	_bd->cargar(&_contactos);
 
-	if(!_contactos->empty()){
-	  _activo = _contactos->begin();
+	if(!_contactos.empty()){
+	  _activo = _contactos.begin();
 	}
 	else{
-	  _activo = _contactos->end();
+	  _activo = _contactos.end();
 	}
 
 }
 
   Agenda* Agenda::la_agenda(BaseDatos* bd) {
 	if(_la_agenda==0){
-	  _la_agenda = new Agenda(bd,bd->cargar());
+	  _la_agenda = new Agenda(bd);
 	}
 	return _la_agenda;
 }
@@ -49,19 +49,19 @@ Agenda::~Agenda() {
 
 
 
-  std::list<Contacto*>::iterator Agenda::activo(){
-    return _activo;
+  const Contacto* Agenda::activo(){
+    return *_activo;
   }
 
-  std::list<Contacto*>::iterator Agenda::siguiente(){
-    return _activo++;
+  const Contacto* Agenda::siguiente(){
+    return *(_activo++);
   }
 
-  std::list<Contacto*>::iterator Agenda::anterior(){
-    return _activo--;
+  const Contacto* Agenda::anterior(){
+    return *(_activo--);
   }
 
-  const std::list<Contacto*>* Agenda::contactos(){
+  const std::list<Contacto*> Agenda::contactos(){
     return _contactos;
   }
 
