@@ -23,7 +23,6 @@ namespace agenda {
     else{
       _activo = _contactos.end();
     }
-    
   }
 
   Agenda* Agenda::la_agenda(BaseDatos* bd) {
@@ -41,36 +40,6 @@ namespace agenda {
     // TODO Auto-generated destructor stub
   }
   
-  bool Agenda::vacia(){
-    //TODO
-    return true;
-  }
-  
 
-
-
-
-  const Contacto* Agenda::activo(){
-    return *_activo;
-  }
-  
-  const Contacto* Agenda::siguiente(){
-    return *(_activo++);
-  }
-  
-  const Contacto* Agenda::anterior(){
-    return *(_activo--);
-  }
-
-  const std::list<Contacto*> Agenda::contactos(){
-    return _contactos;
-  }
-
-  /** Agrega un nuevo contacto a la lista en orden alfabetico de su
-   *  primer y segundo apellido
-   */
-  bool nuevo(Contacto* contacto){
-
-  }
 
 } /* namespace agenda */

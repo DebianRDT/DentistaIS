@@ -27,23 +27,11 @@ public:
 	static Agenda* la_agenda(BaseDatos* bd);
 	virtual ~Agenda();
 
-	bool vacia();
-
-	const Contacto* activo();
-	const Contacto* siguiente();
-	const Contacto* anterior();
-
-	const std::list<Contacto*>::const_iterator& cursor(){
-	  return _activo;
-	}
 
 	BaseDatos* get_bd(){
 	  return _bd;
 	}
 
-	const std::list<Contacto*> contactos();
-	bool nuevo(Contacto* c);
-	bool eliminar();
 
 };
 

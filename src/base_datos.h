@@ -15,23 +15,30 @@
 namespace agenda {
 
 class BaseDatos {
-  // TODO
-  // definir protected lista de contactos
-  // para que todas las derivadas la tengan obligatoriamente.
 
 
  protected:
   std::list<Contacto*>* _contactos;
+  std::list<Contacto*>::iterator _activo;
 
  public:
   BaseDatos();
 
   virtual ~BaseDatos();
-  virtual void cargar() = 0;
+  virtual std::list<Contacto*>::iterator cargar() = 0;
   virtual std::list<Contacto*>* get() = 0;
 
   virtual bool guardar_como(const std::string& filename)=0;
   virtual void cargar_desde(const std::string& filename)=0;
+  
+
+  virtual bool vacia()=0;
+  virtual bool eliminar()=0;
+  virtual bool nuevo(Contacto* c)=0;
+  virtual Contacto* activo()=0;
+  virtual void siguiente()=0;
+  virtual void anterior()=0;
+
 };
 
 } /* namespace agenda */

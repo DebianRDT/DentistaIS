@@ -16,6 +16,9 @@ namespace agenda{
   FicheroPacientes::FicheroPacientes(){
     _filename = "default.txt";
     _pacientes = new std::list<Contacto*>;
+    _activo = _pacientes->begin();
+
+    
   }
 
   FicheroPacientes::FicheroPacientes(std::list<Contacto*>* pacientes){
@@ -24,7 +27,7 @@ namespace agenda{
 
     _contactos = pacientes;
     _pacientes = _contactos; //alias de _contactos declarado en clase base
-
+    _activo = _pacientes->begin();
     
   }
 
@@ -38,20 +41,26 @@ namespace agenda{
 
 
   /** Carga pacientes desde un fichero que no es el por defecto
+   *
    */
   void FicheroPacientes::cargar_desde(const std::string& filename){
     std::string aux = _filename;
     _filename = filename;
     cargar();
     _filename = aux;
+
+    //ordenar lista y guardar en fichero por defecto
+    _pacientes->sort();
+    _activo = _pacientes->begin();
+    guardar();
   }
 
   /**  Borra el contenido previo de la lista 
    *   carga lista de contactos desde el
    *   fichero por defecto
-   *   POR HACER: que devuelva true/false
+   *   POR HACER: que devuelva iterador al nuevo primer elemento de la lista
    */
-  void FicheroPacientes::cargar(){
+  std::list<Contacto*>::iterator FicheroPacientes::cargar(){
     Paciente* nuevo;
     std::string linea;
     char separador = ':';
@@ -59,19 +68,13 @@ namespace agenda{
     std::string contenido;
 
 
-    //vaciar lista de pacientes
-    while(!_pacientes->empty()){
-      delete _pacientes->front();
-      _pacientes->pop_front();
-    }
-
 
     std::ifstream fichero;
     fichero.open(_filename.c_str());
 
     // si no abre el fichero, terminar
     if(!fichero)
-      return;
+      return _activo;
 
 
     while(!fichero.eof()){
@@ -87,6 +90,7 @@ namespace agenda{
       //fin paciente
       else if(linea=="---"){
         _pacientes->push_back(nuevo);
+	
       }
 
       //interpretar atributo
@@ -121,9 +125,8 @@ namespace agenda{
     }/*end while*/
 
     fichero.close();
-
+    _activo = _pacientes->begin();
   }
-
 
   /** Guardar contactos en la lista al final del fichero por defecto
    */
@@ -144,15 +147,18 @@ namespace agenda{
       p = static_cast<Paciente*>(*(it)); //cast de Contacto* a Paciente*
 
       fichero<<"***"<<std::endl;
-      fichero<<p<<std::endl;
+      fichero<<p->get_apellido1().get_titulo()<<":"<<p->get_apellido1().get_contenido()<<std::endl;
+      fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
+      //fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
+      //POR HACER resto de atributos
       fichero<<"---"<<std::endl;
     }
     
-
+    
     fichero.close();
     
     return true;
-}
+  }
 
   /** Guardar pacientes en un fichero especificado
    */
@@ -173,16 +179,46 @@ namespace agenda{
       p = static_cast<Paciente*>(*(it)); //cast de Contacto* a Paciente*
 
       fichero<<"***"<<std::endl;
-      fichero<<*p<<std::endl;
+      fichero<<p->get_apellido1().get_titulo()<<":"<<p->get_apellido1().get_contenido()<<std::endl;
+      fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
       fichero<<"---"<<std::endl;
     }
     
-
     fichero.close();
     
     return true;
-    
-
   }
+
+
+  bool FicheroPacientes::eliminar(){
+    //POR HACER
+    //Falta comprobar que se pueda eliminar s
+
+    std::list<Contacto*>::iterator it_borrar = _activo;
+    std::list<Contacto*>::iterator sig = _activo++;
+
+    _pacientes->erase(it_borrar);
+
+    return true;
+  }
+  
+  bool FicheroPacientes::nuevo(Contacto* c){
+    _pacientes->push_back(c);
+  }
+
+  Contacto* FicheroPacientes::activo(){
+    return *_activo;
+  }
+  
+  void FicheroPacientes::siguiente(){
+    _activo++;
+  }
+  void FicheroPacientes::anterior(){
+    _activo--;
+  }
+  bool FicheroPacientes::vacia(){
+    return _pacientes->empty();
+  }
+
 
 }

@@ -31,6 +31,7 @@ class Aplicacion{
   void eliminar_atributo_multiple();
   void nuevo();
   void guardar_como();
+  void cargar_desde();
 };
 
 #endif

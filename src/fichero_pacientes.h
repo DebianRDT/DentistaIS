@@ -26,17 +26,19 @@ namespace agenda{
     
     virtual ~FicheroPacientes();
 
-
     std::list<Contacto*>* get();
 
-
-
-
-    void cargar();
+    std::list<Contacto*>::iterator cargar();
     bool guardar();
-
     bool guardar_como(const std::string& filename);
     void cargar_desde(const std::string& filename);
+
+    bool vacia();
+    bool eliminar();
+    bool nuevo(Contacto* c);
+    Contacto* activo();
+    void siguiente();
+    void anterior();
 
 
   };

@@ -52,7 +52,7 @@ void Aplicacion::gestionar_paciente(){
 
   cout<<"GESTIONAR PACIENTE"<<endl;
 
-  if(!_la_agenda->vacia()){
+  if(!_la_agenda->get_bd()->vacia()){
     //POR HACER
     //IMPRIMIR PACIENTE
   }
@@ -98,16 +98,18 @@ void Aplicacion::gestionar_backups(){
   int o;
 
   cout<<"(1)\tGuardar como"<<endl;
+  cout<<"(2)\tCargar desde"<<endl;
   cout<<"(0)\tSalir"<<endl;
 
   cout<<"Escriba una opcion"<<endl;
   cin>>o;
 
-  if(o<0 || o>1)
+  if(o<0 || o>2)
     gestionar_backups();
 
   switch(o){
   case 1: guardar_como();break;
+  case 2: cargar_desde();break;
   }
 
   menu_contextual();
@@ -118,11 +120,8 @@ void Aplicacion::gestionar_backups(){
  *
  */
 void Aplicacion::ver_detalles(){
- 
- 
-  cout<<*(_la_agenda->activo())<<endl;
-
-
+  
+  cout<<*(_la_agenda->get_bd()->activo())<<endl;
 
 }
 
@@ -173,10 +172,14 @@ void Aplicacion::nuevo(){
 
 void Aplicacion::guardar_como(){
   string nombre_fichero;
-
   cout<<"Escriba nombre del fichero donde almacenar pacientes"<<endl;
-
   cin>>nombre_fichero;
-
   _la_agenda->get_bd()->guardar_como(nombre_fichero);
+}
+
+void Aplicacion::cargar_desde(){
+  string nombre_fichero;
+  cout<<"Escriba nombre fichero de pacientes"<<endl;
+  cin>>nombre_fichero;
+  _la_agenda->get_bd()->cargar_desde(nombre_fichero);
 }
