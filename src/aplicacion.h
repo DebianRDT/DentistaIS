@@ -30,6 +30,7 @@ class Aplicacion{
   void modificar_atributo_multiple();
   void eliminar_atributo_multiple();
   void nuevo();
+  void guardar_como();
 };
 
 #endif

@@ -26,8 +26,8 @@ public:
 	void set_titulo(const std::string& titulo);
 	const std::string& get_titulo() const;
 
-	void set_contenido(T contenido);
-	T get_contenido();
+	void set_contenido(const T& contenido);
+	T get_contenido() const;
 
 	template<class F>
 	friend std::ostream& operator<<(std::ostream& os, const Atributo<F>& a);
@@ -87,17 +87,17 @@ const std::string& Atributo<T>::get_titulo() const{
 /** Pone el contenido del atributo que indiquemos por parametro
  */
 template<class T>
-void Atributo<T>::set_contenido(T contenido){
+void Atributo<T>::set_contenido(const T& contenido){
   _contenido = contenido;
 }
 
 
 /** Devuelve el contenido del atributo
  */
- template<class T>
- T Atributo<T>::get_contenido(){
-   return _contenido;
- }
+template<class T>
+T Atributo<T>::get_contenido() const{
+  return _contenido;
+}
 
 
  /** Sobrecargar operadores de comparacion

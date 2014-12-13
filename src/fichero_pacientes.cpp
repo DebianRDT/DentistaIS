@@ -15,31 +15,61 @@ namespace agenda{
 
   FicheroPacientes::FicheroPacientes(){
     _filename = "default.txt";
+    _pacientes = new std::list<Contacto*>;
   }
+
+  FicheroPacientes::FicheroPacientes(std::list<Contacto*>* pacientes){
+
+    _filename = "default.txt";
+
+    _contactos = pacientes;
+    _pacientes = _contactos; //alias de _contactos declarado en clase base
+
+    
+  }
+
 
   FicheroPacientes::~FicheroPacientes(){}
 
-  /**  carga lista de contactos desde el
-   *   fichero por defecto.
+  std::list<Contacto*>* FicheroPacientes::get(){
+    return _pacientes;
+  }
+
+
+
+  /** Carga pacientes desde un fichero que no es el por defecto
    */
-  void FicheroPacientes::cargar(std::list<Contacto*>* pacientes){
+  void FicheroPacientes::cargar_desde(const std::string& filename){
+    std::string aux = _filename;
+    _filename = filename;
+    cargar();
+    _filename = aux;
+  }
 
-
+  /**  Borra el contenido previo de la lista 
+   *   carga lista de contactos desde el
+   *   fichero por defecto
+   *   POR HACER: que devuelva true/false
+   */
+  void FicheroPacientes::cargar(){
     Paciente* nuevo;
-
     std::string linea;
     char separador = ':';
-
-
     std::string titulo;
     std::string contenido;
 
-    //POR HACER: CARGA PACIENTES DESDE EL FICHERO
-    //pacientes.push_back(new Paciente());
+
+    //vaciar lista de pacientes
+    while(!_pacientes->empty()){
+      delete _pacientes->front();
+      _pacientes->pop_front();
+    }
+
 
     std::ifstream fichero;
     fichero.open(_filename.c_str());
 
+    // si no abre el fichero, terminar
     if(!fichero)
       return;
 
@@ -49,9 +79,6 @@ namespace agenda{
       std::getline(fichero,linea);
       std::istringstream split(linea);
 
-
-
-
       //inicio paciente
       if(linea=="***"){
         nuevo = new Paciente();
@@ -59,7 +86,7 @@ namespace agenda{
 
       //fin paciente
       else if(linea=="---"){
-        pacientes->push_back(nuevo);
+        _pacientes->push_back(nuevo);
       }
 
       //interpretar atributo
@@ -96,4 +123,66 @@ namespace agenda{
     fichero.close();
 
   }
+
+
+  /** Guardar contactos en la lista al final del fichero por defecto
+   */
+  bool FicheroPacientes::guardar(){
+
+    Paciente* p;
+
+    if(_pacientes->empty())
+      return true;
+    
+    std::ofstream fichero;
+    fichero.open(_filename.c_str());
+    
+    if(!fichero.is_open())
+      return false;
+    
+    for(std::list<Contacto*>::iterator it=_pacientes->begin();it!=_pacientes->end();it++){
+      p = static_cast<Paciente*>(*(it)); //cast de Contacto* a Paciente*
+
+      fichero<<"***"<<std::endl;
+      fichero<<p<<std::endl;
+      fichero<<"---"<<std::endl;
+    }
+    
+
+    fichero.close();
+    
+    return true;
+}
+
+  /** Guardar pacientes en un fichero especificado
+   */
+  bool FicheroPacientes::guardar_como(const std::string& filename){
+
+    Paciente* p;
+
+    if(_pacientes->empty())
+      return true;
+    
+    std::ofstream fichero;
+    fichero.open(filename.c_str());
+    
+    if(!fichero.is_open())
+      return false;
+    
+    for(std::list<Contacto*>::iterator it=_pacientes->begin();it!=_pacientes->end();it++){
+      p = static_cast<Paciente*>(*(it)); //cast de Contacto* a Paciente*
+
+      fichero<<"***"<<std::endl;
+      fichero<<*p<<std::endl;
+      fichero<<"---"<<std::endl;
+    }
+    
+
+    fichero.close();
+    
+    return true;
+    
+
+  }
+
 }

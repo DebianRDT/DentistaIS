@@ -9,19 +9,29 @@
 #define BASE_DATOS_H_
 
 #include <list>
+#include <string>
 #include "contacto.h"
 
 namespace agenda {
 
 class BaseDatos {
+  // TODO
+  // definir protected lista de contactos
+  // para que todas las derivadas la tengan obligatoriamente.
 
 
-public:
-	BaseDatos();
-	virtual ~BaseDatos();
-	virtual void cargar(std::list<Contacto*>* p) = 0;
+ protected:
+  std::list<Contacto*>* _contactos;
 
-	static bool guardar(const std::list<Contacto*> contactos, const std::string& filename);
+ public:
+  BaseDatos();
+
+  virtual ~BaseDatos();
+  virtual void cargar() = 0;
+  virtual std::list<Contacto*>* get() = 0;
+
+  virtual bool guardar_como(const std::string& filename)=0;
+  virtual void cargar_desde(const std::string& filename)=0;
 };
 
 } /* namespace agenda */

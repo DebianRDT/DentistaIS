@@ -37,7 +37,9 @@ public:
 	  return _activo;
 	}
 
-	
+	BaseDatos* get_bd(){
+	  return _bd;
+	}
 
 	const std::list<Contacto*> contactos();
 	bool nuevo(Contacto* c);

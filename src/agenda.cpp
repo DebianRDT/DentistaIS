@@ -10,41 +10,42 @@
 
 namespace agenda {
 
-Agenda* Agenda::_la_agenda = 0;
+  Agenda* Agenda::_la_agenda = 0;
 
-Agenda::Agenda(BaseDatos* bd) {
-	_bd = bd;
-	_bd->cargar(&_contactos);
-
-	if(!_contactos.empty()){
-	  _activo = _contactos.begin();
-	}
-	else{
-	  _activo = _contactos.end();
-	}
-
-}
+  Agenda::Agenda(BaseDatos* bd) {
+    _bd = bd;
+    _bd->cargar();
+    _contactos = *(_bd->get());
+    
+    if(!_contactos.empty()){
+      _activo = _contactos.begin();
+    }
+    else{
+      _activo = _contactos.end();
+    }
+    
+  }
 
   Agenda* Agenda::la_agenda(BaseDatos* bd) {
-	if(_la_agenda==0){
-	  _la_agenda = new Agenda(bd);
-	}
-	return _la_agenda;
-}
+    if(_la_agenda==0){
+      _la_agenda = new Agenda(bd);
+    }
+    return _la_agenda;
+  }
+  
 
 
 
 
-
-Agenda::~Agenda() {
-	// TODO Auto-generated destructor stub
-}
-
+  Agenda::~Agenda() {
+    // TODO Auto-generated destructor stub
+  }
+  
   bool Agenda::vacia(){
     //TODO
     return true;
   }
-
+  
 
 
 
@@ -52,11 +53,11 @@ Agenda::~Agenda() {
   const Contacto* Agenda::activo(){
     return *_activo;
   }
-
+  
   const Contacto* Agenda::siguiente(){
     return *(_activo++);
   }
-
+  
   const Contacto* Agenda::anterior(){
     return *(_activo--);
   }

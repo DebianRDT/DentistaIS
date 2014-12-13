@@ -47,8 +47,16 @@ namespace agenda{
         _apellido1.set_contenido(a1);
     }
 
+    const Atributo<std::string>& get_apellido1(){
+      return _apellido1;
+    }
+
     void set_apellido2(const std::string& a2){
-        _apellido2.set_contenido(a2);
+      _apellido2.set_contenido(a2);
+    }
+
+    const Atributo<std::string>* get_apellido2(){
+      return &_apellido2;
     }
 
     void set_frecuencia(int frecuencia){

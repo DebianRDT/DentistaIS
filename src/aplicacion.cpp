@@ -8,6 +8,7 @@
 using namespace std;
 
 Aplicacion::Aplicacion(){
+
   _bd = new agenda::FicheroPacientes();
 
   _la_agenda = agenda::Agenda::la_agenda(_bd);
@@ -94,7 +95,23 @@ void Aplicacion::visualizar_pacientes(){
 }
 
 void Aplicacion::gestionar_backups(){
-  //POR HACER
+  int o;
+
+  cout<<"(1)\tGuardar como"<<endl;
+  cout<<"(0)\tSalir"<<endl;
+
+  cout<<"Escriba una opcion"<<endl;
+  cin>>o;
+
+  if(o<0 || o>1)
+    gestionar_backups();
+
+  switch(o){
+  case 1: guardar_como();break;
+  }
+
+  menu_contextual();
+
 }
 
 /** Muestra detalles del paciente seleccionado
@@ -153,3 +170,13 @@ void Aplicacion::nuevo(){
   //_la_agenda->nuevo(p);
 }
 
+
+void Aplicacion::guardar_como(){
+  string nombre_fichero;
+
+  cout<<"Escriba nombre del fichero donde almacenar pacientes"<<endl;
+
+  cin>>nombre_fichero;
+
+  _la_agenda->get_bd()->guardar_como(nombre_fichero);
+}

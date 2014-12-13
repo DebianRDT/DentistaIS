@@ -23,7 +23,7 @@ agenda.o : agenda.cpp agenda.h contacto.h base_datos.h
 base_datos.o : base_datos.cpp base_datos.h contacto.h
 	$(CC) -c -o base_datos.o base_datos.cpp $(CXX_FLAGS)
 
-fichero_pacientes.o : fichero_pacientes.cpp fichero_pacientes.h base_datos.h atributo.h
+fichero_pacientes.o : fichero_pacientes.cpp fichero_pacientes.h base_datos.h atributo.h contacto.h
 	$(CC) -c -o fichero_pacientes.o fichero_pacientes.cpp $(CXX_FLAGS)
 
 contacto.o : contacto.cpp contacto.h atributo.h
