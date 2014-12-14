@@ -19,7 +19,7 @@ private:
 
 public:
 
-	Atributo(){}
+	Atributo();
 	Atributo(T contenido, const std::string& titulo);
 	virtual ~Atributo();
 
@@ -51,6 +51,12 @@ std::ostream& operator<<(std::ostream& os, const Atributo<F>& a){
   os<<a._titulo<<"\t"<<a._contenido;
   return os;
 }
+
+
+/** Constructor
+ */
+template<class T>
+Atributo<T>::Atributo(){}
 
 /** Constructor
  */
@@ -113,24 +119,25 @@ T Atributo<T>::get_contenido() const{
  template<class T>
  bool Atributo<T>::operator>(const Atributo<T>& a){
    // POR HACER
-   return true;
+   return _contenido > a._contenido;
  }
 
  template<class T>
  bool Atributo<T>::operator<(const Atributo<T>& a){
    // POR HACER
+ 	return _contenido < a._contenido;
  }
 
  template<class T>
  bool Atributo<T>::operator<=(const Atributo<T>& a){
-   // POR HACER
-   return true;
+   
+   return _contenido <= a._contenido;
  }
  
  template<class T>
  bool Atributo<T>::operator>=(const Atributo<T>& a){
    // POR HACER
-   return true;
+   return _contenido >= a._contenido;
  }
 }
 #endif /*ATRIBUTO_H*/

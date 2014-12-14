@@ -8,6 +8,7 @@ namespace agenda{
    *  Es obligatorio definirla para todas las derivadas de Contacto
    */
   void Paciente::_print(std::ostream& o) const{
+
     o<<_apellido1<<std::endl<<_apellido2<<std::endl;
   }
 
@@ -20,10 +21,11 @@ namespace agenda{
     _apellido2 = Atributo<std::string>(apellido2,"APELLIDO 2");
     _frecuencia = Atributo<int>(0,"FRECUENCIA"); //inicialmente frecuencia accesos 0
     _favorito = Atributo<bool>(false,"FAVORITO");
-    
-    // POR HACER
-    // inicilizar los demas
 
+    _dni = Atributo<std::string>("","DNI");
+    _nombre = Atributo<std::string>("","NOMBRE");
+    _sexo = Atributo<std::string>("","SEXO");
+    _fecha_nacimiento = Atributo<std::string>("","FECHA NACIMIENTO");
   }
 
   /** Constructor
@@ -34,9 +36,10 @@ namespace agenda{
     _apellido2 = Atributo<std::string>("","APELLIDO 2");
     _frecuencia = Atributo<int>(0,"FRECUENCIA"); //inicialmente frecuencia accesos 0
     _favorito = Atributo<bool>(false,"FAVORITO");
-
-    // POR HACER
-    // inicializar los demas
+    _dni = Atributo<std::string>("","DNI");
+    _nombre = Atributo<std::string>("","NOMBRE");
+    _sexo = Atributo<std::string>("","SEXO");
+    _fecha_nacimiento = Atributo<std::string>("","FECHA NACIMIENTO");
   }
 
   /** Destructor
@@ -49,18 +52,21 @@ namespace agenda{
   /** Marca el paciente como favorito
    */
   void Paciente::set_favorito(){
+    
     _favorito.set_contenido(true);
   }
   
   /** Desmarca el paciente como favorito
    */
   void Paciente::reset_favorito(){
+
     _favorito.set_contenido(false);
   }
   
   /** Responde si el paciente es favorito o no
    */
   bool Paciente::es_favorito(){
+    
     return _favorito.get_contenido();
   }
 
@@ -72,16 +78,29 @@ namespace agenda{
    *  segun orden alfabetico
    */
 
-  bool Paciente::operator==(const Contacto& c) const{
-    //POR HACER
+  bool Paciente::operator==(Contacto* c){
+    Paciente* p = dynamic_cast<Paciente*>(c);
+
+    if(_apellido1 ==  p->_apellido1 && _apellido2 == p->_apellido2)
+      return true;
   }
   
-  bool Paciente::operator<(const Contacto& c) const{
-    //POR HACER
+  bool Paciente::operator<(Contacto* c){
+
+    Paciente* p = dynamic_cast<Paciente*>(c);
+
+    
+    if(_apellido1 == p->_apellido1 && _apellido2 < p->_apellido2){
+      return true;
+    }
+    else if(_apellido1 < p->_apellido1){
+      return true;
+    }
+    
+
+
+    return false;
   }
   
-  bool Paciente::operator>=(const Contacto& c) const{
-    //POR HACER
-  }
 
 }

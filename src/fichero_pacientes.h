@@ -20,6 +20,7 @@ namespace agenda{
     std::string _filename;
     std::list<Contacto*>* _pacientes;
 
+
   public:
     FicheroPacientes();
     FicheroPacientes(std::list<Contacto*>* pacientes);

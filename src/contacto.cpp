@@ -17,10 +17,12 @@ namespace agenda {
 
   }
 
-  bool Contacto::add_atributo_multiple(Atributo<int>* am){
+  bool Contacto::add_atributo_multiple(Atributo<AM>* am){
+
+
+    _atributos_multiples.push_back(am);
     // POR HACER
-    // en lugar de recibir Atributo<int>* debe recibir
-    // el tipo enum AM{Telefono,Nota,...}
+    // comprobar que se inserto correctamente
 
     return true;
   }
@@ -30,17 +32,40 @@ namespace agenda {
    *  devuelve false
    */
   bool Contacto::del_atributo_multiple(int posicion){
-    // POR HACER
+    std::list< Atributo<AM>* >::iterator it = _atributos_multiples.begin();
+    for(int i=1;i<posicion;i++){
+      if(it!=_atributos_multiples.end())
+        it++;
+      else
+        return false;
+    }
 
-    return false;
+    // cuando sale del bucle, el iterador esta en la posicion indicada
+    // por posicion
+    _atributos_multiples.erase(it);
+
+    return true;
   }
 
   /** Cambia un atributo multiple situado en la posicion pos por otro
    *  si la posicion indicada no existe devuelve false.
    */
-  bool Contacto::mod_atributo_multiple(Atributo<int>* am, int pos){
-    // POR HACER
-    return false;
+  bool Contacto::mod_atributo_multiple(Atributo<AM>* am, int posicion){
+    std::list< Atributo<AM>* >::iterator it = _atributos_multiples.begin();
+    for(int i=1;i<posicion;i++){
+      if(it!=_atributos_multiples.end())
+        it++;
+      else
+        return false;
+    }
+
+    // cuando sale del bucle, el iterador esta en la posicion indicada
+    // por posicion
+    _atributos_multiples.erase(it);
+
+    _atributos_multiples.push_back(am);
+
+    return true;
   }
 
 
@@ -48,11 +73,21 @@ namespace agenda {
    *  en el parametro p. Si la posicion existe, se almacena el atributo
    *  en am y devuelve true. Si no existe la posicion devuelve false.
    */
-  bool Contacto::get_atributo_multiple(int p,Atributo<int>* am){
+  bool Contacto::get_atributo_multiple(int posicion,Atributo<AM>* am){
     // POR HACER
+    std::list< Atributo<AM>* >::iterator it = _atributos_multiples.begin();
+    for(int i=1;i<posicion;i++){
+      if(it!=_atributos_multiples.end())
+        it++;
+      else
+        return false;
+    }
 
+    // cuando sale del bucle, el iterador esta en la posicion indicada
+    // por posicion
+    am = (*it);
 
-    return false;
+    return true;
   }
   
 } /* namespace agenda */

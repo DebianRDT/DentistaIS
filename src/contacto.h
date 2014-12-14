@@ -23,22 +23,21 @@ enum AM{Telefono,Nota,Direccion,RedSocial};
 class Contacto {
 private:
 
-	std::list<Atributo<int>*> _atributos_multiples;
-
 	//interfaz imprimir las clases derivadas
 	virtual void _print(std::ostream&) const = 0;
 
 protected:
 	Contacto();
+	std::list<Atributo<AM>*> _atributos_multiples;
 
 public:
 
 	virtual ~Contacto();
 
-	bool add_atributo_multiple(Atributo<int>* am);
+	bool add_atributo_multiple(Atributo<AM>* am);
 	bool del_atributo_multiple(int posicion);
-	bool mod_atributo_multiple(Atributo<int>* am, int pos);
-	bool get_atributo_multiple(int posicion, Atributo<int>* am);
+	bool mod_atributo_multiple(Atributo<AM>* am, int pos);
+	bool get_atributo_multiple(int posicion, Atributo<AM>* am);
 
 	inline int contar_atributos_multiples() const{
 		return _atributos_multiples.size();
@@ -53,9 +52,9 @@ public:
 	/** sobrecargar operadores >= y < para ordenar contactos por
 	 *  apellidos
 	 */
-	virtual bool operator ==(const Contacto& c) const = 0;
-	virtual bool operator <(const Contacto& c) const = 0;
-	virtual bool operator >=(const Contacto& c) const = 0;
+	virtual bool operator ==(Contacto* c) = 0;
+	virtual bool operator <(Contacto* c) = 0;
+	
 
 };
 
