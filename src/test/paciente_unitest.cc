@@ -1,4 +1,4 @@
-#include "paciente.h"
+#include "../paciente.h"
 #include "gtest/gtest.h"
 
 

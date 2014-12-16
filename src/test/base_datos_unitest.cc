@@ -1,2 +1,2 @@
-#include "base_datos.h"
+#include "../base_datos.h"
 #include "gtest/gtest.h"

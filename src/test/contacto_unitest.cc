@@ -1,2 +1,2 @@
-#include "contacto.h"
+#include "../contacto.h"
 #include "gtest/gtest.h"
