@@ -1,5 +1,7 @@
 #include "fechas.h"
 #include <iostream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -15,10 +17,30 @@ Fecha::Fecha(int day, int month, int year) {
 }
 
 string Fecha::getFecha() {
-    return (day_+"/"+month_+"/"+year_);
+    stringstream streamdia, streammes, streamanio;
+    string dia, mes, anio;
+
+    cout << "Dia_: " << day_ << endl;
+    streamdia << day_;
+    dia=streamdia.str();
+    cout << "Dia: " << dia << endl;
+
+    cout << "Mes_: " << month_ << endl;
+    streammes << month_;
+    mes=streammes.str();
+    cout << "Mes: " << mes << endl;
+
+    cout << "Año_: " << year_ << endl;
+    streamanio << year_;
+
+    anio=streamanio.str();
+    cout << "Año: " << anio << endl;
+
+    string cadena=dia + "/" + mes + "/" + anio;
+    return cadena;
 }
 
-Fecha::setFecha(const int &day, const int &month, const int &year) {
+void Fecha::setFecha(const int &day, const int &month, const int &year) {
     if(validar(day, month, year)) {
         day_=day;
         month_=month;
@@ -28,6 +50,10 @@ Fecha::setFecha(const int &day, const int &month, const int &year) {
 
 bool Fecha::validar() {
     bool validez=false;
+
+    cout << day_ << endl;
+    cout << month_ << endl;
+    cout << year_ << endl;
 
     switch(month_) {
 
@@ -69,7 +95,9 @@ bool Fecha::validar() {
 
 bool Fecha::validar(const int &day, const int &month, const int &year) {
     bool validez=false;
-
+    cout << day_ << endl;
+    cout << month_ << endl;
+    cout << year_ << endl;
     switch(month) {
 
     //Meses con 31 días
@@ -79,7 +107,7 @@ bool Fecha::validar(const int &day, const int &month, const int &year) {
     case 7:
     case 10:
     case 12: if (day <= 31 && day >= 1) {
-            validez=true;
+            validez=true; break;
         }
 
     //Meses con menos de 31 días
@@ -94,14 +122,14 @@ bool Fecha::validar(const int &day, const int &month, const int &year) {
             if(day <= 28 && day >= 1) {
                 validez=true;
             }
-        }
+        } break;
 
     case 4:
     case 6:
     case 8:
     case 9:
     case 11: if (day <= 30 && day >= 1) {
-            validez=true;
+            validez=true; break;
         }
     }
 

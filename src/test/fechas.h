@@ -1,5 +1,6 @@
 #ifndef FECHAS_H
 #define FECHAS_H
+#include <iostream>
 
 class Fecha {
 private:
@@ -12,7 +13,7 @@ public:
     bool validar();
     bool validar(const int &day, const int &month, const int &year);
     void setFecha(const int &day, const int &month, const int &year);
-    string getFecha();
+    std::string getFecha();
 
 };
 

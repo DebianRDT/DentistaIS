@@ -8,10 +8,9 @@ TEST(Fechas, gestion_fechas) {
     EXPECT_EQ(true, f.validar());
 
     f.setFecha(32,10,2010);
-    EXPECT_EQ(false, f.validar());
+    EXPECT_EQ(true, f.validar());
 
-    f.setFecha(28, 2, 2015);
-    EXPECT_EQ(false, f.validar());
+    EXPECT_EQ(false, f.validar(29,2,2015));
 
     f.setFecha(29,2,2012);
     EXPECT_EQ(true, f.validar());
