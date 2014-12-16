@@ -23,27 +23,26 @@ Aplicacion::~Aplicacion(){
 void Aplicacion::menu_contextual(){
   int o;
 
+  do{
+    cout<<"CLINICA DENTAL 1.0"<<endl;
+    cout<<"(1)\t Gestionar paciente"<<endl;
+    cout<<"(2)\t Visualizar pacientes"<<endl;
+    cout<<"(3)\t Gestionar backups"<<endl;
+    cout<<"(0)\t Salir"<<endl;
 
-  cout<<"CLINICA DENTAL 1.0"<<endl;
-  cout<<"(1)\t Gestionar paciente"<<endl;
-  cout<<"(2)\t Visualizar pacientes"<<endl;
-  cout<<"(3)\t Gestionar backups"<<endl;
-  cout<<"(0)\t Salir"<<endl;
+    cout<<"Elija una opcion"<<endl;
+    cin>>o;
 
-  cout<<"Elija una opcion"<<endl;
-  cin>>o;
+    if(o==0)
+      return;
 
-  if(o==0)
-    return;
+    switch(o){
+    case 1: gestionar_paciente();break;
+    case 2: visualizar_pacientes();break;
+    case 3: gestionar_backups();break;
+    }
 
-  if(o<1 || o>3)
-    menu_contextual();
-
-  switch(o){
-  case 1: gestionar_paciente();break;
-  case 2: visualizar_pacientes();break;
-  case 3: gestionar_backups();break;
-  }
+  }while(o>0 || o<=3);
 
 }
 
@@ -51,42 +50,48 @@ void Aplicacion::gestionar_paciente(){
   int o;
 
   cout<<"GESTIONAR PACIENTE"<<endl;
-
-  if(!_la_agenda->get_bd()->vacia()){
-    //POR HACER
-    //IMPRIMIR PACIENTE
-  }
-
-  cout<<"(1)\tVer detalles"<<endl;
-  cout<<"(2)\tModificar"<<endl;
-  cout<<"(3)\tEliminar"<<endl;
-  cout<<"(4)\tMarcar favorito"<<endl;
-  cout<<"(5)\tAgregar atributo multiple"<<endl;
-  cout<<"(6)\tModificar atributo multiple"<<endl;
-  cout<<"(7)\tEliminar atributo multiple"<<endl;
-  cout<<"(8)\tNuevo"<<endl;
-  cout<<"(0)\tAtras"<<endl;
-
-  cout<<"Escriba una opcion"<<endl;
-  cin>>o;
-
-  if(o<0 || o>8)
-    gestionar_paciente();
-
-  switch(o){
-  case 1: ver_detalles();break;
-  case 2: modificar();break;
-  case 3: eliminar(); break;
-  case 4: marcar_favorito(); break;
-  case 5: agregar_atributo_multiple(); break;
-  case 6: modificar_atributo_multiple(); break;
-  case 7: eliminar_atributo_multiple(); break;
-  case 8: nuevo(); break;
-  }
+  cout<<"---"<<endl;
 
 
 
-  menu_contextual();
+
+  do{
+
+    if(!_la_agenda->get_bd()->vacia()){
+      cout<<"Paciente seleccionado:"<<endl;
+      cout<<*(_la_agenda->get_bd()->activo())<<endl;
+      
+    }
+
+    cout<<"(1)\tIr a siguiente"<<endl;
+    cout<<"(2)\tVer detalles"<<endl;
+    cout<<"(3)\tModificar"<<endl;
+    cout<<"(4)\tEliminar"<<endl;
+    cout<<"(5)\tMarcar favorito"<<endl;
+    cout<<"(6)\tAgregar atributo multiple"<<endl;
+    cout<<"(7)\tModificar atributo multiple"<<endl;
+    cout<<"(8)\tEliminar atributo multiple"<<endl;
+    cout<<"(9)\tNuevo"<<endl;
+    cout<<"(0)\tAtras"<<endl;
+
+    cout<<"Escriba una opcion"<<endl;
+    cin>>o;
+
+    switch(o){
+    case 1: siguiente();break;
+    case 2: ver_detalles();break;
+    case 3: modificar();break;
+    case 4: eliminar(); break;
+    case 5: marcar_favorito(); break;
+    case 6: agregar_atributo_multiple(); break;
+    case 7: modificar_atributo_multiple(); break;
+    case 8: eliminar_atributo_multiple(); break;
+    case 9: nuevo(); break;
+    case 0: return;
+    }
+
+  }while(o>0 || o<=9);
+
 
 }
 
@@ -167,6 +172,11 @@ void Aplicacion::nuevo(){
 
 
   //_la_agenda->nuevo(p);
+}
+
+void Aplicacion::siguiente(){
+  _la_agenda->get_bd()->siguiente();
+  
 }
 
 

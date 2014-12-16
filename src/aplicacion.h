@@ -32,6 +32,7 @@ class Aplicacion{
   void nuevo();
   void guardar_como();
   void cargar_desde();
+  void siguiente();
 };
 
 #endif

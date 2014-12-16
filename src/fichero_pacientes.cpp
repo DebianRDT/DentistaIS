@@ -211,11 +211,47 @@ namespace agenda{
   }
   
   void FicheroPacientes::siguiente(){
-    _activo++;
+    std::list<Contacto*>::iterator aux = _pacientes->begin();
+    std::list<Contacto*>::iterator ultimo;
+
+    while(aux!=_pacientes->end()) {
+      ultimo=aux;
+      ++aux;
+
+    }
+
+    if(ultimo != _activo)
+      ++_activo;
+    else{
+      _activo = _pacientes->begin();
+    }
+   
+
   }
+
   void FicheroPacientes::anterior(){
-    _activo--;
+
+    std::list<Contacto*>::iterator aux = _pacientes->begin();
+    std::list<Contacto*>::iterator ultimo;
+
+    
+    if(_activo == _pacientes->begin()){
+
+      while(aux!=_pacientes->end()) {
+        ultimo=aux;
+        ++aux;
+      }
+
+      _activo = ultimo;
+      
+    }
+    else{
+      _activo--;
+    }
+    
+
   }
+
   bool FicheroPacientes::vacia(){
     return _pacientes->empty();
   }
