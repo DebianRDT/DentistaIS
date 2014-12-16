@@ -10,6 +10,7 @@ private:
 public:
     Fecha(int day, int month, int year);
     bool validar();
+    bool validar(int day, int month, int year);
     void setFecha(int day, int month, int year);
     string getFecha();
 
