@@ -98,11 +98,9 @@ namespace agenda{
         return _sexo;
     }
 
-    /*La fecha de nacimiento estaría bien que aceptase tres valores int y que con eso
-     * construyamos la fecha. Así será más fácil controlar que no se introduzcan fechas
-     * no válidas, ¿no?   (Comentario escrito por Debian) */
+    /*Ya está hecha la clase Fecha, así que deberíamos modificar esto, supongo   (Comentario escrito por Debian) */
 
-    void set_fecha_nacimiento(const std::string& fecha_nacimiento){
+    void set_fecha_nacimiento(const int &dia, const int &mes, const int &year){
         _fecha_nacimiento.set_contenido(fecha_nacimiento);
     }
 
