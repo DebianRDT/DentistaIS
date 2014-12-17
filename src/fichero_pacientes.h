@@ -40,6 +40,7 @@ namespace agenda{
     Contacto* activo();
     void siguiente();
     void anterior();
+    bool buscar(const std::string& b);
 
 
   };

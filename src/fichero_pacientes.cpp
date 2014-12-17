@@ -261,4 +261,9 @@ namespace agenda{
   }
 
 
+  bool FicheroPacientes::buscar(const std::string& b){
+
+    
+  }
+
 }
