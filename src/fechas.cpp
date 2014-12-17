@@ -31,21 +31,20 @@ namespace agenda{
         stringstream streamdia, streammes, streamanio;
         string dia, mes, anio;
 
-        cout << "Dia_: " << day_ << endl;
+
         streamdia << day_;
         dia=streamdia.str();
-        cout << "Dia: " << dia << endl;
 
-        cout << "Mes_: " << month_ << endl;
+
+
         streammes << month_;
         mes=streammes.str();
-        cout << "Mes: " << mes << endl;
 
-        cout << "Año_: " << year_ << endl;
+
+
         streamanio << year_;
 
         anio=streamanio.str();
-        cout << "Año: " << anio << endl;
 
         string cadena=dia + "/" + mes + "/" + anio;
         return cadena;
@@ -62,9 +61,7 @@ namespace agenda{
     bool Fecha::validar() {
         bool validez=false;
 
-        cout << day_ << endl;
-        cout << month_ << endl;
-        cout << year_ << endl;
+
 
         switch(month_) {
 
@@ -106,9 +103,7 @@ namespace agenda{
 
     bool Fecha::validar(const int &day, const int &month, const int &year) {
         bool validez=false;
-        cout << day_ << endl;
-        cout << month_ << endl;
-        cout << year_ << endl;
+
         switch(month) {
 
         //Meses con 31 días
