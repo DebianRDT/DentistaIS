@@ -11,7 +11,7 @@ clinica.x : $(OBJ)
 main.o :  main.cpp atributo.h
 	$(CC) -c -o main.o main.cpp $(CXX_FLAGS)
 
-aplicacion.o : aplicacion.cpp agenda.h fichero_pacientes.h paciente.h
+aplicacion.o : aplicacion.cpp agenda.h fichero_pacientes.h paciente.h fechas.h
 	$(CC) -c -o aplicacion.o aplicacion.cpp $(CXX_FLAGS)
 
 paciente.o : paciente.cpp paciente.h contacto.h atributo.h fechas.h

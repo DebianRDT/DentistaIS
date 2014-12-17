@@ -3,6 +3,7 @@
 #include "fichero_pacientes.h"
 #include "paciente.h"
 #include "contacto.h"
+#include "fechas.h"
 
 
 using namespace std;
@@ -166,10 +167,57 @@ void Aplicacion::eliminar_atributo_multiple(){
  *  insertado.
  */
 void Aplicacion::nuevo(){
-  Paciente* p; //nuevo
-  /* POR HACER
-     Pedir todos los datos del paciente nuevo. */
+  Paciente * p= new Paciente();
+  string a1, a2, dni, nombre, sexo;
+  char favorito;
+  int frecuencia;
+  Fecha f;
+  int month, day, year;
 
+	cout<<"Introduzca nombre"<<endl;
+	cin>>nombre;
+	p->set_nombre(nombre);
+	cout<<"Introduzca primer apellido"<<endl;
+  cin>>a1;
+  p->set_apellido1(a1);
+  cout<<"Introduzca segundo apellido"<<endl;
+  cin>>a2;
+  p->set_apellido2(a2);
+  cout<<"Introduzca DNI"<<endl;
+  cin>>dni;
+  p->set_dni(dni);
+  cout<<"Introduzca frecuencia"<<endl;
+  cin>>frecuencia;
+  p->set_frecuencia(frecuencia);
+  cout<<"¿Es favorito? y/n\n"<<endl;
+  cin>>favorito;
+  switch (favorito)
+  {
+    case 'y':
+      p->set_favorito();
+      break;
+    case 'n':
+      p->reset_favorito();
+      break;
+    default:
+      cout<<"Introduzca y/n\n"<<endl;
+  }
+  cout<<"Introduzca sexo"<<endl;
+  cin>>sexo;
+  p->set_sexo(sexo);
+  cout<<"Introduzca fecha de nacimiento"<<endl;
+  cout<<"Introduzca mes"<<endl;
+  cin>>month;
+  cout<<"Introduzca dia"<<endl;
+  cin>>day;
+  cout<<"Introduzca año"<<endl;
+  cin>>year;
+  f.setFecha(day, month, year);
+
+  _la_agenda->get_bd()->nuevo(p);
+
+  /* POR HACER
+     FALTAN ATRIBUTOS MULTIPLES*/
 
   //_la_agenda->nuevo(p);
 }
