@@ -28,16 +28,16 @@ private:
 
 protected:
 	Contacto();
-	std::list<Atributo<AM>*> _atributos_multiples;
+    std::list<Atributo<std::string>*> _atributos_multiples;
 
 public:
 
 	virtual ~Contacto();
 
-	bool add_atributo_multiple(Atributo<AM>* am);
+    bool add_atributo_multiple(Atributo<std::string>* am);
 	bool del_atributo_multiple(int posicion);
-	bool mod_atributo_multiple(Atributo<AM>* am, int pos);
-	bool get_atributo_multiple(int posicion, Atributo<AM>* am);
+    bool mod_atributo_multiple(Atributo<std::string>* am, int pos);
+    bool get_atributo_multiple(int posicion, Atributo<std::string> *am);
 
 	inline int contar_atributos_multiples() const{
 		return _atributos_multiples.size();

@@ -17,7 +17,7 @@ namespace agenda {
 
   }
 
-  bool Contacto::add_atributo_multiple(Atributo<AM>* am){
+  bool Contacto::add_atributo_multiple(Atributo<std::string> *am){
 
 
     _atributos_multiples.push_back(am);
@@ -32,7 +32,7 @@ namespace agenda {
    *  devuelve false
    */
   bool Contacto::del_atributo_multiple(int posicion){
-    std::list< Atributo<AM>* >::iterator it = _atributos_multiples.begin();
+    std::list< Atributo<std::string>* >::iterator it = _atributos_multiples.begin();
     for(int i=1;i<posicion;i++){
       if(it!=_atributos_multiples.end())
         it++;
@@ -50,8 +50,8 @@ namespace agenda {
   /** Cambia un atributo multiple situado en la posicion pos por otro
    *  si la posicion indicada no existe devuelve false.
    */
-  bool Contacto::mod_atributo_multiple(Atributo<AM>* am, int posicion){
-    std::list< Atributo<AM>* >::iterator it = _atributos_multiples.begin();
+  bool Contacto::mod_atributo_multiple(Atributo<std::string> *am, int posicion){
+    std::list< Atributo<std::string>* >::iterator it = _atributos_multiples.begin();
     for(int i=1;i<posicion;i++){
       if(it!=_atributos_multiples.end())
         it++;
@@ -73,9 +73,9 @@ namespace agenda {
    *  en el parametro p. Si la posicion existe, se almacena el atributo
    *  en am y devuelve true. Si no existe la posicion devuelve false.
    */
-  bool Contacto::get_atributo_multiple(int posicion,Atributo<AM>* am){
+  bool Contacto::get_atributo_multiple(int posicion,Atributo<std::string>* am){
     // POR HACER
-    std::list< Atributo<AM>* >::iterator it = _atributos_multiples.begin();
+    std::list< Atributo<std::string>* >::iterator it = _atributos_multiples.begin();
     for(int i=1;i<posicion;i++){
       if(it!=_atributos_multiples.end())
         it++;
