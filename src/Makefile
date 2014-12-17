@@ -1,6 +1,6 @@
 OUT = bin/clinica.x
 CC = g++
-OBJ = main.o paciente.o base_datos.o fichero_pacientes.o contacto.o atributo.o agenda.o aplicacion.o
+OBJ = main.o paciente.o base_datos.o fichero_pacientes.o contacto.o atributo.o agenda.o aplicacion.o fechas.o
 INC = -Isrc
 CXX_FLAGS = -g
 
@@ -14,7 +14,7 @@ main.o :  main.cpp atributo.h
 aplicacion.o : aplicacion.cpp agenda.h fichero_pacientes.h paciente.h
 	$(CC) -c -o aplicacion.o aplicacion.cpp $(CXX_FLAGS)
 
-paciente.o : paciente.cpp paciente.h contacto.h atributo.h
+paciente.o : paciente.cpp paciente.h contacto.h atributo.h fechas.h
 	$(CC) -c -o paciente.o paciente.cpp $(CXX_FLAGS)
 
 agenda.o : agenda.cpp agenda.h contacto.h base_datos.h
@@ -31,6 +31,9 @@ contacto.o : contacto.cpp contacto.h atributo.h
 
 atributo.o :  atributo.cpp atributo.h
 	$(CC) -c -o atributo.o atributo.cpp $(CXX_FLAGS)
+
+fechas.o : fechas.cpp fechas.h
+	$(CC) -c -o fechas.o fechas.cpp $(CXX_FLAGS)
 
 clean :
 	rm *.o

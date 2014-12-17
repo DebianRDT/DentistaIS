@@ -5,6 +5,8 @@
 #include "contacto.h"
 #include "atributo.h"
 
+#include "fechas.h"
+
 namespace agenda{
 
   class Paciente:public Contacto{
@@ -16,13 +18,13 @@ namespace agenda{
 
     Atributo<std::string> _nombre;
     Atributo<std::string> _dni;
-    Atributo<std::string> _fecha_nacimiento;
+    Atributo<Fecha> _fecha_nacimiento;
     Atributo<std::string> _sexo;
 
     //POR HACER
     //Implementar atributos multiples
 
-    
+
     void _print(std::ostream& o) const;
 
 
@@ -44,7 +46,7 @@ namespace agenda{
 
     bool operator ==(Contacto* c);
     bool operator <(Contacto* c);
-    
+
 
 
 
@@ -100,11 +102,11 @@ namespace agenda{
 
     /*Ya está hecha la clase Fecha, así que deberíamos modificar esto, supongo   (Comentario escrito por Debian) */
 
-    void set_fecha_nacimiento(const int &dia, const int &mes, const int &year){
-        _fecha_nacimiento.set_contenido(fecha_nacimiento);
+    inline void set_fecha_nacimiento(const Fecha& f){
+        _fecha_nacimiento.set_contenido(f);
     }
 
-    const Atributo<std::string>& get_fecha_nacimiento(){
+    inline const Atributo<Fecha>& get_fecha_nacimiento(){
         return _fecha_nacimiento;
     }
 

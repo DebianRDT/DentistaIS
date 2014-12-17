@@ -1,6 +1,7 @@
 #ifndef FECHAS_H
 #define FECHAS_H
 #include <iostream>
+namespace agenda{
 
 class Fecha {
 private:
@@ -9,6 +10,7 @@ private:
     int year_;
 
 public:
+	Fecha();
     Fecha(int day, int month, int year);
     bool validar();
     bool validar(const int &day, const int &month, const int &year);
@@ -17,6 +19,7 @@ public:
 
 };
 
+}
 
 
 #endif

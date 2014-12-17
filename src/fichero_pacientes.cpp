@@ -18,7 +18,7 @@ namespace agenda{
     _pacientes = new std::list<Contacto*>;
     _activo = _pacientes->begin();
 
-    
+
   }
 
   FicheroPacientes::FicheroPacientes(std::list<Contacto*>* pacientes){
@@ -28,7 +28,7 @@ namespace agenda{
     _contactos = pacientes;
     _pacientes = _contactos; //alias de _contactos declarado en clase base
     _activo = _pacientes->begin();
-    
+
   }
 
 
@@ -55,7 +55,7 @@ namespace agenda{
     guardar();
   }
 
-  /**  Borra el contenido previo de la lista 
+  /**  Borra el contenido previo de la lista
    *   carga lista de contactos desde el
    *   fichero por defecto
    *   POR HACER: que devuelva iterador al nuevo primer elemento de la lista
@@ -90,7 +90,7 @@ namespace agenda{
       //fin paciente
       else if(linea=="---"){
         _pacientes->push_back(nuevo);
-	
+
       }
 
       //interpretar atributo
@@ -136,13 +136,13 @@ namespace agenda{
 
     if(_pacientes->empty())
       return true;
-    
+
     std::ofstream fichero;
     fichero.open(_filename.c_str());
-    
+
     if(!fichero.is_open())
       return false;
-    
+
     for(std::list<Contacto*>::iterator it=_pacientes->begin();it!=_pacientes->end();it++){
       p = static_cast<Paciente*>(*(it)); //cast de Contacto* a Paciente*
 
@@ -153,10 +153,10 @@ namespace agenda{
       //POR HACER resto de atributos
       fichero<<"---"<<std::endl;
     }
-    
-    
+
+
     fichero.close();
-    
+
     return true;
   }
 
@@ -168,13 +168,13 @@ namespace agenda{
 
     if(_pacientes->empty())
       return true;
-    
+
     std::ofstream fichero;
     fichero.open(filename.c_str());
-    
+
     if(!fichero.is_open())
       return false;
-    
+
     for(std::list<Contacto*>::iterator it=_pacientes->begin();it!=_pacientes->end();it++){
       p = static_cast<Paciente*>(*(it)); //cast de Contacto* a Paciente*
 
@@ -183,9 +183,9 @@ namespace agenda{
       fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
       fichero<<"---"<<std::endl;
     }
-    
+
     fichero.close();
-    
+
     return true;
   }
 
@@ -201,15 +201,19 @@ namespace agenda{
 
     return true;
   }
-  
+
   bool FicheroPacientes::nuevo(Contacto* c){
+
+
     _pacientes->push_back(c);
+    _pacientes->sort();
+
   }
 
   Contacto* FicheroPacientes::activo(){
     return *_activo;
   }
-  
+
   void FicheroPacientes::siguiente(){
     std::list<Contacto*>::iterator aux = _pacientes->begin();
     std::list<Contacto*>::iterator ultimo;
@@ -225,7 +229,7 @@ namespace agenda{
     else{
       _activo = _pacientes->begin();
     }
-   
+
 
   }
 
@@ -234,7 +238,7 @@ namespace agenda{
     std::list<Contacto*>::iterator aux = _pacientes->begin();
     std::list<Contacto*>::iterator ultimo;
 
-    
+
     if(_activo == _pacientes->begin()){
 
       while(aux!=_pacientes->end()) {
@@ -243,12 +247,12 @@ namespace agenda{
       }
 
       _activo = ultimo;
-      
+
     }
     else{
       _activo--;
     }
-    
+
 
   }
 
