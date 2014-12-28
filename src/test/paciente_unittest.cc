@@ -81,8 +81,8 @@ TEST(Paciente, sexo) {
     p.set_sexo("Mujer");
     EXPECT_EQ("Mujer", p.get_sexo().get_contenido());
 }
-/*
-TEST(Paciente, fecha_nacimiento) {
+
+/*TEST(Paciente, fecha_nacimiento) {
     Paciente p("Apellido1", "Apellido2");
     Fecha f();
     f.setFecha(40,10,2010);
@@ -93,7 +93,7 @@ TEST(Paciente, fecha_nacimiento) {
     f.setFecha(20,10,2010);
     p.set_fecha_nacimiento(f);
     EXPECT_EQ(f, p.get_fecha_nacimiento());
-}
+}*/
 
 
 
@@ -108,5 +108,5 @@ TEST(Paciente, comparacion_pacientes) {
     EXPECT_GT(p1, p3);
     EXPECT_EQ(p4, p1);
 
-}*/
+}
 
