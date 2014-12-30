@@ -140,4 +140,14 @@ namespace agenda{
 
         return validez;
     }
+
+  bool Fecha::operator==(const Fecha& f){
+    if(day_ == f.day_, month_ == f.month_ && year_ == f.year_)
+      return true;
+    else
+      return false;
+  }
+
+
+
 }

@@ -29,13 +29,16 @@ namespace agenda {
   protected:
     Contacto();
     std::list< Atributo* > _atributos_multiples;
+    std::list<Atributo*>::iterator _cursor;
 
   public:
 
     virtual ~Contacto();
 
-    bool del_atributo_multiple(int posicion);
-    bool get_atributo_multiple(int posicion, Atributo* am);
+    void add_atributo_multiple(Atributo *am);
+    void mod_atributo_multiple(Atributo *am);
+    void del_atributo_multiple();
+    Atributo* get_atributo_multiple();
 
     
     inline int contar_atributos_multiples() const{

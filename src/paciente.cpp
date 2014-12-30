@@ -85,62 +85,37 @@ namespace agenda{
     tel->set_contenido(telefono);
     tel->set_titulo("TELEFONO");
 
-    _atributos_multiples.push_back(tel);
+    add_atributo_multiple(tel);
 
   }
-
-  bool Paciente::get_telefono(int posicion, const std::string* t){
-    Atributo* telefono;
-
-    get_atributo_multiple(posicion,telefono);
-    if(telefono && telefono->get_titulo() == "TELEFONO"){
-      t = &telefono->get_contenido();
-      return true;
-    }
-    
-    return false;
-  }
-
 
   void  Paciente::add_nota(const std::string& nota){
     Atributo* n = new Atributo;
     n->set_contenido(nota);
     n->set_titulo("NOTA");
 
-    _atributos_multiples.push_back(n);
-
+    add_atributo_multiple(n);
 
   }
   
-  // nota apunta a la nota indicada por pos si existe
-  // si no existe apunta a NULL y devuelve false.
-  bool Paciente::get_nota(int posicion, const std::string* n){
-    Atributo* nota;
-
-    get_atributo_multiple(posicion,nota);
-    if(nota && nota->get_titulo() == "NOTA"){
-      n = &nota->get_contenido();
-      return true;
-    }
-    
-    return false;
-  }
-
   
   void  Paciente::add_direccion(const std::string& direccion){
     Atributo* d = new Atributo;
     d->set_contenido(direccion);
     d->set_titulo("DIRECCION");
 
-    _atributos_multiples.push_back(d);
+    add_atributo_multiple(d);
+
   }
+
   
   void  Paciente::add_red_social(const std::string& red_social){
     Atributo* r = new Atributo;
     r->set_contenido(red_social);
-    r->set_titulo("RED_SOCIAL");
+    r->set_titulo("RED SOCIAL");
 
-    _atributos_multiples.push_back(r);
+    add_atributo_multiple(r);
+
   }
   
 

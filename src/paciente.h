@@ -117,8 +117,8 @@ namespace agenda{
       _fecha_nacimiento.set_contenido(fecha);
     }
 
-    inline const Atributo& get_fecha_nacimiento(){
-        return _fecha_nacimiento;
+    inline const std::string& get_fecha_nacimiento(){
+      return _fecha_nacimiento.get_contenido();
     }
 
 

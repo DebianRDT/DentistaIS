@@ -29,7 +29,9 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
+
 TESTS = fechas_unittest atributo_unittest paciente_unittest contacto_unittest
+
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -103,10 +105,18 @@ paciente_unittest : paciente.o contacto.o atributo.o fechas.o paciente_unittest.
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
 # PRUEBA UNITARIA CONTACTO
+
 contacto_unittest.o : contacto_unittest.cc ../contacto.h ../atributo.h ../paciente.h  $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c contacto_unittest.cc
 
 contacto_unittest : contacto.o atributo.o paciente.o contacto_unittest.o gtest_main.a  $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
+
+
+#contacto_unittest.o : contacto_unittest.cc ../contacto.h ../atributo.h ../paciente.h  $(GTEST_HEADERS)
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c contacto_unittest.cc
+#
+#contacto_unittest : contacto.o atributo.o paciente.o contacto_unittest.o gtest_main.a  $(GTEST_HEADERS)
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 

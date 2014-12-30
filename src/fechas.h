@@ -18,6 +18,8 @@ public:
 
     const std::string& getFecha() const;
 
+    bool operator==(const Fecha& f);
+
 };
 
 }

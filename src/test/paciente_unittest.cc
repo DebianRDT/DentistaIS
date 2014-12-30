@@ -83,19 +83,16 @@ TEST(Paciente, sexo) {
 }
 
 
+
 TEST(Paciente, telefono){
   
   Paciente p;
-  std::string* telefono1;
-  std::string* telefono2;
+  std::string telefono1;
 
   p.add_telefono("123456789");
-  p.add_telefono("666666666");
+  telefono1 = p.get_atributo_multiple()->get_contenido();
 
-  p.get_telefono(1,telefono1);
-  p.get_telefono(2,telefono2);
-
-  //EXPECT_EQ("123456789", *telefono1);
+  EXPECT_EQ("123456789", telefono1);
   //EXPECT_EQ("666666666", *telefono2);
   
   
@@ -104,46 +101,52 @@ TEST(Paciente, telefono){
 
 TEST(Paciente, nota){
 
-  /*
+  
   Paciente p;
-  std::string* nota;
+  std::string nota;
 
   p.add_nota("hola mundo");  
-  p.get_nota(1,nota);
+  nota = p.get_atributo_multiple()->get_contenido();
 
-  EXPECT_EQ("hola mundo", *nota);
-  */
+  EXPECT_EQ("hola mundo", nota);
+  
 }
 
 
 
 
-/*
-TEST(Paciente, fecha_nacimiento) {
-    Paciente p("Apellido1", "Apellido2");
-    Fecha f();
-    f.setFecha(40,10,2010);
 
+TEST(Paciente, fecha_nacimiento) {
+    Fecha f(1,1,2010);
+
+    Paciente p("Apellido1", "Apellido2");
     p.set_fecha_nacimiento(f);
-    EXPECT_EQ(f, p.get_fecha_nacimiento());
+
+    EXPECT_EQ("1/1/2010", p.get_fecha_nacimiento());
 
     f.setFecha(20,10,2010);
     p.set_fecha_nacimiento(f);
-    EXPECT_EQ(f, p.get_fecha_nacimiento());
+    EXPECT_EQ("20/10/2010", p.get_fecha_nacimiento());
 }
 
 
 
 TEST(Paciente, comparacion_pacientes) {
-    Paciente p1("Garrido", "Martinez");
-    Paciente p2("Molino", "Ortega");
-    Paciente p3("Moya", "Robles");
-    Paciente p4("Molino", "Ortega");
+    Paciente* p1 = new Paciente("Garrido", "Martinez");
+    Paciente* p2 = new Paciente("Molino", "Ortega");
+    Paciente* p3 = new Paciente("Moya", "Robles");
+    Paciente* p4 = new Paciente("Molino", "Ortega");
 
-    EXPECT_LT(p2, p1);
-    EXPECT_LT(p3, p2);
-    EXPECT_GT(p1, p3);
-    EXPECT_EQ(p4, p1);
+    EXPECT_EQ(true, p1<p2);
+    EXPECT_EQ(false, p3<p2);
+    EXPECT_EQ(false, p4<p1);
 
-}*/
+
+
+    delete(p1);
+    delete(p2);
+    delete(p3);
+    delete(p4);
+
+}
 
