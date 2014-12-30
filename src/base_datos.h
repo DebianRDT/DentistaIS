@@ -38,7 +38,7 @@ class BaseDatos {
   virtual Contacto* activo()=0;
   virtual void siguiente()=0;
   virtual void anterior()=0;
-  virtual bool buscar(const std::string& b)=0;
+  virtual bool buscar(const std::string& a1, const std::string& a2)=0;
 
 };
 

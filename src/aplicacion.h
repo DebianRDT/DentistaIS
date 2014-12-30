@@ -20,15 +20,21 @@ class Aplicacion{
   void gestionar_paciente();
   void visualizar_pacientes();
   void gestionar_backups();
+  void menu_modificar();
 
 
-  void ver_detalles();
+  void buscar();
   void modificar();
   void eliminar();
   void marcar_favorito();
-  void agregar_atributo_multiple();
-  void modificar_atributo_multiple();
+
+  void agregar_nota();
+  void agregar_direccion();
+  void agregar_red_social();
+  void agregar_telefono();
+
   void eliminar_atributo_multiple();
+
   void nuevo();
   void guardar_como();
   void cargar_desde();

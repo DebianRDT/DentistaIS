@@ -65,14 +65,18 @@ void Aplicacion::gestionar_paciente(){
     }
 
     cout<<"(1)\tIr a siguiente"<<endl;
-    cout<<"(2)\tVer detalles"<<endl;
+    cout<<"(2)\tBuscar"<<endl;
     cout<<"(3)\tModificar"<<endl;
     cout<<"(4)\tEliminar"<<endl;
     cout<<"(5)\tMarcar favorito"<<endl;
-    cout<<"(6)\tAgregar atributo multiple"<<endl;
-    cout<<"(7)\tModificar atributo multiple"<<endl;
-    cout<<"(8)\tEliminar atributo multiple"<<endl;
-    cout<<"(9)\tNuevo"<<endl;
+
+    cout<<"(6)\tAgregar nota"<<endl;
+    cout<<"(7)\tAgregar red social"<<endl;
+    cout<<"(8)\tAgregar direccion"<<endl;
+    cout<<"(9)\tAgregar telefono"<<endl;
+
+    cout<<"(10)\tEliminar atributo multiple"<<endl;
+    cout<<"(11)\tNuevo"<<endl;
     cout<<"(0)\tAtras"<<endl;
 
     cout<<"Escriba una opcion"<<endl;
@@ -80,23 +84,27 @@ void Aplicacion::gestionar_paciente(){
 
     switch(o){
     case 1: siguiente();break;
-    case 2: ver_detalles();break;
+    case 2: buscar();break;
     case 3: modificar();break;
     case 4: eliminar(); break;
     case 5: marcar_favorito(); break;
-    case 6: agregar_atributo_multiple(); break;
-    case 7: modificar_atributo_multiple(); break;
-    case 8: eliminar_atributo_multiple(); break;
-    case 9: nuevo(); break;
+
+    case 6: agregar_nota(); break;
+    case 7: agregar_red_social(); break;
+    case 8: agregar_direccion(); break;
+    case 9: agregar_telefono(); break;
+
+
+    case 10: eliminar_atributo_multiple(); break;
+    case 11: nuevo(); break;
     case 0: return;
     }
 
-  }while(o>0 || o<=9);
-
-
+  }while(o>0 || o<=11);
 }
 
 void Aplicacion::visualizar_pacientes(){
+  
   //POR HACER
 }
 
@@ -119,21 +127,46 @@ void Aplicacion::gestionar_backups(){
   }
 
   menu_contextual();
+}
+
+void Aplicacion::modificar(){
+  
+  int o;
+
+  cout<<"(1) Nombre"<<endl;
+  cout<<"(2) Apellido 1"<<endl;
+  cout<<"(3) Apellido 2"<<endl;
+  cout<<"(4) Fecha de nacimiento"<<endl;
+  cout<<"(5) Sexo"<<endl;
+  // ...
+  // POR HACER
+
+  cout<<"Elija que modificar:"<<endl;
+  cin>>o;
+
 
 }
+
 
 /** Muestra detalles del paciente seleccionado
  *
  */
-void Aplicacion::ver_detalles(){
+void Aplicacion::buscar(){
+  string apellido1,apellido2;
   
-  cout<<*(_la_agenda->get_bd()->activo())<<endl;
+  cout<<"Introduzca primer apellido:"<<endl;
+  cin>>apellido2;
+  cout<<"Introduzca segundo apellido:"<<endl;
+  cin>>apellido2;
 
+
+  _la_agenda->get_bd()->buscar(apellido1,apellido2);
+  
+
+  
 }
 
-void Aplicacion::modificar(){
-  //POR HACER
-}
+
 
 /** Pide confirmacion para eliminar el paciente y
  *  en caso afirmativo lo elimina ( el paciente activo )
@@ -148,13 +181,23 @@ void Aplicacion::marcar_favorito(){
   //POR HACER
 }
 
-void Aplicacion::agregar_atributo_multiple(){
+
+void Aplicacion::agregar_nota(){
   //POR HACER
 }
 
-void Aplicacion::modificar_atributo_multiple(){
+void Aplicacion::agregar_telefono(){
   //POR HACER
 }
+
+void Aplicacion::agregar_red_social(){
+  //POR HACER
+}
+
+void Aplicacion::agregar_direccion(){
+  //POR HACER
+}
+
 
 void Aplicacion::eliminar_atributo_multiple(){
   //POR HACER

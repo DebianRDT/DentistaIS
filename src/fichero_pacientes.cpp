@@ -298,7 +298,7 @@ namespace agenda{
   }
 
 
-  bool FicheroPacientes::buscar(const std::string& b){
+  bool FicheroPacientes::buscar(const std::string& a1, const std::string& a2){
 
     
   }
