@@ -7,7 +7,9 @@ namespace agenda {
 
   /** Constructor
    */
-  Contacto::Contacto() { }
+  Contacto::Contacto() {
+
+  }
 
   /** Destructor
    *  Limpia la memoria de la lista de atributos multiples _atributos_multiples
@@ -17,22 +19,15 @@ namespace agenda {
 
   }
 
-  bool Contacto::add_atributo_multiple(Atributo<std::string> *am){
+  
 
-
-    _atributos_multiples.push_back(am);
-    // POR HACER
-    // comprobar que se inserto correctamente
-
-    return true;
-  }
 
   /** Elimina el atributo multiple situado en la posicion introducia
    *  por parametro si esta posicion existe en la lista. En caso negativo
    *  devuelve false
    */
   bool Contacto::del_atributo_multiple(int posicion){
-    std::list< Atributo<std::string>* >::iterator it = _atributos_multiples.begin();
+    std::list< Atributo* >::iterator it = _atributos_multiples.begin();
     for(int i=1;i<posicion;i++){
       if(it!=_atributos_multiples.end())
         it++;
@@ -50,10 +45,11 @@ namespace agenda {
   /** Cambia un atributo multiple situado en la posicion pos por otro
    *  si la posicion indicada no existe devuelve false.
    */
+  /*
   bool Contacto::mod_atributo_multiple(Atributo<std::string> *am, int posicion){
-    std::list< Atributo<std::string>* >::iterator it = _atributos_multiples.begin();
+    std::list< Atributo<std::string*>* >::iterator it = _atributos_multiples.begin();
     for(int i=1;i<posicion;i++){
-      if(it!=_atributos_multiples.end())
+      if(it!=_atributos_multiples->end())
         it++;
       else
         return false;
@@ -67,18 +63,25 @@ namespace agenda {
 
     return true;
   }
+  */
 
 
   /** Para obtener un atributo multiple en una posicion determinada
    *  en el parametro p. Si la posicion existe, se almacena el atributo
    *  en am y devuelve true. Si no existe la posicion devuelve false.
    */
-  bool Contacto::get_atributo_multiple(int posicion,Atributo<std::string>* am){
+  
+  
+  bool Contacto::get_atributo_multiple(int posicion,Atributo* am){
     // POR HACER
-    std::list< Atributo<std::string>* >::iterator it = _atributos_multiples.begin();
-    for(int i=1;i<posicion;i++){
-      if(it!=_atributos_multiples.end())
+    std::list<Atributo*>::iterator it = _atributos_multiples.begin();
+    int i = 1;
+    
+    while(i<posicion){
+      if(it!=_atributos_multiples.end()){
         it++;
+	i++;
+      }
       else
         return false;
     }
@@ -90,4 +93,5 @@ namespace agenda {
     return true;
   }
   
+
 } /* namespace agenda */

@@ -170,7 +170,7 @@ void Aplicacion::nuevo(){
   Paciente * p= new Paciente();
   string a1, a2, dni, nombre, sexo;
   char favorito;
-  int frecuencia;
+  string frecuencia;
   Fecha f;
   int month, day, year;
 
@@ -205,6 +205,8 @@ void Aplicacion::nuevo(){
   cout<<"Introduzca sexo"<<endl;
   cin>>sexo;
   p->set_sexo(sexo);
+
+  
   cout<<"Introduzca fecha de nacimiento"<<endl;
   cout<<"Introduzca mes"<<endl;
   cin>>month;
@@ -213,6 +215,7 @@ void Aplicacion::nuevo(){
   cout<<"Introduzca año"<<endl;
   cin>>year;
   f.setFecha(day, month, year);
+  
 
   _la_agenda->get_bd()->nuevo(p);
 

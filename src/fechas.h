@@ -15,7 +15,8 @@ public:
     bool validar();
     bool validar(const int &day, const int &month, const int &year);
     void setFecha(const int &day, const int &month, const int &year);
-    std::string getFecha();
+
+    const std::string& getFecha() const;
 
 };
 

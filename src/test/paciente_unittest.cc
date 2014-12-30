@@ -65,10 +65,10 @@ TEST(Paciente, asignar_dni) {
 TEST(Paciente, frecuencia) {
     Paciente p("Apellido1", "Apellido2");
 
-    EXPECT_EQ(0, p.get_frecuencia().get_contenido());
+    EXPECT_EQ(0, p.get_frecuencia());
 
-    p.set_frecuencia(14);
-    EXPECT_EQ(14, p.get_frecuencia().get_contenido());
+    p.set_frecuencia("14");
+    EXPECT_EQ(14, p.get_frecuencia());
 }
 
 
@@ -81,6 +81,43 @@ TEST(Paciente, sexo) {
     p.set_sexo("Mujer");
     EXPECT_EQ("Mujer", p.get_sexo().get_contenido());
 }
+
+
+TEST(Paciente, telefono){
+  
+  Paciente p;
+  std::string* telefono1;
+  std::string* telefono2;
+
+  p.add_telefono("123456789");
+  p.add_telefono("666666666");
+
+  p.get_telefono(1,telefono1);
+  p.get_telefono(2,telefono2);
+
+  //EXPECT_EQ("123456789", *telefono1);
+  //EXPECT_EQ("666666666", *telefono2);
+  
+  
+}
+
+
+TEST(Paciente, nota){
+
+  /*
+  Paciente p;
+  std::string* nota;
+
+  p.add_nota("hola mundo");  
+  p.get_nota(1,nota);
+
+  EXPECT_EQ("hola mundo", *nota);
+  */
+}
+
+
+
+
 /*
 TEST(Paciente, fecha_nacimiento) {
     Paciente p("Apellido1", "Apellido2");

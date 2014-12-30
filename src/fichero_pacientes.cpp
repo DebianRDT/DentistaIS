@@ -100,7 +100,7 @@ namespace agenda{
 
         // frecuencia
         if(titulo=="FRECUENCIA"){
-          nuevo->set_frecuencia(atoi(contenido.c_str()));
+          nuevo->set_frecuencia(contenido);
         }
 
         // favorito

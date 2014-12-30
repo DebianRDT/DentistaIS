@@ -27,7 +27,7 @@ namespace agenda{
         }
     }
 
-    string Fecha::getFecha() {
+    const string& Fecha::getFecha() const{
         stringstream streamdia, streammes, streamanio;
         string dia, mes, anio;
 
@@ -46,8 +46,7 @@ namespace agenda{
 
         anio=streamanio.str();
 
-        string cadena=dia + "/" + mes + "/" + anio;
-        return cadena;
+        return dia + "/" + mes + "/" + anio;
     }
 
     void Fecha::setFecha(const int &day, const int &month, const int &year) {

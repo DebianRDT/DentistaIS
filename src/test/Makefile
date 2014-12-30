@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = fechas_unittest paciente_unittest contacto_unittest
+TESTS = fechas_unittest atributo_unittest paciente_unittest contacto_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -79,6 +79,15 @@ fechas_unittest.o : fechas_unittest.cc ../fechas.h $(GTEST_HEADERS)
 fechas_unittest : fechas.o fechas_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
+# PRUEBA UNITARIA ATRIBUTO
+
+atributo.o : ../atributo.cpp ../atributo.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ../atributo.cpp
+atributo_unittest.o : atributo_unittest.cc ../atributo.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c atributo_unittest.cc
+atributo_unittest : atributo.o atributo_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
 
 # PRUEBA UNITARIA PACIENTE
 paciente.o : ../paciente.cpp ../paciente.h ../contacto.h ../atributo.h  ../fechas.h $(GTEST_HEADERS)
@@ -86,9 +95,6 @@ paciente.o : ../paciente.cpp ../paciente.h ../contacto.h ../atributo.h  ../fecha
 
 contacto.o : ../contacto.cpp ../contacto.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ../contacto.cpp
-
-atributo.o : ../atributo.cpp ../atributo.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c ../atributo.cpp
 
 paciente_unittest.o : paciente_unittest.cc ../paciente.h ../contacto.h ../atributo.h  $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c paciente_unittest.cc
@@ -102,3 +108,5 @@ contacto_unittest.o : contacto_unittest.cc ../contacto.h ../atributo.h ../pacien
 
 contacto_unittest : contacto.o atributo.o paciente.o contacto_unittest.o gtest_main.a  $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+
