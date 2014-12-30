@@ -22,7 +22,7 @@ namespace agenda{
     Atributo _fecha_nacimiento;
     Atributo _sexo;
 
-    void _print(std::ostream& o) const;
+    void _print(std::ostream& o);
 
 
   public:
@@ -112,11 +112,11 @@ namespace agenda{
         return _sexo;
     }
 
-    inline void set_fecha_nacimiento(const Fecha& f){
-      std::string fecha = f.getFecha();
-      _fecha_nacimiento.set_contenido(fecha);
+    inline void set_fecha_nacimiento(const std::string& f){
+      _fecha_nacimiento.set_contenido(f);
     }
 
+    // TODO cambiar para que devuelva tipo fecha
     inline const std::string& get_fecha_nacimiento(){
       return _fecha_nacimiento.get_contenido();
     }

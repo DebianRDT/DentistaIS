@@ -9,9 +9,16 @@ namespace agenda{
   /** Define la forma en que se imprime la clase Paciente
    *  Es obligatorio definirla para todas las derivadas de Contacto
    */
-  void Paciente::_print(std::ostream& o) const{
-
+  void Paciente::_print(std::ostream& o){
+    o<<_nombre<<std::endl;
     o<<_apellido1<<std::endl<<_apellido2<<std::endl;
+
+    //imprimo atributos multiples
+    o<<"INFORMACION EXTRA ("<<contar_atributos_multiples()<<")"<<std::endl;
+    while(!es_ultimo()){
+      o<<*get_atributo_multiple()<<std::endl;
+    }
+
   }
 
 

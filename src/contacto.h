@@ -24,7 +24,7 @@ namespace agenda {
   private:
 
     //interfaz imprimir las clases derivadas
-    virtual void _print(std::ostream&) const = 0;
+    virtual void _print(std::ostream& o) = 0;
 
   protected:
     Contacto();
@@ -35,22 +35,24 @@ namespace agenda {
 
     virtual ~Contacto();
 
+
+    /*metodos para gestion de atributos multiples*/
     void add_atributo_multiple(Atributo *am);
     void mod_atributo_multiple(Atributo *am);
     void del_atributo_multiple();
     Atributo* get_atributo_multiple();
-
+    bool es_ultimo();
     
     inline int contar_atributos_multiples() const{
       return _atributos_multiples.size();
     }
     
     
-    friend std::ostream& operator<<(std::ostream &out, const Contacto& c){
+    friend std::ostream& operator<<(std::ostream &out, Contacto& c){
       c._print(out);
       return out;
-    }
 
+    }
     /** sobrecargar operadores >= y < para ordenar contactos por
      *  apellidos
      */
@@ -60,5 +62,8 @@ namespace agenda {
     
   };
   
+
+
+
 } /* namespace agenda */
 #endif /* CONTACTO_H_ */

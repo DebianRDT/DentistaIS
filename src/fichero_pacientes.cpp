@@ -120,6 +120,43 @@ namespace agenda{
         else if(titulo=="APELLIDO 2"){
           nuevo->set_apellido2(contenido);
         }
+	
+	// nombre
+        else if(titulo=="NOMBRE"){
+          nuevo->set_nombre(contenido);
+        }
+
+	// sexo
+        else if(titulo=="SEXO"){
+          nuevo->set_sexo(contenido);
+        }
+
+	// fecha nacimiento
+        else if(titulo=="FECHA NACIMIENTO"){
+          nuevo->set_fecha_nacimiento(contenido);
+        }
+	
+	// ATRIBUTOS MULTIPLES
+
+	// nota
+	else if(titulo=="NOTA"){
+	  nuevo->add_nota(contenido);
+	}
+
+	// telefono
+	else if(titulo=="TELEFONO"){
+	  nuevo->add_telefono(contenido);
+	}
+
+	// direccion
+	else if(titulo=="DIRECCION"){
+	  nuevo->add_direccion(contenido);
+	}
+
+	// red social
+	else if(titulo=="RED SOCIAL"){
+	  nuevo->add_nota(contenido);
+	}
       }
 
     }/*end while*/
