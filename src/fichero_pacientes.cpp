@@ -299,8 +299,36 @@ namespace agenda{
 
 
   bool FicheroPacientes::buscar(const std::string& a1, const std::string& a2){
+    Paciente* act; //paciente actual
+    Paciente b(a1,a2); //paciente buscado
+    std::list<Contacto*>::iterator it = _pacientes->begin();
 
-    
+    while(it!=_pacientes->end()){
+      if(b == *it){
+	// si lo encuentra, sale del bucle y _activo
+	// apunta primer paciente encontrado
+	_activo = it;
+	return true;
+      }
+      ++it;
+    }
+
+    //si no encuentra el exacto,
+    //buscamos coincidencias por primer apellido
+    it = _pacientes->begin();
+    while(it!=_pacientes->end()){
+      act = dynamic_cast<Paciente*>(*it);
+      if(b.get_apellido1().get_contenido() == act->get_apellido1().get_contenido()){
+	// si lo encuentra, sale del bucle y _activo
+	// apunta primer paciente encontrado
+	_activo = it;
+	return true;
+      }
+      ++it;
+    }
+
+    return false;
+
   }
 
 }

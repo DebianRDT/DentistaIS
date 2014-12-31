@@ -28,7 +28,7 @@ public:
 	virtual ~Agenda();
 
 
-	BaseDatos* get_bd(){
+	BaseDatos* contactos(){
 	  return _bd;
 	}
 

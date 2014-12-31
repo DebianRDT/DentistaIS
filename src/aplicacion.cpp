@@ -58,9 +58,9 @@ void Aplicacion::gestionar_paciente(){
 
   do{
 
-    if(!_la_agenda->get_bd()->vacia()){
+    if(!_la_agenda->contactos()->vacia()){
       cout<<"Paciente seleccionado:"<<endl;
-      cout<<*(_la_agenda->get_bd()->activo())<<endl;
+      cout<<*(_la_agenda->contactos()->activo())<<endl;
       
     }
 
@@ -160,7 +160,12 @@ void Aplicacion::buscar(){
   cin>>apellido2;
 
 
-  _la_agenda->get_bd()->buscar(apellido1,apellido2);
+  if(_la_agenda->contactos()->buscar(apellido1,apellido2)){
+    cout<<"ENCONTRADO!"<<endl;
+  }
+  else{
+    cout<<"NO ENCONTRADO"<<endl;
+  }
   
 
   
@@ -260,7 +265,7 @@ void Aplicacion::nuevo(){
   f.setFecha(day, month, year);
   
 
-  _la_agenda->get_bd()->nuevo(p);
+  _la_agenda->contactos()->nuevo(p);
 
   /* POR HACER
      FALTAN ATRIBUTOS MULTIPLES*/
@@ -269,7 +274,7 @@ void Aplicacion::nuevo(){
 }
 
 void Aplicacion::siguiente(){
-  _la_agenda->get_bd()->siguiente();
+  _la_agenda->contactos()->siguiente();
   
 }
 
@@ -278,12 +283,12 @@ void Aplicacion::guardar_como(){
   string nombre_fichero;
   cout<<"Escriba nombre del fichero donde almacenar pacientes"<<endl;
   cin>>nombre_fichero;
-  _la_agenda->get_bd()->guardar_como(nombre_fichero);
+  _la_agenda->contactos()->guardar_como(nombre_fichero);
 }
 
 void Aplicacion::cargar_desde(){
   string nombre_fichero;
   cout<<"Escriba nombre fichero de pacientes"<<endl;
   cin>>nombre_fichero;
-  _la_agenda->get_bd()->cargar_desde(nombre_fichero);
+  _la_agenda->contactos()->cargar_desde(nombre_fichero);
 }
