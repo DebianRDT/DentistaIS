@@ -39,6 +39,9 @@ class Aplicacion{
   void guardar_como();
   void cargar_desde();
   void siguiente();
+
+  void todos();
+
 };
 
 #endif

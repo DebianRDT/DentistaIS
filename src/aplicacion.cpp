@@ -104,8 +104,9 @@ void Aplicacion::gestionar_paciente(){
 }
 
 void Aplicacion::visualizar_pacientes(){
-  
-  //POR HACER
+  //POR HACER -> MENU
+
+  todos();
 }
 
 void Aplicacion::gestionar_backups(){
@@ -291,4 +292,21 @@ void Aplicacion::cargar_desde(){
   cout<<"Escriba nombre fichero de pacientes"<<endl;
   cin>>nombre_fichero;
   _la_agenda->contactos()->cargar_desde(nombre_fichero);
+}
+
+/** Listar todos los contactos ordenador alfabeticamente
+ *  por apellidos
+ */
+void Aplicacion::todos(){
+  if(!_la_agenda->contactos()->vacia()){
+    do{
+      cout<<*(_la_agenda->contactos()->activo())<<endl;
+      _la_agenda->contactos()->siguiente();
+    }while(!_la_agenda->contactos()->es_primero());
+    
+  }
+  else{
+    cout<<"NADA EN LA AGENDA"<<endl;
+  }
+
 }

@@ -15,14 +15,7 @@ namespace agenda {
   Agenda::Agenda(BaseDatos* bd) {
     _bd = bd;
     _bd->cargar();
-    _contactos = *(_bd->get());
-    
-    if(!_contactos.empty()){
-      _activo = _contactos.begin();
-    }
-    else{
-      _activo = _contactos.end();
-    }
+
   }
 
   Agenda* Agenda::la_agenda(BaseDatos* bd) {

@@ -41,6 +41,7 @@ namespace agenda{
     void siguiente();
     void anterior();
     bool buscar(const std::string& a1, const std::string& a2);
+    bool es_primero();
 
 
   };

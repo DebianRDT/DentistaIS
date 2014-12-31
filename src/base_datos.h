@@ -1,10 +1,3 @@
-/*
- * base_datos.h
- *
- *  Created on: 07/12/2014
- *      Author: francisco
- */
-
 #ifndef BASE_DATOS_H_
 #define BASE_DATOS_H_
 
@@ -39,6 +32,7 @@ class BaseDatos {
   virtual void siguiente()=0;
   virtual void anterior()=0;
   virtual bool buscar(const std::string& a1, const std::string& a2)=0;
+  virtual bool es_primero()=0;
 
 };
 

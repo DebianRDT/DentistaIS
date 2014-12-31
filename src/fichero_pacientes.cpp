@@ -251,6 +251,9 @@ namespace agenda{
     return *_activo;
   }
 
+  /** Pone _activo al siguiente contacto, si es el ultimo
+   *  _activo pasara a apuntar al primer contacto de la lista
+   */
   void FicheroPacientes::siguiente(){
     std::list<Contacto*>::iterator aux = _pacientes->begin();
     std::list<Contacto*>::iterator ultimo;
@@ -295,6 +298,12 @@ namespace agenda{
 
   bool FicheroPacientes::vacia(){
     return _pacientes->empty();
+  }
+
+  /** Devuelve true si el paciente _activo es el primero de la lista
+   */
+  bool FicheroPacientes::es_primero(){
+    return _activo == _pacientes->begin();
   }
 
 

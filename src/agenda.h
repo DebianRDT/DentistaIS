@@ -21,12 +21,10 @@ protected:
 	Agenda(BaseDatos* bd);
 	BaseDatos* _bd;
 
-	std::list<Contacto*> _contactos;
-	std::list<Contacto*>::const_iterator _activo;
 public:
 	static Agenda* la_agenda(BaseDatos* bd);
 	virtual ~Agenda();
-
+	
 
 	BaseDatos* contactos(){
 	  return _bd;

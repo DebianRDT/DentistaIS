@@ -13,7 +13,7 @@
 namespace agenda {
 
 BaseDatos::BaseDatos() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
