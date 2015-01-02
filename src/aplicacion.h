@@ -41,6 +41,7 @@ class Aplicacion{
   void siguiente();
 
   void todos();
+  void favoritos();
 
 };
 

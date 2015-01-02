@@ -104,9 +104,28 @@ void Aplicacion::gestionar_paciente(){
 }
 
 void Aplicacion::visualizar_pacientes(){
-  //POR HACER -> MENU
+  int o;
+  do{
+    cout<<"Visualizar pacientes:"<<endl;
+    cout<<"(1) Ver todos."<<endl;
+    cout<<"(2) Ver frecuentes."<<endl;
+    cout<<"(3) Ver favoritos"<<endl;
+    cout<<"(0) Atras"<<endl;
 
-  todos();
+  
+
+    cout<<"Escriba una opcion"<<endl;
+    cin>>o;
+    
+    switch(o){
+    case 1: todos();break;
+    case 0: return;
+    case 2:break; // POR HACER -> VER FRECUENTES
+    case 3: favoritos(); break;
+    }
+
+  }while(o>0 || o<=3);
+
 }
 
 void Aplicacion::gestionar_backups(){
@@ -309,4 +328,19 @@ void Aplicacion::todos(){
     cout<<"NADA EN LA AGENDA"<<endl;
   }
 
+}
+
+
+/** Mostrar lista de pacientes favoritos
+ */
+
+void Aplicacion::favoritos(){
+  if(!_la_agenda->contactos()->vacia()){
+    do{
+      if(_la_agenda->contactos()->activo()->es_favorito()){
+	cout<<*(_la_agenda->contactos()->activo())<<endl;
+      }
+      _la_agenda->contactos()->siguiente();
+    }while(!_la_agenda->contactos()->es_primero());
+  }
 }

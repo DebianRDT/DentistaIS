@@ -58,6 +58,8 @@ namespace agenda {
      */
     virtual bool operator ==(Contacto* c) = 0;
     virtual bool operator <(Contacto* c) = 0;
+
+    virtual bool es_favorito() = 0;
     
     
   };
