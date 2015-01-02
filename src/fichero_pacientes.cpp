@@ -309,7 +309,10 @@ namespace agenda{
 
   bool FicheroPacientes::buscar(const std::string& a1, const std::string& a2){
     Paciente* act; //paciente actual
-    Paciente b(a1,a2); //paciente buscado
+    Paciente b; //paciente buscado
+    b.set_apellido1(a1);
+    b.set_apellido2(a2);
+
     std::list<Contacto*>::iterator it = _pacientes->begin();
 
     while(it!=_pacientes->end()){

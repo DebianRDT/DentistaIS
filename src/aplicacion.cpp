@@ -175,7 +175,7 @@ void Aplicacion::buscar(){
   string apellido1,apellido2;
   
   cout<<"Introduzca primer apellido:"<<endl;
-  cin>>apellido2;
+  cin>>apellido1;
   cout<<"Introduzca segundo apellido:"<<endl;
   cin>>apellido2;
 
