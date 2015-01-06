@@ -60,7 +60,8 @@ namespace agenda {
     virtual bool operator <(Contacto* c) = 0;
 
     virtual bool es_favorito() = 0;
-    
+    virtual void set_favorito() = 0;
+    virtual void reset_favorito() = 0;
     
   };
   

@@ -203,12 +203,19 @@ void Aplicacion::eliminar(){
 
 
 void Aplicacion::marcar_favorito(){
-  //POR HACER
+  _la_agenda->contactos()->activo()->set_favorito();
+  _la_agenda->contactos()->guardar();
 }
 
 
 void Aplicacion::agregar_nota(){
-  //POR HACER
+  string nota;
+  cout<<"Escriba nueva nota"<<endl;
+  cin>>nota;
+
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  p->add_nota(nota);
+  _la_agenda->contactos()->guardar();
 }
 
 void Aplicacion::agregar_telefono(){

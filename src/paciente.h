@@ -122,6 +122,9 @@ namespace agenda{
     }
 
 
+    inline const std::string& get_favorito(){
+      return _favorito.get_contenido();
+    }
 
   };
 

@@ -21,6 +21,7 @@ class BaseDatos {
   virtual std::list<Contacto*>::iterator cargar() = 0;
   virtual std::list<Contacto*>* get() = 0;
 
+  virtual bool guardar()=0;
   virtual bool guardar_como(const std::string& filename)=0;
   virtual void cargar_desde(const std::string& filename)=0;
   
