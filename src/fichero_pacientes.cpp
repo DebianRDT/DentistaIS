@@ -225,6 +225,13 @@ namespace agenda{
       fichero<<"***"<<std::endl;
       fichero<<p->get_apellido1().get_titulo()<<":"<<p->get_apellido1().get_contenido()<<std::endl;
       fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
+
+      fichero<<"FRECUENCIA:"<<p->get_frecuencia()<<std::endl;
+      fichero<<"FAVORITO:"<<p->get_favorito()<<std::endl;
+      fichero<<"NOMBRE:"<<p->get_nombre()<<std::endl;
+      fichero<<"FECHA NACIMIENTO:"<<p->get_fecha_nacimiento()<<std::endl;
+      fichero<<"SEXO:"<<p->get_sexo()<<std::endl;
+
       fichero<<"---"<<std::endl;
     }
 
