@@ -232,10 +232,25 @@ void Aplicacion::agregar_direccion(){
 
 
 void Aplicacion::eliminar_atributo_multiple(){
-  //POR HACER
+  int i;
+  int o;
+  do{
+    i=1;
+    while(!_la_agenda->contactos()->activo()->es_ultimo()){
+    cout<<"("<<i<<")"<<*_la_agenda->contactos()->activo()->get_atributo_multiple()<<std::endl;
+    i++;
+  }
+  cout<<"Introduzca atributo a eliminar"<<endl;
+  cin>>o;
+
+  if (o<1 || o>i)
+    cout<<"Opcion incorrecta"<<endl;
+  }while((o<0 || o>i));
+
+
+ //POR HACER
+ //eliminar atributo segun opcion introducida
 }
-
-
 /** Pide datos del nuevo paciente a ingresar
  *  y pide a la agenda que lo inserte si la insercion
  *  tiene exito el paciente activo sera el recien
