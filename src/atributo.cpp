@@ -67,6 +67,5 @@ bool Atributo::operator==(const Atributo& a){
 
 
 bool Atributo::operator<(const Atributo& a){
-  // POR HACER
   return _contenido < a._contenido;
 }

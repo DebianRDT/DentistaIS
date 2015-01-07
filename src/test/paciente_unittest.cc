@@ -1,3 +1,4 @@
+#include "../fechas.h"
 #include "../contacto.h"
 #include "../atributo.h"
 #include "../paciente.h"
@@ -117,16 +118,14 @@ TEST(Paciente, nota){
 
 
 TEST(Paciente, fecha_nacimiento) {
-    Fecha f(1,1,2010);
-
     Paciente p("Apellido1", "Apellido2");
-    p.set_fecha_nacimiento(f);
+    p.set_fecha_nacimiento("1/1/2010");
 
     EXPECT_EQ("1/1/2010", p.get_fecha_nacimiento());
 
-    f.setFecha(20,10,2010);
-    p.set_fecha_nacimiento(f);
-    EXPECT_EQ("20/10/2010", p.get_fecha_nacimiento());
+    //f.setFecha(20,10,2010);
+    //p.set_fecha_nacimiento(f.getFecha());
+    //EXPECT_EQ("20/10/2010", p.get_fecha_nacimiento());
 }
 
 

@@ -1,7 +1,9 @@
 #include "fechas.h"
 #include <iostream>
 #include <sstream>
-#include <string>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -27,26 +29,26 @@ namespace agenda{
         }
     }
 
-    const string& Fecha::getFecha() const{
-        stringstream streamdia, streammes, streamanio;
-        string dia, mes, anio;
+    Fecha::Fecha(string fecha) {
+        char *cadena=strdup(fecha.c_str());
+        char *ptr;
 
+        ptr = strtok( cadena, "/" );
+        day_ = atoi(ptr);
 
-        streamdia << day_;
-        dia=streamdia.str();
+        ptr = strtok( NULL, "/" );
+        month_ = atoi(ptr);
 
+        ptr = strtok( NULL, "/" );
+        year_ = atoi(ptr);
+    }
 
+    const string& Fecha::getFecha(){
 
-        streammes << month_;
-        mes=streammes.str();
+        ostringstream ss;
+        ss<<day_<<"/"<<month_<<"/"<<year_;
+        return ss.str();
 
-
-
-        streamanio << year_;
-
-        anio=streamanio.str();
-
-        return dia + "/" + mes + "/" + anio;
     }
 
     void Fecha::setFecha(const int &day, const int &month, const int &year) {
@@ -55,6 +57,20 @@ namespace agenda{
             month_=month;
             year_=year;
         }
+    }
+
+    void Fecha::setFecha(string fecha) {
+        char *cadena=strdup(fecha.c_str());
+        char *ptr;
+
+        ptr = strtok( cadena, "/" );
+        day_ = atoi(ptr);
+
+        ptr = strtok( NULL, "/" );
+        month_ = atoi(ptr);
+
+        ptr = strtok( NULL, "/" );
+        year_ = atoi(ptr);
     }
 
     bool Fecha::validar() {
