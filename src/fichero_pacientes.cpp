@@ -120,7 +120,7 @@ namespace agenda{
         else if(titulo=="APELLIDO 2"){
           nuevo->set_apellido2(contenido);
         }
-	
+
 	// nombre
         else if(titulo=="NOMBRE"){
           nuevo->set_nombre(contenido);
@@ -135,7 +135,7 @@ namespace agenda{
         else if(titulo=="FECHA NACIMIENTO"){
           nuevo->set_fecha_nacimiento(contenido);
         }
-	
+
 	// ATRIBUTOS MULTIPLES
 
 	// nota
@@ -170,7 +170,7 @@ namespace agenda{
   bool FicheroPacientes::guardar(){
 
     Paciente* p;
-    Atributo* am; 
+    Atributo* am;
     if(_pacientes->empty())
       return true;
 
@@ -193,15 +193,14 @@ namespace agenda{
       fichero<<p->get_sexo().get_titulo()<<":"<<p->get_sexo().get_contenido()<<std::endl;
       fichero<<p->get_nombre().get_titulo()<<":"<<p->get_nombre().get_contenido()<<std::endl;
       fichero<<"FECHA NACIMIENTO:"<<p->get_fecha_nacimiento()<<std::endl;
-      
+
 
       p->reset_cursor();
-      do{
-	am = p->get_atributo_multiple();
-	fichero<<am->get_titulo()<<":"<<am->get_contenido()<<std::endl;
+      while(!p->es_ultimo()){
+        am = p->get_atributo_multiple();
+        fichero<<am->get_titulo()<<":"<<am->get_contenido()<<std::endl;
+      };
 
-      }while(!es_primero());
-      
 
       fichero<<"---"<<std::endl;
     }
@@ -242,11 +241,11 @@ namespace agenda{
       fichero<<"SEXO:"<<p->get_sexo()<<std::endl;
 
       p->reset_cursor();
-      do{
-	am = p->get_atributo_multiple();
-	fichero<<am->get_titulo()<<":"<<am->get_contenido()<<std::endl;
+      while(!p->es_ultimo()){
+        am = p->get_atributo_multiple();
+        fichero<<am->get_titulo()<<":"<<am->get_contenido()<<std::endl;
+      };
 
-      }while(!es_primero());
       fichero<<"---"<<std::endl;
     }
 
