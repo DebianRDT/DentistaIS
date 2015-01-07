@@ -43,6 +43,12 @@ class Aplicacion{
   void todos();
   void favoritos();
 
+  void modificar_nombre();
+  void modificar_apellido1();
+  void modificar_apellido2();
+  void modificar_fecha_nacimiento();
+  void modificar_sexo();
+
 };
 
 #endif

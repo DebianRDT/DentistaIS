@@ -164,7 +164,24 @@ void Aplicacion::modificar(){
   cout<<"Elija que modificar:"<<endl;
   cin>>o;
 
-
+   switch (o)
+  {
+     case 1:
+      modificar_nombre();
+      break;
+     case 2:
+      modificar_apellido1();
+      break;
+     case 3:
+      modificar_apellido2();
+      break;
+     case 4:
+      modificar_fecha_nacimiento();
+      break;
+     case 5:
+      modificar_sexo();
+      break;
+   }
 }
 
 
@@ -350,4 +367,57 @@ void Aplicacion::favoritos(){
       _la_agenda->contactos()->siguiente();
     }while(!_la_agenda->contactos()->es_primero());
   }
+}
+
+
+void Aplicacion::modificar_nombre()
+{
+  string nombre;
+  cout<<"Introduzca nombre nuevo"<<endl;
+  cin>>nombre;
+
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  p->set_nombre(nombre);
+}
+
+void Aplicacion::modificar_apellido1()
+{
+  string apellido1;
+  cout<<"Introduzca nuevo apellido1"<<endl;
+  cin>>apellido1;
+
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  p->set_apellido1(apellido1);
+}
+void Aplicacion::modificar_apellido2()
+{
+  string apellido2;
+  cout<<"Introduzca nuevo apellido2"<<endl;
+  cin>>apellido2;
+
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  p->set_apellido2(apellido2);
+
+}
+void Aplicacion::modificar_fecha_nacimiento()
+{
+  string fechaNacimiento;
+  cout<<"Introduzca fecha de nacimiento"<<endl;
+  cin>>fechaNacimiento;
+
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  p->set_fecha_nacimiento(fechaNacimiento);
+
+
+}
+void Aplicacion::modificar_sexo()
+{
+  string sexo;
+  cout<<"Introduzca nuevo sexo del paciente"<<endl;
+  cin>>sexo;
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  p->set_sexo(sexo);
+
+
+
 }
