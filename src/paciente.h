@@ -43,6 +43,11 @@ namespace agenda{
     bool operator <(Contacto* c);
 
 
+
+    //aumenta frecuencia
+    const Paciente& operator ++();
+
+
     /* metodos para gestionar atributos multiples */
 
     void add_telefono(const std::string& telefono);

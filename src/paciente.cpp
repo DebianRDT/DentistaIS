@@ -1,5 +1,6 @@
 #include "paciente.h"
 #include <iostream>
+#include <sstream>
 
 #include "fechas.h"
 
@@ -157,6 +158,14 @@ namespace agenda{
 
 
     return false;
+  }
+
+
+  const Paciente& Paciente::operator++(){
+      std::ostringstream ss;
+      ss<<(get_frecuencia()+1);
+      _frecuencia.set_contenido(ss.str());
+
   }
 
 
