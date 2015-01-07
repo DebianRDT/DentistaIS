@@ -60,7 +60,7 @@ namespace agenda{
    *   fichero por defecto
    *   POR HACER: que devuelva iterador al nuevo primer elemento de la lista
    */
-  std::list<Contacto*>::iterator FicheroPacientes::cargar(){
+   std::list<Contacto*>::iterator FicheroPacientes::cargar(){
     Paciente* nuevo;
     std::string linea;
     char separador = ':';
@@ -139,35 +139,37 @@ namespace agenda{
 	// ATRIBUTOS MULTIPLES
 
 	// nota
-	else if(titulo=="NOTA"){
-	  nuevo->add_nota(contenido);
-	}
+        else if(titulo=="NOTA"){
+         nuevo->add_nota(contenido);
+       }
 
 	// telefono
-	else if(titulo=="TELEFONO"){
-	  nuevo->add_telefono(contenido);
-	}
+       else if(titulo=="TELEFONO"){
+         nuevo->add_telefono(contenido);
+       }
 
 	// direccion
-	else if(titulo=="DIRECCION"){
-	  nuevo->add_direccion(contenido);
-	}
+       else if(titulo=="DIRECCION"){
+         nuevo->add_direccion(contenido);
+       }
 
 	// red social
-	else if(titulo=="RED SOCIAL"){
-	  nuevo->add_nota(contenido);
-	}
-      }
+       else if(titulo=="RED SOCIAL"){
+         nuevo->add_nota(contenido);
+       }
+     }
 
     }/*end while*/
 
-    fichero.close();
-    _activo = _pacientes->begin();
-  }
+     fichero.close();
+     _pacientes->sort(); //reordenar, puede que el fichero estubiera desordenado.
+
+     _activo = _pacientes->begin();
+   }
 
   /** Guardar contactos en la lista al final del fichero por defecto
    */
-  bool FicheroPacientes::guardar(){
+   bool FicheroPacientes::guardar(){
 
     Paciente* p;
     Atributo* am;
@@ -256,8 +258,7 @@ namespace agenda{
 
 
   bool FicheroPacientes::eliminar(){
-    //POR HACER
-    //Falta comprobar que se pueda eliminar s
+    //MIRAR QUE NO ESTE VACIA LA LISTA
 
     std::list<Contacto*>::iterator it_borrar = _activo;
     std::list<Contacto*>::iterator sig = _activo++;

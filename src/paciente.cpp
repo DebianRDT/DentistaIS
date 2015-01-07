@@ -1,5 +1,6 @@
 #include "paciente.h"
 #include <iostream>
+#include <sstream>
 
 #include "fechas.h"
 
@@ -10,14 +11,16 @@ namespace agenda{
    *  Es obligatorio definirla para todas las derivadas de Contacto
    */
   void Paciente::_print(std::ostream& o){
-    o<<_nombre<<std::endl;
-    o<<_apellido1<<std::endl<<_apellido2<<std::endl;
+    o<<_apellido1<<" "<<_apellido2<<", "<<_nombre<<" DNI:"<<_dni<<std::endl;
+    o<<_sexo<<". Nacimiento: "<<_fecha_nacimiento<<std::endl;
 
     //imprimo atributos multiples
-    o<<"INFORMACION EXTRA ("<<contar_atributos_multiples()<<")"<<std::endl;
+    o<<"+ INFO ("<<contar_atributos_multiples()<<")"<<std::endl;
     while(!es_ultimo()){
       o<<*get_atributo_multiple()<<std::endl;
     }
+
+    o<<"---"<<std::endl;
 
   }
 
@@ -104,8 +107,8 @@ namespace agenda{
     add_atributo_multiple(n);
 
   }
-  
-  
+
+
   void  Paciente::add_direccion(const std::string& direccion){
     Atributo* d = new Atributo;
     d->set_contenido(direccion);
@@ -115,7 +118,7 @@ namespace agenda{
 
   }
 
-  
+
   void  Paciente::add_red_social(const std::string& red_social){
     Atributo* r = new Atributo;
     r->set_contenido(red_social);
@@ -124,7 +127,7 @@ namespace agenda{
     add_atributo_multiple(r);
 
   }
-  
+
 
 
 
@@ -155,6 +158,14 @@ namespace agenda{
 
 
     return false;
+  }
+
+
+  const Paciente& Paciente::operator++(){
+      std::ostringstream ss;
+      ss<<(get_frecuencia()+1);
+      _frecuencia.set_contenido(ss.str());
+
   }
 
 
