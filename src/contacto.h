@@ -17,9 +17,6 @@ namespace agenda {
 
 
 
-  enum AM{Telefono,Nota,Direccion,RedSocial};
-
-
   class Contacto {
   private:
 
@@ -47,6 +44,10 @@ namespace agenda {
       return _atributos_multiples.size();
     }
     
+    /* Pone el cursor al principio de la lista de atributos multiples */
+    inline void reset_cursor(){
+      _cursor = _atributos_multiples.begin();
+    }
     
     friend std::ostream& operator<<(std::ostream &out, Contacto& c){
       c._print(out);
@@ -62,6 +63,8 @@ namespace agenda {
     virtual bool es_favorito() = 0;
     virtual void set_favorito() = 0;
     virtual void reset_favorito() = 0;
+
+    
     
   };
   

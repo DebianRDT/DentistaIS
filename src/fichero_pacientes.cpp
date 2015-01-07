@@ -170,7 +170,7 @@ namespace agenda{
   bool FicheroPacientes::guardar(){
 
     Paciente* p;
-
+    Atributo* am; 
     if(_pacientes->empty())
       return true;
 
@@ -186,14 +186,22 @@ namespace agenda{
       fichero<<"***"<<std::endl;
       fichero<<p->get_apellido1().get_titulo()<<":"<<p->get_apellido1().get_contenido()<<std::endl;
       fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
-      //fichero<<p->get_apellido2().get_titulo()<<":"<<p->get_apellido2().get_contenido()<<std::endl;
-      //POR HACER resto de atributos
 
       fichero<<"FRECUENCIA:"<<p->get_frecuencia()<<std::endl;
       fichero<<"FAVORITO:"<<p->get_favorito()<<std::endl;
-      fichero<<"NOMBRE:"<<p->get_nombre()<<std::endl;
+
+      fichero<<p->get_sexo().get_titulo()<<":"<<p->get_sexo().get_contenido()<<std::endl;
+      fichero<<p->get_nombre().get_titulo()<<":"<<p->get_nombre().get_contenido()<<std::endl;
       fichero<<"FECHA NACIMIENTO:"<<p->get_fecha_nacimiento()<<std::endl;
-      fichero<<"SEXO:"<<p->get_sexo()<<std::endl;
+      
+
+      p->reset_cursor();
+      do{
+	am = p->get_atributo_multiple();
+	fichero<<am->get_titulo()<<":"<<am->get_contenido()<<std::endl;
+
+      }while(!es_primero());
+      
 
       fichero<<"---"<<std::endl;
     }
@@ -209,6 +217,7 @@ namespace agenda{
   bool FicheroPacientes::guardar_como(const std::string& filename){
 
     Paciente* p;
+    Atributo* am;
 
     if(_pacientes->empty())
       return true;
@@ -232,6 +241,12 @@ namespace agenda{
       fichero<<"FECHA NACIMIENTO:"<<p->get_fecha_nacimiento()<<std::endl;
       fichero<<"SEXO:"<<p->get_sexo()<<std::endl;
 
+      p->reset_cursor();
+      do{
+	am = p->get_atributo_multiple();
+	fichero<<am->get_titulo()<<":"<<am->get_contenido()<<std::endl;
+
+      }while(!es_primero());
       fichero<<"---"<<std::endl;
     }
 
