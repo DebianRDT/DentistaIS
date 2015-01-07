@@ -8,16 +8,16 @@ private:
     int month_;
     int day_;
     int year_;
+    bool validar();
+    bool validar(const int &day, const int &month, const int &year);
 
 public:
 	Fecha();
     Fecha(int day, int month, int year);
-    bool validar();
-    bool validar(const int &day, const int &month, const int &year);
+    Fecha(std::string fecha);
     void setFecha(const int &day, const int &month, const int &year);
-
-    const std::string& getFecha() const;
-
+    void setFecha(std::string fecha);
+    const std::string& getFecha();
     bool operator==(const Fecha& f);
 
 };
