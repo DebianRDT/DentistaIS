@@ -225,9 +225,9 @@ void Aplicacion::eliminar(){
     cin >> confirmacion;
 
     switch(confirmacion) {
-    case s: case S: _la_agenda->contactos()->eliminar();  break;
+    case 's': case 'S': _la_agenda->contactos()->eliminar();  break;
 
-    case n: case N: bucle=false; break;
+    case 'n': case 'N': bucle=false; break;
 
     default: break;
     }
