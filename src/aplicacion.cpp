@@ -217,10 +217,11 @@ void Aplicacion::buscar(){
 void Aplicacion::eliminar(){
     char confirmacion;
     bool bucle=true;
+    Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
     while (bucle){
 
 
-    cout << "¿Realmente desea borrar al paciente " <<*(_la_agenda->contactos()->activo()) << "?" << endl;
+    cout << "¿Realmente desea borrar al paciente " << p->get_nombre() << " " << p->get_apellido1() << " " << p->get_apellido2() << "?" << endl;
     cout << "Si (S) / No (N)";
     cin >> confirmacion;
 
