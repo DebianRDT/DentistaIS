@@ -215,7 +215,26 @@ void Aplicacion::buscar(){
  *  y pone el paciente activo al siguiente
  */
 void Aplicacion::eliminar(){
-  //POR HACER
+    char confirmacion;
+    bool bucle=true;
+    while (bucle){
+
+
+    cout << "¿Realmente desea borrar al paciente " <<*(_la_agenda->contactos()->activo()) << "?" << endl;
+    cout << "Si (S) / No (N)";
+    cin >> confirmacion;
+
+    switch(confirmacion) {
+    case s: case S: _la_agenda->contactos()->eliminar();  break;
+
+    case n: case N: bucle=false; break;
+
+    default: break;
+    }
+
+    }
+
+
 }
 
 
