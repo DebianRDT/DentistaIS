@@ -311,7 +311,16 @@ namespace agenda{
 
 
     _pacientes->push_back(c);
-    _pacientes->sort(Paciente::cmp_apellidos);
+    
+    if(_pacientes->size() == 1){
+      _activo = _pacientes->begin();
+    }
+    
+
+    if(_pacientes->size() > 1)
+      _pacientes->sort(Paciente::cmp_apellidos);
+
+    return true;
 
   }
 
@@ -339,6 +348,8 @@ namespace agenda{
     }
 
 
+
+
   }
 
   void FicheroPacientes::anterior(){
@@ -361,6 +372,7 @@ namespace agenda{
       _activo--;
     }
 
+ 
 
   }
 
@@ -388,6 +400,7 @@ namespace agenda{
 	// si lo encuentra, sale del bucle y _activo
 	// apunta primer paciente encontrado
 	_activo = it;
+	(*_activo)++; //aumentamos frecuencia
 	return true;
       }
       ++it;
@@ -402,6 +415,7 @@ namespace agenda{
 	// si lo encuentra, sale del bucle y _activo
 	// apunta primer paciente encontrado
 	_activo = it;
+	(*_activo)++; //aumentamos frecuencia
 	return true;
       }
       ++it;

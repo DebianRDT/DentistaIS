@@ -1,27 +1,30 @@
 #ifndef FECHAS_H
 #define FECHAS_H
+
 #include <iostream>
 namespace agenda{
 
 class Fecha {
 private:
-    int month_;
-    int day_;
-    int year_;
-    bool validar();
-    bool validar(const int &day, const int &month, const int &year);
+  int _month;
+  int _day;
+  int _year;
+  
+ public:
+  Fecha();
+  Fecha(int d, int m, int y);
+  virtual ~Fecha();
 
-public:
-	Fecha();
-    Fecha(int day, int month, int year);
-    Fecha(std::string fecha);
-    void setFecha(const int &day, const int &month, const int &year);
-    void setFecha(std::string fecha);
-    const std::string& getFecha();
-    bool operator==(const Fecha& f);
+  Fecha(std::string fecha);
+  void setFecha(int d, int m, int y);
+  std::string getFecha();
 
+  bool operator==(const Fecha& f);
+  
 };
 
+
+ 
 }
 
 

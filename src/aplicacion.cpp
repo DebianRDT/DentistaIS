@@ -353,27 +353,30 @@ void Aplicacion::nuevo(){
   Paciente * p= new Paciente();
   string a1, a2, dni, nombre, sexo;
   char favorito;
-  string frecuencia;
   Fecha f;
   int month, day, year;
 
-	cout<<"Introduzca nombre"<<endl;
-	cin>>nombre;
-	p->set_nombre(nombre);
-	cout<<"Introduzca primer apellido"<<endl;
+  cout<<"Introduzca nombre"<<endl;
+  cin>>nombre;
+  p->set_nombre(nombre);
+  
+  cout<<"Introduzca primer apellido"<<endl;
   cin>>a1;
   p->set_apellido1(a1);
+
   cout<<"Introduzca segundo apellido"<<endl;
   cin>>a2;
   p->set_apellido2(a2);
+
   cout<<"Introduzca DNI"<<endl;
   cin>>dni;
   p->set_dni(dni);
-  cout<<"Introduzca frecuencia"<<endl;
-  cin>>frecuencia;
-  p->set_frecuencia(frecuencia);
+
+  p->set_frecuencia("0"); //frecuencia inicialmente a 0
+
   cout<<"¿Es favorito? y/n\n"<<endl;
   cin>>favorito;
+
   switch (favorito)
   {
     case 'y':
@@ -385,6 +388,7 @@ void Aplicacion::nuevo(){
     default:
       cout<<"Introduzca y/n\n"<<endl;
   }
+  
   cout<<"Introduzca sexo"<<endl;
   cin>>sexo;
   p->set_sexo(sexo);
@@ -398,16 +402,13 @@ void Aplicacion::nuevo(){
   cout<<"Introduzca año"<<endl;
   cin>>year;
   f.setFecha(day, month, year);
-  
+  p->set_fecha_nacimiento(f.getFecha());
 
   _la_agenda->contactos()->nuevo(p);
   _la_agenda->contactos()->guardar();
 
 
-  /* POR HACER
-     FALTAN ATRIBUTOS MULTIPLES*/
 
-  //_la_agenda->nuevo(p);
 }
 
 void Aplicacion::siguiente(){
