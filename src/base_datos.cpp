@@ -13,12 +13,11 @@
 namespace agenda {
 
 BaseDatos::BaseDatos() {
-
-
+  
 }
 
 BaseDatos::~BaseDatos() {
-	// TODO Auto-generated destructor stub
+
 }
 
 

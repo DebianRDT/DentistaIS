@@ -21,6 +21,22 @@ namespace agenda{
 
   }
 
+  FicheroPacientes::~FicheroPacientes(){
+    std::list<Contacto*>::iterator act;
+    
+    act = _pacientes->begin();
+   
+    
+    while(!_pacientes->empty()){
+      delete *act;
+      _pacientes->pop_front();
+      act = _pacientes->begin();
+    }
+    
+    
+  }
+
+
   FicheroPacientes::FicheroPacientes(std::list<Contacto*>* pacientes){
 
     _filename = "default.txt";
@@ -32,7 +48,7 @@ namespace agenda{
   }
 
 
-  FicheroPacientes::~FicheroPacientes(){}
+
 
   std::list<Contacto*>* FicheroPacientes::get(){
     return _pacientes;

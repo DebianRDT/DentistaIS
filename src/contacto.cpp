@@ -15,7 +15,14 @@ namespace agenda {
    *  Limpia la memoria de la lista de atributos multiples _atributos_multiples
    */
   Contacto::~Contacto() {
-    // POR HACER
+    std::list<Atributo*>::iterator act = _atributos_multiples.begin();
+
+
+    while(!_atributos_multiples.empty()){
+      delete *act;
+      _atributos_multiples.pop_front();
+      act = _atributos_multiples.begin();
+    }
 
   }
 
