@@ -4,6 +4,8 @@
 #include "paciente.h"
 #include "contacto.h"
 #include "fechas.h"
+#include <iostream>
+#include <string>
 
 
 using namespace std;
@@ -82,6 +84,8 @@ void Aplicacion::gestionar_paciente(){
     cout<<"Escriba una opcion"<<endl;
     cin>>o;
 
+
+
     switch(o){
     case 1: siguiente();break;
     case 2: buscar();break;
@@ -98,6 +102,7 @@ void Aplicacion::gestionar_paciente(){
     case 10: eliminar_atributo_multiple(); break;
     case 11: nuevo(); break;
     case 0: return;
+    default: break;
     }
 
   }while(o>0 || o<=11);
@@ -226,7 +231,7 @@ void Aplicacion::eliminar(){
     cin >> confirmacion;
 
     switch(confirmacion) {
-    case 's': case 'S': _la_agenda->contactos()->eliminar();  break;
+    case 's': case 'S': if(_la_agenda->contactos()->eliminar()){cout << "ELIMINADO";} else {cout << "NO SE HA PODIDO ELIMINAR";}  break;
 
     case 'n': case 'N': bucle=false; break;
 
@@ -247,24 +252,41 @@ void Aplicacion::marcar_favorito(){
 
 void Aplicacion::agregar_nota(){
   string nota;
-  cout<<"Escriba nueva nota"<<endl;
-  cin>>nota;
-
+  string aux;
+  cout << "Escriba nueva nota" << endl;
+  getline(cin, nota); //NECESARIO LIMPIAR EL BUFFER
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->add_nota(nota);
   _la_agenda->contactos()->guardar();
 }
 
 void Aplicacion::agregar_telefono(){
-  //POR HACER
+  string telefono;
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  cout << "Escriba el numero de telefono" << endl;
+  getline(cin, telefono);//NECESARIO LIMPIAR EL BUFFER
+
+  p->add_telefono(telefono);
+  _la_agenda->contactos()->guardar();
+
 }
 
 void Aplicacion::agregar_red_social(){
-  //POR HACER
+  string red_social;
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  cout << "Escriba la red social del paciente" << endl;
+  getline(cin, red_social);//NECESARIO LIMPIAR EL BUFFER
+  p->add_red_social(red_social);
+  _la_agenda->contactos()->guardar();
 }
 
 void Aplicacion::agregar_direccion(){
-  //POR HACER
+  string direccion;
+  Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
+  cout << "Escriba la direccion del paciente" << endl;
+  getline(cin, direccion);//NECESARIO LIMPIAR EL BUFFER
+  p->add_direccion(direccion);
+  _la_agenda->contactos()->guardar();
 }
 
 
