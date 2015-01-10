@@ -41,6 +41,7 @@ class Aplicacion{
   void siguiente();
 
   void todos();
+  void todos_frecuencia();
   void favoritos();
 
   void modificar_nombre();

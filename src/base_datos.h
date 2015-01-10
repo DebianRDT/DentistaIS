@@ -35,6 +35,9 @@ class BaseDatos {
   virtual bool buscar(const std::string& a1, const std::string& a2)=0;
   virtual bool es_primero()=0;
 
+  virtual void reordenar_frecuencia()=0;
+  virtual void reordenar_apellidos()=0;
+
 };
 
 } /* namespace agenda */

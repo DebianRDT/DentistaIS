@@ -125,7 +125,7 @@ void Aplicacion::visualizar_pacientes(){
     switch(o){
     case 1: todos();break;
     case 0: return;
-    case 2:break; // POR HACER -> VER FRECUENTES
+    case 2: todos_frecuencia(); break;
     case 3: favoritos(); break;
     }
 
@@ -412,6 +412,24 @@ void Aplicacion::todos(){
 }
 
 
+void Aplicacion::todos_frecuencia(){
+  if(!_la_agenda->contactos()->vacia()){
+
+    _la_agenda->contactos()->reordenar_frecuencia();
+
+    do{
+      cout<<*(_la_agenda->contactos()->activo())<<endl;
+      _la_agenda->contactos()->siguiente();
+    }while(!_la_agenda->contactos()->es_primero());
+    
+    _la_agenda->contactos()->reordenar_apellidos();
+  }
+  else{
+    cout<<"NADA EN LA AGENDA"<<endl;
+  }
+}
+
+
 /** Mostrar lista de pacientes favoritos
  */
 
@@ -478,3 +496,5 @@ void Aplicacion::modificar_sexo()
 
 
 }
+
+

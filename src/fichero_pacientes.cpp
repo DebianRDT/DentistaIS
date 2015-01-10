@@ -372,4 +372,12 @@ namespace agenda{
 
   }
 
+  void FicheroPacientes::reordenar_frecuencia(){
+    _pacientes->sort(Paciente::cmp_frecuencia);
+  }
+
+  void FicheroPacientes::reordenar_apellidos(){
+    _pacientes->sort(Paciente::cmp_apellidos);
+  }
+
 }
