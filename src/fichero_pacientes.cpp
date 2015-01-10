@@ -173,6 +173,11 @@ namespace agenda{
        else if(titulo=="RED SOCIAL"){
          nuevo->add_nota(contenido);
        }
+	
+       else if(titulo=="DNI"){
+	 nuevo->set_dni(contenido);
+       }
+
      }
 
     }/*end while*/
@@ -208,6 +213,7 @@ namespace agenda{
       fichero<<"FRECUENCIA:"<<p->get_frecuencia()<<std::endl;
       fichero<<"FAVORITO:"<<p->get_favorito()<<std::endl;
 
+      fichero<<p->get_dni().get_titulo()<<":"<<p->get_dni().get_contenido()<<std::endl;
       fichero<<p->get_sexo().get_titulo()<<":"<<p->get_sexo().get_contenido()<<std::endl;
       fichero<<p->get_nombre().get_titulo()<<":"<<p->get_nombre().get_contenido()<<std::endl;
       fichero<<"FECHA NACIMIENTO:"<<p->get_fecha_nacimiento()<<std::endl;
@@ -347,7 +353,7 @@ namespace agenda{
       _activo = _pacientes->begin();
     }
 
-    (*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+
     guardar();
 
 
@@ -373,7 +379,7 @@ namespace agenda{
       _activo--;
     }
 
-    (*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+
     guardar();
 
   }
@@ -402,7 +408,7 @@ namespace agenda{
 	// si lo encuentra, sale del bucle y _activo
 	// apunta primer paciente encontrado
 	_activo = it;
-	(*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+
 	guardar();
 	return true;
       }
@@ -418,7 +424,7 @@ namespace agenda{
 	// si lo encuentra, sale del bucle y _activo
 	// apunta primer paciente encontrado
 	_activo = it;
-	(*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+
 	guardar();
 	return true;
       }
@@ -435,6 +441,10 @@ namespace agenda{
 
   void FicheroPacientes::reordenar_apellidos(){
     _pacientes->sort(Paciente::cmp_apellidos);
+  }
+
+  void FicheroPacientes::ir_a_primero(){
+    _activo = _pacientes->begin();
   }
 
 }

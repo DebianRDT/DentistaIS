@@ -83,6 +83,10 @@ namespace agenda{
       _frecuencia.set_contenido(frecuencia);
     }
 
+    void aumentar_frecuencia(){
+      set_frecuencia(get_frecuencia()+1);
+    }
+
     void set_frecuencia(int f){
       std::ostringstream ss;
       ss<<f;
@@ -156,7 +160,13 @@ namespace agenda{
     }
 
     static bool cmp_frecuencia(Contacto* p1, Contacto* p2){
-      return p1->get_frecuencia()<p2->get_frecuencia();
+      if(p1->get_frecuencia() < p2->get_frecuencia())
+	return false;
+      else if(p1->get_frecuencia() == p2->get_frecuencia()){
+	return false;
+      }
+      else
+	return true;
     }
 
   };

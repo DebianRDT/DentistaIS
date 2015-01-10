@@ -123,8 +123,9 @@ void Aplicacion::visualizar_pacientes(){
     cin>>o;
     
     switch(o){
-    case 1: todos();break;
+
     case 0: return;
+    case 1: todos();break;
     case 2: todos_frecuencia(); break;
     case 3: favoritos(); break;
     }
@@ -204,6 +205,7 @@ void Aplicacion::buscar(){
 
   if(_la_agenda->contactos()->buscar(apellido1,apellido2)){
     cout<<"ENCONTRADO!"<<endl;
+     _la_agenda->contactos()->activo()->aumentar_frecuencia();
   }
   else{
     cout<<"NO ENCONTRADO"<<endl;
@@ -413,7 +415,7 @@ void Aplicacion::nuevo(){
 
 void Aplicacion::siguiente(){
   _la_agenda->contactos()->siguiente();
-  
+  _la_agenda->contactos()->activo()->aumentar_frecuencia();
 }
 
 
@@ -435,7 +437,10 @@ void Aplicacion::cargar_desde(){
  *  por apellidos
  */
 void Aplicacion::todos(){
+
+
   if(!_la_agenda->contactos()->vacia()){
+    _la_agenda->contactos()->ir_a_primero();
     do{
       cout<<*(_la_agenda->contactos()->activo())<<endl;
       _la_agenda->contactos()->siguiente();
@@ -450,10 +455,12 @@ void Aplicacion::todos(){
 
 
 void Aplicacion::todos_frecuencia(){
+  
+
   if(!_la_agenda->contactos()->vacia()){
-
+    
     _la_agenda->contactos()->reordenar_frecuencia();
-
+    _la_agenda->contactos()->ir_a_primero();
     do{
       cout<<*(_la_agenda->contactos()->activo())<<endl;
       _la_agenda->contactos()->siguiente();

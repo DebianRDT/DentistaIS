@@ -41,6 +41,7 @@ namespace agenda{
     Contacto* activo();
     void siguiente();
     void anterior();
+    void ir_a_primero();
     bool buscar(const std::string& a1, const std::string& a2);
     bool es_primero();
 

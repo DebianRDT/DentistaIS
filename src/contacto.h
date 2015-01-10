@@ -70,6 +70,7 @@ namespace agenda {
 
     virtual int get_frecuencia() = 0;
     virtual void set_frecuencia(int f) = 0;
+    virtual void aumentar_frecuencia() = 0;
 
     virtual const Atributo& get_apellido1() = 0;
     virtual const Atributo& get_apellido2() = 0;

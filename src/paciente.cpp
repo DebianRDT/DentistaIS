@@ -17,6 +17,8 @@ namespace agenda{
     o<<_apellido1<<" "<<_apellido2<<", "<<_nombre<<" DNI:"<<_dni<<std::endl;
     o<<_sexo<<". Nacimiento: "<<_fecha_nacimiento<<std::endl;
 
+    o<<"Veces consultado: "<<_frecuencia<<" veces."<<std::endl;
+
     //imprimo atributos multiples
     o<<"+ INFO ("<<contar_atributos_multiples()<<")"<<std::endl;
     while(!es_ultimo()){
@@ -170,6 +172,8 @@ namespace agenda{
       _frecuencia.set_contenido(ss.str());
 
   }
+
+
 
 
 }
