@@ -227,7 +227,7 @@ void Aplicacion::eliminar(){
     cout<<"¿Realmente desea borrar al paciente ";
     cout<<p->get_nombre()<<" "<< p->get_apellido1()<<" "<<p->get_apellido2()<<"?"<<endl;
     
-    cout<<"S/N";
+    cout<<"S/N"<<endl;
     cin>>confirmacion;
     
 

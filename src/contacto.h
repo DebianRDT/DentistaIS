@@ -22,6 +22,7 @@ namespace agenda {
 
     //interfaz imprimir las clases derivadas
     virtual void _print(std::ostream& o) = 0;
+    void _mover_cursor(int p);
 
 
   protected:
@@ -38,6 +39,7 @@ namespace agenda {
     void add_atributo_multiple(Atributo *am);
     void mod_atributo_multiple(Atributo *am);
     void del_atributo_multiple();
+    void del_atributo_multiple(int p);
     Atributo* get_atributo_multiple();
     bool es_ultimo();
 

@@ -33,17 +33,34 @@ namespace agenda {
    */
   void Contacto::del_atributo_multiple(){
 
+    std::list<Atributo*>::iterator it_borrar = _cursor;
+
     if(_atributos_multiples.size()==1){
+      delete *_cursor;
       _atributos_multiples.pop_back();
       _cursor = _atributos_multiples.begin();
-      return;
+      
     }
 
-    if(!_atributos_multiples.empty()){
-      _atributos_multiples.erase(_cursor);
+    else if(!_atributos_multiples.empty()){
+      delete * _cursor;
+      _atributos_multiples.erase(it_borrar);
       _cursor = _atributos_multiples.begin();
     }
 
+  }
+
+  void Contacto::del_atributo_multiple(int p){
+    _mover_cursor(p);
+    del_atributo_multiple();
+  }
+
+  void Contacto::_mover_cursor(int p){
+    //POR HACER validez de p
+    _cursor = _atributos_multiples.begin();
+    for(int i=0;i<p;i++){
+      _cursor++;
+    }
   }
 
   /** Cambia un atributo multiple situado en la posicion apuntada por _cursor
@@ -59,8 +76,7 @@ namespace agenda {
   
 
   /** Devuelve puntero a atributo apuntado por _cursor
-   *  y modifica el cursor al siguiente. Si es el ultimo elemento,
-   *  el cursor pasara a apuntar al primer elemento de la lista
+   *  y modifica el cursor al siguiente. 
    */
   Atributo* Contacto::get_atributo_multiple(){
     if(_atributos_multiples.empty())
@@ -70,6 +86,7 @@ namespace agenda {
     std::list<Atributo*>::iterator prev = _cursor;
     
     ++_cursor;
+
 
     return *prev;
   }

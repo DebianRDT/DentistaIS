@@ -263,6 +263,7 @@ namespace agenda{
   bool FicheroPacientes::eliminar(){
 
     if(_pacientes->size() == 1){
+      delete *_activo;
       _pacientes->pop_back();
       _activo = _pacientes->begin();
       return true;
@@ -273,7 +274,7 @@ namespace agenda{
     }
 
     std::list<Contacto*>::iterator it_borrar = _activo;
-
+    delete *_activo;
     _pacientes->erase(it_borrar);
     _activo = _pacientes->begin();
 
@@ -284,16 +285,10 @@ namespace agenda{
   bool FicheroPacientes::eliminar_am(int posicion){
     int i=0;
 
+    //PORHACER posicion debe ser valido
     
-    while(!(*_activo)->es_ultimo()){
-      (*_activo)->get_atributo_multiple();
-      if(i==posicion){
-	(*_activo)->del_atributo_multiple();
-	return true;
-      }
-      i++;
-    }
-    return false;
+    (*_activo)->del_atributo_multiple(posicion);
+    return true;
   }
 
   bool FicheroPacientes::nuevo(Contacto* c){

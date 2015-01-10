@@ -6,7 +6,6 @@ FAVORITO:false
 SEXO:HOMBRE
 NOMBRE:JOSE
 FECHA NACIMIENTO:
-DIRECCION:Calle los olivares n 2
-RED SOCIAL:twitter @jose
 NOTA:una nota
+NOTA:twitter @jose
 ---
