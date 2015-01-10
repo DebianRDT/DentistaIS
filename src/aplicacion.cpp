@@ -407,6 +407,7 @@ void Aplicacion::nuevo(){
   p->set_fecha_nacimiento(f.getFecha());
 
   _la_agenda->contactos()->nuevo(p);
+  _la_agenda->contactos()->reordenar_apellidos();
   _la_agenda->contactos()->guardar();
 
 

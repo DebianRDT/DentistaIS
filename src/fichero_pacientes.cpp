@@ -437,6 +437,7 @@ namespace agenda{
 
   void FicheroPacientes::reordenar_frecuencia(){
     _pacientes->sort(Paciente::cmp_frecuencia);
+    _pacientes->reverse();
   }
 
   void FicheroPacientes::reordenar_apellidos(){

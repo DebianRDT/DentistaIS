@@ -160,13 +160,8 @@ namespace agenda{
     }
 
     static bool cmp_frecuencia(Contacto* p1, Contacto* p2){
-      if(p1->get_frecuencia() < p2->get_frecuencia())
-	return false;
-      else if(p1->get_frecuencia() == p2->get_frecuencia()){
-	return false;
-      }
-      else
-	return true;
+      return p1->get_frecuencia() < p2->get_frecuencia();
+
     }
 
   };
