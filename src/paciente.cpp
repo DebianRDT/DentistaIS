@@ -11,6 +11,9 @@ namespace agenda{
    *  Es obligatorio definirla para todas las derivadas de Contacto
    */
   void Paciente::_print(std::ostream& o){
+    if(es_favorito()){
+      o<<"[FAVORITO]"<<std::endl;
+    }
     o<<_apellido1<<" "<<_apellido2<<", "<<_nombre<<" DNI:"<<_dni<<std::endl;
     o<<_sexo<<". Nacimiento: "<<_fecha_nacimiento<<std::endl;
 

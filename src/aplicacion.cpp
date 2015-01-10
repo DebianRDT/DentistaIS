@@ -254,7 +254,10 @@ void Aplicacion::agregar_nota(){
   string nota;
   string aux;
   cout << "Escriba nueva nota" << endl;
-  getline(cin, nota); //NECESARIO LIMPIAR EL BUFFER
+  
+  cin.ignore();
+  getline(cin, nota);
+
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->add_nota(nota);
   _la_agenda->contactos()->guardar();
@@ -275,7 +278,10 @@ void Aplicacion::agregar_red_social(){
   string red_social;
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   cout << "Escriba la red social del paciente" << endl;
-  getline(cin, red_social);//NECESARIO LIMPIAR EL BUFFER
+
+  cin.ignore();
+  getline(cin, red_social);
+
   p->add_red_social(red_social);
   _la_agenda->contactos()->guardar();
 }
@@ -284,7 +290,11 @@ void Aplicacion::agregar_direccion(){
   string direccion;
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   cout << "Escriba la direccion del paciente" << endl;
-  getline(cin, direccion);//NECESARIO LIMPIAR EL BUFFER
+
+
+  cin.ignore();
+  getline(cin, direccion);
+
   p->add_direccion(direccion);
   _la_agenda->contactos()->guardar();
 }
@@ -367,6 +377,8 @@ void Aplicacion::nuevo(){
   
 
   _la_agenda->contactos()->nuevo(p);
+  _la_agenda->contactos()->guardar();
+
 
   /* POR HACER
      FALTAN ATRIBUTOS MULTIPLES*/
@@ -453,6 +465,7 @@ void Aplicacion::modificar_nombre()
 
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->set_nombre(nombre);
+  _la_agenda->contactos()->guardar();
 }
 
 void Aplicacion::modificar_apellido1()
@@ -463,6 +476,7 @@ void Aplicacion::modificar_apellido1()
 
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->set_apellido1(apellido1);
+  _la_agenda->contactos()->guardar();
 }
 void Aplicacion::modificar_apellido2()
 {
@@ -472,6 +486,7 @@ void Aplicacion::modificar_apellido2()
 
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->set_apellido2(apellido2);
+  _la_agenda->contactos()->guardar();
 
 }
 void Aplicacion::modificar_fecha_nacimiento()
@@ -482,6 +497,7 @@ void Aplicacion::modificar_fecha_nacimiento()
 
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->set_fecha_nacimiento(fechaNacimiento);
+  _la_agenda->contactos()->guardar();
 
 
 }
@@ -492,6 +508,7 @@ void Aplicacion::modificar_sexo()
   cin>>sexo;
   Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
   p->set_sexo(sexo);
+  _la_agenda->contactos()->guardar();
 
 
 
