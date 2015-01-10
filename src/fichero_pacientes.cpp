@@ -121,10 +121,10 @@ namespace agenda{
 
         // favorito
         else if(titulo=="FAVORITO"){
-          if(atoi(contenido.c_str())==0)
-            nuevo->reset_favorito();
-          else
+          if(contenido=="true")
             nuevo->set_favorito();
+          else
+            nuevo->reset_favorito();
         }
 
         // apellido1
@@ -189,8 +189,8 @@ namespace agenda{
 
     Paciente* p;
     Atributo* am;
-    if(_pacientes->empty())
-      return true;
+    //if(_pacientes->empty())
+    //return true;
 
     std::ofstream fichero;
     fichero.open(_filename.c_str());

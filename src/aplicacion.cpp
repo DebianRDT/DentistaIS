@@ -70,7 +70,7 @@ void Aplicacion::gestionar_paciente(){
     cout<<"(2)\tBuscar"<<endl;
     cout<<"(3)\tModificar"<<endl;
     cout<<"(4)\tEliminar"<<endl;
-    cout<<"(5)\tMarcar favorito"<<endl;
+    cout<<"(5)\tMarcar/desmarcar favorito"<<endl;
 
     cout<<"(6)\tAgregar nota"<<endl;
     cout<<"(7)\tAgregar red social"<<endl;
@@ -151,7 +151,7 @@ void Aplicacion::gestionar_backups(){
   case 2: cargar_desde();break;
   }
 
-  menu_contextual();
+
 }
 
 void Aplicacion::modificar(){
@@ -248,10 +248,19 @@ void Aplicacion::eliminar(){
     
 }
 
-
+/**
+ * Marcar/desmarcar como favorito el paciente activo
+ */
 void Aplicacion::marcar_favorito(){
-  _la_agenda->contactos()->activo()->set_favorito();
+  if(_la_agenda->contactos()->activo()->es_favorito()){
+    _la_agenda->contactos()->activo()->reset_favorito();
+  }
+  else{
+    _la_agenda->contactos()->activo()->set_favorito();
+  }
+  
   _la_agenda->contactos()->guardar();
+
 }
 
 
