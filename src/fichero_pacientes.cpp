@@ -50,7 +50,7 @@ namespace agenda{
     _filename = aux;
 
     //ordenar lista y guardar en fichero por defecto
-    _pacientes->sort();
+    _pacientes->sort(Paciente::cmp_apellidos);
     _activo = _pacientes->begin();
     guardar();
   }
@@ -162,7 +162,7 @@ namespace agenda{
     }/*end while*/
 
      fichero.close();
-     _pacientes->sort(); //reordenar, puede que el fichero estubiera desordenado.
+     _pacientes->sort(Paciente::cmp_apellidos); //reordenar, puede que el fichero estubiera desordenado.
 
      _activo = _pacientes->begin();
    }
@@ -272,7 +272,7 @@ namespace agenda{
 
 
     _pacientes->push_back(c);
-    _pacientes->sort();
+    _pacientes->sort(Paciente::cmp_apellidos);
 
   }
 

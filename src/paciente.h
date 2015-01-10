@@ -25,6 +25,7 @@ namespace agenda{
     void _print(std::ostream& o);
 
 
+
   public:
 
 
@@ -129,6 +130,27 @@ namespace agenda{
 
     inline const std::string& get_favorito(){
       return _favorito.get_contenido();
+    }
+
+    static bool cmp_apellidos(Contacto* p1, Contacto* p2){
+      if(p1->get_apellido1().get_contenido() < p2->get_apellido1().get_contenido()){
+	return true;
+      }
+      else if(p1->get_apellido1().get_contenido() == p2->get_apellido1().get_contenido()){
+	if(p1->get_apellido2().get_contenido() < p2->get_apellido2().get_contenido()){
+	  return true;
+	}
+	else{
+	  return false;
+	}
+      }
+      else{
+	return false;
+      }
+    }
+
+    static bool cmp_frecuencia(Contacto* p1, Contacto* p2){
+      return p1->get_frecuencia()<p2->get_frecuencia();
     }
 
   };

@@ -23,6 +23,7 @@ namespace agenda {
     //interfaz imprimir las clases derivadas
     virtual void _print(std::ostream& o) = 0;
 
+
   protected:
     Contacto();
     std::list< Atributo* > _atributos_multiples;
@@ -63,7 +64,9 @@ namespace agenda {
     virtual bool es_favorito() = 0;
     virtual void set_favorito() = 0;
     virtual void reset_favorito() = 0;
-
+    virtual int get_frecuencia() = 0;
+    virtual const Atributo& get_apellido1() = 0;
+    virtual const Atributo& get_apellido2() = 0;
     
     
   };
