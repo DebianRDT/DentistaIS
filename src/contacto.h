@@ -40,6 +40,7 @@ namespace agenda {
     void del_atributo_multiple();
     Atributo* get_atributo_multiple();
     bool es_ultimo();
+
     
     inline int contar_atributos_multiples() const{
       return _atributos_multiples.size();

@@ -20,6 +20,7 @@ namespace agenda {
   }
 
   void Contacto::add_atributo_multiple(Atributo* am){
+    
     _atributos_multiples.push_front(am);
     _cursor = _atributos_multiples.begin();
     
@@ -32,9 +33,15 @@ namespace agenda {
    */
   void Contacto::del_atributo_multiple(){
 
+    if(_atributos_multiples.size()==1){
+      _atributos_multiples.pop_back();
+      _cursor = _atributos_multiples.begin();
+      return;
+    }
+
     if(!_atributos_multiples.empty()){
       _atributos_multiples.erase(_cursor);
-      --_cursor;
+      _cursor = _atributos_multiples.begin();
     }
 
   }

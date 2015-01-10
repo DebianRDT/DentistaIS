@@ -28,6 +28,7 @@ class BaseDatos {
 
   virtual bool vacia()=0;
   virtual bool eliminar()=0;
+  virtual bool eliminar_am(int p)=0;
   virtual bool nuevo(Contacto* c)=0;
   virtual Contacto* activo()=0;
   virtual void siguiente()=0;

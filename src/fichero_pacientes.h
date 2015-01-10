@@ -36,6 +36,7 @@ namespace agenda{
 
     bool vacia();
     bool eliminar();
+    bool eliminar_am(int posicion);
     bool nuevo(Contacto* c);
     Contacto* activo();
     void siguiente();

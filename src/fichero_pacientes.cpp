@@ -256,16 +256,44 @@ namespace agenda{
     return true;
   }
 
-
+  /**
+   * Elimina el paciente activo y pone el cursor al principio
+   * de la lista.
+   */
   bool FicheroPacientes::eliminar(){
-    //MIRAR QUE NO ESTE VACIA LA LISTA
+
+    if(_pacientes->size() == 1){
+      _pacientes->pop_back();
+      _activo = _pacientes->begin();
+      return true;
+    }
+
+    if(_pacientes->empty()){
+      return false;
+    }
 
     std::list<Contacto*>::iterator it_borrar = _activo;
-    std::list<Contacto*>::iterator sig = _activo++;
 
     _pacientes->erase(it_borrar);
+    _activo = _pacientes->begin();
 
     return true;
+  }
+
+  /*Elimina atributo multiple en la posicion indicada*/
+  bool FicheroPacientes::eliminar_am(int posicion){
+    int i=0;
+
+    
+    while(!(*_activo)->es_ultimo()){
+      (*_activo)->get_atributo_multiple();
+      if(i==posicion){
+	(*_activo)->del_atributo_multiple();
+	return true;
+      }
+      i++;
+    }
+    return false;
   }
 
   bool FicheroPacientes::nuevo(Contacto* c){

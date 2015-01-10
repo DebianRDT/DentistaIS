@@ -221,26 +221,31 @@ void Aplicacion::buscar(){
  */
 void Aplicacion::eliminar(){
     char confirmacion;
-    bool bucle=true;
+
     Paciente* p = dynamic_cast<Paciente*>(_la_agenda->contactos()->activo());
-    while (bucle){
 
+    cout<<"¿Realmente desea borrar al paciente ";
+    cout<<p->get_nombre()<<" "<< p->get_apellido1()<<" "<<p->get_apellido2()<<"?"<<endl;
+    
+    cout<<"S/N";
+    cin>>confirmacion;
+    
 
-    cout << "¿Realmente desea borrar al paciente " << p->get_nombre() << " " << p->get_apellido1() << " " << p->get_apellido2() << "?" << endl;
-    cout << "Si (S) / No (N)";
-    cin >> confirmacion;
+    if(confirmacion == 's' || confirmacion == 'S'){
+      if(_la_agenda->contactos()->eliminar()){
+	cout << "ELIMINADO"<<endl;;
+	_la_agenda->contactos()->guardar();
+      }
+      else{
+	cout << "NO SE HA PODIDO ELIMINAR"<<endl;
+      }
 
-    switch(confirmacion) {
-    case 's': case 'S': if(_la_agenda->contactos()->eliminar()){cout << "ELIMINADO";} else {cout << "NO SE HA PODIDO ELIMINAR";}  break;
-
-    case 'n': case 'N': bucle=false; break;
-
-    default: break;
     }
 
-    }
+    
+    
 
-
+    
 }
 
 
@@ -303,22 +308,32 @@ void Aplicacion::agregar_direccion(){
 void Aplicacion::eliminar_atributo_multiple(){
   int i;
   int o;
+
+  if(_la_agenda->contactos()->activo()->contar_atributos_multiples() == 0){
+    cout<<"No hay datos extra."<<endl;
+    return;
+  }
+
+  cout<<"(0)\tAtras"<<endl;
   do{
     i=1;
     while(!_la_agenda->contactos()->activo()->es_ultimo()){
-    cout<<"("<<i<<")"<<*_la_agenda->contactos()->activo()->get_atributo_multiple()<<std::endl;
-    i++;
-  }
-  cout<<"Introduzca atributo a eliminar"<<endl;
-  cin>>o;
-
-  if (o<1 || o>i)
-    cout<<"Opcion incorrecta"<<endl;
+      cout<<"("<<i<<")\t"<<*_la_agenda->contactos()->activo()->get_atributo_multiple()<<endl;
+      i++;
+    }
+    cout<<"Introduzca atributo a eliminar"<<endl;
+    cin>>o;
+    
+    if (o<0 || o>i)
+      cout<<"Opcion incorrecta"<<endl;
   }while((o<0 || o>i));
-
-
- //POR HACER
- //eliminar atributo segun opcion introducida
+  
+  if(o==0){
+    return; //ir atras
+  }
+  
+  _la_agenda->contactos()->eliminar_am(o-1);
+  _la_agenda->contactos()->guardar();
 }
 /** Pide datos del nuevo paciente a ingresar
  *  y pide a la agenda que lo inserte si la insercion
