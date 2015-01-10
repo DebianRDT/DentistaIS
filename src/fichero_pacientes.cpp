@@ -347,7 +347,8 @@ namespace agenda{
       _activo = _pacientes->begin();
     }
 
-
+    (*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+    guardar();
 
 
   }
@@ -372,7 +373,8 @@ namespace agenda{
       _activo--;
     }
 
- 
+    (*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+    guardar();
 
   }
 
@@ -400,7 +402,8 @@ namespace agenda{
 	// si lo encuentra, sale del bucle y _activo
 	// apunta primer paciente encontrado
 	_activo = it;
-	(*_activo)++; //aumentamos frecuencia
+	(*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+	guardar();
 	return true;
       }
       ++it;
@@ -415,7 +418,8 @@ namespace agenda{
 	// si lo encuentra, sale del bucle y _activo
 	// apunta primer paciente encontrado
 	_activo = it;
-	(*_activo)++; //aumentamos frecuencia
+	(*_activo)->set_frecuencia((*_activo)->get_frecuencia()+1);
+	guardar();
 	return true;
       }
       ++it;

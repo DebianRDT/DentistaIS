@@ -83,6 +83,12 @@ namespace agenda{
       _frecuencia.set_contenido(frecuencia);
     }
 
+    void set_frecuencia(int f){
+      std::ostringstream ss;
+      ss<<f;
+      set_frecuencia(ss.str());
+    }
+
 
     /** devuelve un entero que indica la frecuencia de accesos
      *  del paciente

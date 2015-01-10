@@ -67,7 +67,10 @@ namespace agenda {
     virtual bool es_favorito() = 0;
     virtual void set_favorito() = 0;
     virtual void reset_favorito() = 0;
+
     virtual int get_frecuencia() = 0;
+    virtual void set_frecuencia(int f) = 0;
+
     virtual const Atributo& get_apellido1() = 0;
     virtual const Atributo& get_apellido2() = 0;
     
